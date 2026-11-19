@@ -180,6 +180,20 @@ nav.solid .logo,nav.solid .links a{color:var(--ink)}
 .hotel{padding:0;overflow:hidden;position:relative;transition:.4s;border:2px solid transparent}
 .hotel.sel{border-color:var(--amber);transform:translateY(-6px);box-shadow:var(--shadow)}
 .hotel .stop-photo{height:230px}
+.slider{position:relative;height:300px;overflow:hidden;background:linear-gradient(135deg,#2f6b4f,#8fbf7a)}
+.slider .ph{position:absolute;inset:0;display:grid;place-content:center}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity 1s ease,transform 6s ease}
+.slide.on{opacity:1;transform:scale(1.12);z-index:1}
+.sl-btn{position:absolute;top:50%;z-index:3;width:40px;height:40px;margin-top:-20px;border-radius:50%;background:rgba(255,255,255,.85);color:var(--ink);font-size:1.3rem;display:grid;place-items:center;opacity:0;transition:.3s}
+.slider:hover .sl-btn{opacity:1}
+.sl-btn.prev{left:12px}.sl-btn.next{right:12px}
+.sl-dots{position:absolute;bottom:30px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:6px}
+.sl-dots button{width:8px;height:8px;border-radius:8px;background:rgba(255,255,255,.55);transition:.35s}
+.sl-dots button.on{width:24px;background:#fff}
+.sl-count{position:absolute;top:16px;right:16px;z-index:3;background:rgba(0,0,0,.5);color:#fff;font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:999px}
+.sl-credit{position:absolute;bottom:10px;right:12px;z-index:3;font-size:.65rem;color:rgba(255,255,255,.8)}
+.slider .badge{z-index:4}
+@media(max-width:600px){.slider{height:230px}.sl-btn{opacity:1}}
 .hotel .hb{padding:26px}
 .hotel h3{font-size:1.8rem}
 .hotel .price{font-family:var(--display);font-size:2.4rem;font-weight:800;margin:10px 0 2px}
@@ -187,7 +201,7 @@ nav.solid .logo,nav.solid .links a{color:var(--ink)}
 .hotel ul{list-style:none;margin:16px 0 20px}
 .hotel li{padding:6px 0 6px 26px;position:relative;font-size:.93rem}
 .hotel li::before{content:"✓";position:absolute;left:0;color:var(--moss);font-weight:800}
-.badge{position:absolute;top:16px;left:16px;z-index:3;background:var(--amber);color:var(--ink);font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.badge{position:absolute;top:16px;left:16px;z-index:5;background:var(--amber);color:var(--ink);font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
 .badge.alt{background:#fff}
 .pick{width:100%;padding:14px;border-radius:12px;background:var(--forest);color:#fff;font-weight:700;transition:.3s}
 .hotel.sel .pick{background:var(--amber);color:var(--ink)}
@@ -454,14 +468,16 @@ const TRIP = {
      mix:"2 cottages (5 pax) + 2 triple rooms (3 pax) = 16 beds",
      perks:["Cottage for 5: Rs. 11,076 / night","Triple room for 3: Rs. 9,186 / night","Restaurant, parking, hot water and linen","Walking distance to Gregory Lake","Full-board packages available if we want meals included"],
      url:"https://nationalholidayresorts.lk/holiday-resort-single/nuwara-eliya", contact:"052 222 2943",
-     photo:"images/stay-national-holiday-resort.jpg", sample:false},
+     photos:["images/nhr-1.jpg","images/nhr-2.jpg","images/nhr-3.jpg","images/nhr-4.jpg","images/nhr-5.jpg","images/nhr-6.jpg","images/nhr-7.jpg","images/nhr-8.jpg","images/nhr-9.jpg","images/nhr-10.jpg"], credit:"",
+     sample:false},
     {id:"prm", name:"Dream Cottage Nuwara Eliya", tier:"Higher-rate option", total:165000,
      rate:"Quote pending", per:"rates not listed online",
      where:"Denipitiyawatta, Moon Plains, Nuwara Eliya",
      mix:"2 cottages with attics + 3 triple rooms",
      perks:["New, modern cottages","Balconies over misty hills, pine forest and tea","Near Moon Plains viewpoint","Popular for photo shoots, good for our group photos"],
      url:"https://dreamcottagenuwaraeliya.lk/", contact:"071 632 9025 · WhatsApp 076 046 1333",
-     photo:"images/stay-dream-cottage.jpg", sample:true}
+     photos:["https://dreamcottagenuwaraeliya.lk/wp-content/uploads/2022/01/141226594_115612523772034_8165528285171585119_n-1.jpg","https://dreamcottagenuwaraeliya.lk/wp-content/uploads/2022/01/190615221_193758292624123_2193963464933118181_n.jpg","https://dreamcottagenuwaraeliya.lk/wp-content/uploads/2026/08/11452.jpg","https://dreamcottagenuwaraeliya.lk/wp-content/uploads/2026/08/114524.jpg","https://dreamcottagenuwaraeliya.lk/wp-content/uploads/2013/05/144421875_120501566616463_6964038993821084447_n-1.jpg","https://dreamcottagenuwaraeliya.lk/wp-content/uploads/2013/05/217873955_227386052594680_8285998668075219965_n-Copy-3.jpg","https://dreamcottagenuwaraeliya.lk/wp-content/uploads/2013/05/269491033_323636129636338_6791815916706898230_n-1.jpg","https://dreamcottagenuwaraeliya.lk/wp-content/uploads/2013/05/z-1-1.jpg","https://dreamcottagenuwaraeliya.lk/wp-content/uploads/2013/05/z-3-1.jpg","images/dream-10.jpg"],
+     credit:"Photos: dreamcottagenuwaraeliya.lk", sample:true}
   ],
   participants: [["Gayan (family)",3],["Teeshan",1],["Randula",1],["Kavindu",1],["Vishwa",1],["Vidusha",1],["Anuradha",1],["Shehan",1],["Dinuwara",1],["Viduranga",1],["Ryan + 1",2],["Chandeepa",1],["Anu",1]],
   notes: [
@@ -642,12 +658,38 @@ function renderBudget(){
 }
 function animateNum(el,to){const from=+(el.dataset.v||0);el.dataset.v=to;let st=null;
   const f=ts=>{st??=ts;const k=Math.min((ts-st)/900,1),e=1-Math.pow(1-k,3);el.textContent=rs(from+(to-from)*e);if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
+/* ===================== stay slideshows ===================== */
+function slider(s){
+  return `<div class="slider" data-id="${s.id}">
+    <div class="ph">${camIcon}Add photos to images/ (see README)</div>
+    ${s.photos.map((src,i)=>`<img class="slide" src="${src}" alt="${s.name} photo ${i+1}" loading="${i<2?"eager":"lazy"}" referrerpolicy="no-referrer">`).join("")}
+    <button class="sl-btn prev" aria-label="Previous photo">‹</button><button class="sl-btn next" aria-label="Next photo">›</button>
+    <div class="sl-dots"></div><span class="sl-count"></span>${s.credit?`<span class="sl-credit">${s.credit}</span>`:""}</div>`;
+}
+function initSlider(root){
+  let i=0, timer, slides=()=>[...root.querySelectorAll(".slide")];
+  const dots=root.querySelector(".sl-dots"), count=root.querySelector(".sl-count");
+  function build(){
+    const n=slides().length; root.querySelectorAll(".sl-btn,.sl-dots,.sl-count").forEach(e=>e.style.display=n>1?"":"none");
+    dots.innerHTML=slides().map((_,k)=>`<button aria-label="Photo ${k+1}"></button>`).join(""); if(i>=n)i=0; show(i);
+  }
+  function show(k){const L=slides();if(!L.length)return;i=(k+L.length)%L.length;
+    L.forEach((im,j)=>im.classList.toggle("on",j===i));[...dots.children].forEach((d,j)=>d.classList.toggle("on",j===i));count.textContent=`${i+1} / ${L.length}`}
+  const go=d=>{show(i+d);restart()}, restart=()=>{clearInterval(timer);timer=setInterval(()=>show(i+1),4000)};
+  slides().forEach(im=>im.addEventListener("error",()=>{im.remove();build()}));
+  root.querySelector(".prev").onclick=()=>go(-1); root.querySelector(".next").onclick=()=>go(1);
+  dots.onclick=e=>{const b=e.target.closest("button");if(b){show([...dots.children].indexOf(b));restart()}};
+  root.addEventListener("mouseenter",()=>clearInterval(timer)); root.addEventListener("mouseleave",restart);
+  let x0=null; root.addEventListener("touchstart",e=>x0=e.touches[0].clientX,{passive:true});
+  root.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(dx<0?1:-1);x0=null});
+  build(); restart();
+}
 $("#hotelToggle").insertAdjacentHTML("beforeend",TRIP.stays.map(s=>`<button data-id="${s.id}">${s.id==="std"?"National Holiday Resort":"Dream Cottage"}</button>`).join(""));
 $("#hotelToggle").onclick=e=>{const b=e.target.closest("button");if(b){stayId=b.dataset.id;renderBudget()}};
 $("#hotels").innerHTML = TRIP.stays.map((s,i)=>`
   <article class="hotel rv" data-id="${s.id}" style="transition-delay:${i*.12}s">
     <span class="badge ${i?"alt":""}">${s.tier}</span>
-    ${photoBox({photos:[s.photo],name:s.name},"Add a photo of the property")}
+    ${slider(s)}
     <div class="hb"><h3>${s.name}</h3>
       <div class="price">${s.rate} <small>${s.per}</small></div>
       <div style="color:var(--muted);font-size:.9rem;margin-bottom:4px">📍 ${s.where}<br>🛏️ ${s.mix}</div>
@@ -658,6 +700,7 @@ $("#hotels").innerHTML = TRIP.stays.map((s,i)=>`
         <a href="${s.url}" target="_blank" rel="noopener" style="color:var(--moss);font-weight:700">Visit website ↗</a><span style="color:var(--muted)">📞 ${s.contact}</span></div>
       ${s.sample?`<p class="note-sample">Total of Rs. ${s.total.toLocaleString("en-LK")} is an estimate until Dream Cottage sends a quote.</p>`:""}
     </div></article>`).join("");
+document.querySelectorAll(".slider").forEach(initSlider);
 $("#hotels").onclick=e=>{const b=e.target.closest(".pick");if(b){stayId=b.dataset.id;renderBudget();$("#budget").scrollIntoView()}};
 new IntersectionObserver((en,o)=>{if(en[0].isIntersecting){renderBudget();o.disconnect()}},{threshold:.3}).observe($("#budget"));
 

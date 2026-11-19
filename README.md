@@ -13,3 +13,8 @@ All content comes from the `TRIP` object at the top of the `<script>` in `index.
 3. In `budget`, set `actual:` for each category. The striped bars and the "Actual spent" total update automatically.
 4. In `stays`, replace the higher-rate hotel's sample figures (`total`, `rate`, `perks`) with the real quote.
 5. Add `images/cover.jpg`. It's used as the preview image when the link is shared on WhatsApp or Facebook.
+
+## Stay slideshows (10 photos each)
+- **National Holiday Resort:** save photos as `images/nhr-1.jpg` … `images/nhr-10.jpg`.
+- **Dream Cottage:** slides 1–9 load from the property's own website. Add a 10th as `images/dream-10.jpg`. To stop depending on their site, download the photos into `images/` and change the paths in `stays[1].photos`.
+- A photo that is missing or fails to load is skipped, so the slideshow only shows photos that load.
