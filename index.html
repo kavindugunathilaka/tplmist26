@@ -670,7 +670,7 @@ function initSlider(root){
   let i=0, timer, slides=()=>[...root.querySelectorAll(".slide")];
   const dots=root.querySelector(".sl-dots"), count=root.querySelector(".sl-count");
   function build(){
-    const n=slides().length; root.querySelectorAll(".sl-btn,.sl-dots,.sl-count").forEach(e=>e.style.display=n>1?"":"none");
+    const n=slides().length; root.querySelector(".ph").style.display=n?"none":""; root.querySelectorAll(".sl-btn,.sl-dots,.sl-count").forEach(e=>e.style.display=n>1?"":"none");
     dots.innerHTML=slides().map((_,k)=>`<button aria-label="Photo ${k+1}"></button>`).join(""); if(i>=n)i=0; show(i);
   }
   function show(k){const L=slides();if(!L.length)return;i=(k+L.length)%L.length;
