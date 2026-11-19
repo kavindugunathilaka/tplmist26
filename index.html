@@ -288,7 +288,7 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
   <div class="wrap">
     <div class="sec-head rv">
       <div><div class="eyebrow">01 · The journey</div><h2>From Colombo up into the clouds</h2></div>
-      <p>Press play to follow the van from Boralesgamuwa to Horton Plains. Tap any stop to see what we did there and what we spent.</p>
+      <p>Press play to follow the van on the Day 1 route from Boralesgamuwa via the Outer Circular Expressway, Kegalle and Ramboda to Nuwara Eliya, then on to Horton Plains on Day 2. Tap any stop to see what we did there and what we spent.</p>
     </div>
     <div class="map-grid">
       <div class="map-card rv">
@@ -299,6 +299,9 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
           <button class="btn" id="speedBtn">1×</button>
           <div class="progress"><i id="prog"></i></div>
         </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px;font-size:.85rem">
+          <a class="btn" style="text-decoration:none;color:#fff" href="https://maps.app.goo.gl/AyUBr6hKRUT45nLaA" target="_blank" rel="noopener">🗺️ Open Day 1 route in Google Maps ↗</a>
+          <span style="opacity:.8">Day 1: Boralesgamuwa → Nuwara Eliya · 211 km · about 6 hr 50 min driving, plus stops</span></div>
         <div class="legend"><span>Pickup / road stop</span><span class="lp">Place we visit</span><span class="ls">Our stay</span></div>
       </div>
       <aside class="stop-panel rv" id="stopPanel"></aside>
@@ -409,14 +412,16 @@ const TRIP = {
   people: 16,
   contributionPerHead: 20000,
   stops: [
-    {id:"boral",  name:"Boralesgamuwa", lat:6.840, lng:79.902, type:"pickup", day:1, time:"7:30 am",  desc:"Departure and first pickup.", planned:null, spent:null, did:"", photos:[]},
-    {id:"maha",   name:"Maharagama",    lat:6.848, lng:79.927, type:"pickup", day:1, time:"7:50 am",  desc:"Second pickup before joining the Outer Circular Highway at Kottawa.", planned:null, spent:null, did:"", photos:[]},
-    {id:"kada",   name:"Kadawatha",     lat:7.001, lng:79.953, type:"pickup", day:1, time:"~9:00 am", desc:"Off the Outer Circular Highway onto the Kandy road.", planned:null, spent:null, did:"", photos:[], label:false},
-    {id:"kegalle",name:"Kegalle",       lat:7.251, lng:80.346, type:"pickup", day:1, time:"~10:30 am",desc:"Pickup and breakfast stop.", planned:null, spent:null, did:"", photos:[]},
-    {id:"kandy",  name:"Peradeniya",    lat:7.269, lng:80.594, type:"pickup", day:1, time:"~12:15 pm",desc:"Passing Kandy / Peradeniya towards Gampola.", planned:null, spent:null, did:"", photos:[]},
-    {id:"gampola",name:"Gampola",       lat:7.164, lng:80.576, type:"pickup", day:1, time:"~1:30 pm", desc:"Lunch around Gampola / Pussellawa.", planned:null, spent:null, did:"", photos:[]},
-    {id:"ramboda",name:"Ramboda Falls", lat:7.056, lng:80.697, type:"place",  day:1, time:"~2:30 pm", desc:"Photo stop at one of the tallest waterfalls on the Kandy–Nuwara Eliya road.", planned:null, spent:null, did:"", photos:[]},
-    {id:"nuwara", name:"Nuwara Eliya",  lat:6.970, lng:80.767, type:"stay",   day:1, time:"~4:00 pm", desc:"Check in. Gregory Lake in the evening, Victoria Park and town on Day 2.", planned:null, spent:null, did:"", photos:[]},
+    {id:"boral",  name:"Boralesgamuwa", lat:6.8410, lng:79.9017, type:"pickup", day:1, time:"7:30 am",  desc:"Departure and first pickup.", planned:null, spent:null, did:"", photos:[]},
+    {id:"maha",   name:"Maharagama",    lat:6.8447, lng:79.9342, type:"pickup", day:1, time:"7:50 am",  desc:"Second pickup at Maharagama town.", planned:null, spent:null, did:"", photos:[]},
+    {id:"batta",  name:"Battaramulla",  lat:6.8980, lng:79.9223, type:"pickup", day:1, time:"~8:20 am", desc:"Through Battaramulla towards the expressway.", planned:null, spent:null, did:"", photos:[], label:false},
+    {id:"athuru", name:"Athurugiriya",  lat:6.8834, lng:79.9766, type:"pickup", day:1, time:"~8:40 am", desc:"Join the Outer Circular Expressway at the Athurugiriya Interchange (toll road).", planned:null, spent:null, did:"", photos:[]},
+    {id:"kada",   name:"Kadawatha",     lat:7.0046, lng:79.9542, type:"pickup", day:1, time:"~9:00 am", desc:"Off the expressway onto the Kandy road.", planned:null, spent:null, did:"", photos:[]},
+    {id:"kegalle",name:"Kegalle",       lat:7.2567, lng:80.3464, type:"pickup", day:1, time:"~10:30 am",desc:"Pickup and breakfast stop.", planned:null, spent:null, did:"", photos:[]},
+    {id:"mawa",   name:"Mawanella",     lat:7.2522, lng:80.4468, type:"pickup", day:1, time:"~11:15 am",desc:"Through Mawanella towards Gampola.", planned:null, spent:null, did:"", photos:[]},
+    {id:"gampola",name:"Gampola",       lat:7.1635, lng:80.5702, type:"pickup", day:1, time:"~1:30 pm", desc:"Lunch around Gampola / Pussellawa.", planned:null, spent:null, did:"", photos:[]},
+    {id:"ramboda",name:"Ramboda Falls", lat:7.0565, lng:80.6938, type:"place",  day:1, time:"~2:30 pm", desc:"Photo stop at one of the tallest waterfalls on the Kandy–Nuwara Eliya road.", planned:null, spent:null, did:"", photos:[]},
+    {id:"nuwara", name:"Nuwara Eliya",  lat:6.9607, lng:80.7693, type:"stay",   day:1, time:"~4:00 pm", desc:"Check in. Gregory Lake in the evening, Victoria Park and town on Day 2.", planned:null, spent:null, did:"", photos:[]},
     {id:"horton", name:"Horton Plains", lat:6.802, lng:80.806, type:"place",  day:2, time:"6:00 am",  desc:"Dawn trek: World's End and Baker's Falls loop, about 9 km. No polythene allowed.", planned:null, spent:null, did:"", photos:[], side:true},
     {id:"ambewela",name:"Ambewela Farm",lat:6.880, lng:80.800, type:"place",  day:2, time:"~10:30 am",desc:"Dairy farm stop on the way back from the trek.", planned:null, spent:null, did:"", photos:[], side:true},
     {id:"hakgala",name:"Hakgala Garden",lat:6.927, lng:80.822, type:"place",  day:2, time:"3:00 pm",  desc:"Botanical garden on the slopes below Hakgala rock.", planned:null, spent:null, did:"", photos:[], side:true}
@@ -432,7 +437,9 @@ const TRIP = {
     {label:"Day 1", date:"Fri 11 Dec", items:[
       ["7:30 am","Departure","Boralesgamuwa pickup","boral"],
       ["7:50 – 8:10 am","Maharagama pickup","","maha"],
+      ["~8:40 am","Outer Circular Expressway","Battaramulla → Athurugiriya Interchange → Kadawatha","athuru"],
       ["~10:30 am","Kegalle stop","Pickup and breakfast","kegalle"],
+      ["~11:15 am","Mawanella","On the way to Gampola","mawa"],
       ["~1:30 pm","Lunch","Around Gampola / Pussellawa","gampola"],
       ["~2:30 pm","Ramboda Falls","Photo stop","ramboda",1],
       ["~4:00 pm","Arrive at Nuwara Eliya","Check in","nuwara"],
@@ -557,7 +564,7 @@ roadSide.style.opacity=0;
 TRIP.stops.forEach(s=>{
   const g = el("g",{class:`node ${s.type}`,transform:`translate(${s.x},${s.y})`});
   el("circle",{class:"ring",r:6},g); el("circle",{class:"dot",r:6},g);
-  if(s.label!==false){const right = (s.x<600 || s.id==="hakgala") && s.id!=="boral"; const t=el("text",{x:right?12:-12,y:s.id==="gampola"?16:4,"text-anchor":right?"start":"end"},g);t.textContent=s.name}
+  if(s.label!==false){const right = s.x<600 || s.id==="hakgala"; const t=el("text",{x:right?12:-12,y:s.id==="gampola"||s.id==="boral"?18:4,"text-anchor":right?"start":"end"},g);t.textContent=s.name}
   g.addEventListener("click",()=>{pause();showStop(s)}); s.g=g;
 });
 // vehicle
