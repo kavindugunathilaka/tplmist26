@@ -41,7 +41,7 @@ section{padding:72px 0 8px}
 @media(max-width:760px){.head{grid-template-columns:1fr}section{padding-top:56px}}
 
 /* ---------- top bar ---------- */
-.topbar{position:sticky;top:0;z-index:60;background:rgba(15,26,28,.82);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid transparent;transition:border-color .2s}
+.topbar{position:sticky;top:0;z-index:60;background:var(--bg);border-bottom:1px solid transparent;transition:border-color .2s}
 .topbar.scrolled{border-bottom-color:var(--line)}
 .topbar .wrap{display:flex;align-items:center;gap:20px;height:64px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
@@ -63,7 +63,7 @@ section{padding:72px 0 8px}
 .hero-copy h1{font-size:clamp(2.6rem,6.2vw,5rem);font-weight:800;letter-spacing:-.04em;line-height:.95;max-width:11ch}
 .hero-copy p{margin-top:14px;color:var(--soft);max-width:44ch;font-size:1.02rem}
 .hero-credit{position:absolute;top:16px;right:18px;z-index:2;font-size:.7rem;color:rgba(255,255,255,.7);background:rgba(0,0,0,.35);padding:3px 9px;border-radius:999px;max-width:60%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hero-alt{position:absolute;top:16px;left:18px;z-index:2;display:flex;align-items:center;gap:8px;background:rgba(15,26,28,.6);backdrop-filter:blur(8px);padding:6px 12px;border-radius:999px;font-size:.82rem;font-weight:600}
+.hero-alt{position:absolute;top:16px;left:18px;z-index:2;display:flex;align-items:center;gap:8px;background:rgba(15,26,28,.72);padding:6px 12px;border-radius:999px;font-size:.82rem;font-weight:600}
 .hero-alt i{width:8px;height:8px;border-radius:50%;background:var(--tea);box-shadow:0 0 0 4px rgba(79,203,142,.2)}
 
 /* boarding pass: the one bold piece */
@@ -141,7 +141,10 @@ section{padding:72px 0 8px}
 .legend{display:flex;gap:16px;font-size:.8rem;color:var(--muted);margin-top:10px;flex-wrap:wrap}
 .legend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0;background:var(--text)}
 .legend .lp::before{background:var(--tea)} .legend .ls::before{background:var(--mist)}
-.stop-panel{overflow:hidden;display:flex;flex-direction:column}
+.stop-panel{overflow:hidden;display:flex;flex-direction:column;height:520px}
+.stop-panel .slider,.stop-panel .stop-photo{height:220px;flex:0 0 220px}
+.stop-panel .stop-body{overflow:hidden}
+@media(max-width:900px){.stop-panel{height:500px}}
 .stop-photo{height:220px;position:relative;background:var(--s2);display:grid;place-items:center;overflow:hidden}
 .stop-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ph{color:var(--muted);text-align:center;font-size:.84rem;padding:12px}
@@ -171,9 +174,9 @@ section{padding:72px 0 8px}
 /* ---------- slideshows (shared) ---------- */
 .slider{position:relative;height:300px;overflow:hidden;background:var(--s2)}
 .slider .ph{position:absolute;inset:0;display:grid;place-content:center}
-.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease;will-change:opacity}
 .slide.on{opacity:1;z-index:1}
-.sl-btn{position:absolute;top:50%;z-index:3;width:38px;height:38px;margin-top:-19px;border-radius:50%;background:rgba(15,26,28,.65);backdrop-filter:blur(6px);color:var(--text);font-size:1.3rem;display:grid;place-items:center;opacity:0;transition:opacity .2s}
+.sl-btn{position:absolute;top:50%;z-index:3;width:38px;height:38px;margin-top:-19px;border-radius:50%;background:rgba(15,26,28,.75);color:var(--text);font-size:1.3rem;display:grid;place-items:center;opacity:0;transition:opacity .2s}
 .slider:hover .sl-btn,.slider:focus-within .sl-btn{opacity:1}
 .sl-btn.prev{left:10px}.sl-btn.next{right:10px}
 .sl-dots{position:absolute;bottom:12px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:5px}
@@ -267,7 +270,7 @@ section{padding:72px 0 8px}
 .hotel.sel{border-color:var(--tea)}
 .hotel .slider{height:260px}
 .hotel .hb{padding:22px 24px 24px}
-.tier{position:absolute;top:12px;left:12px;z-index:5;font-size:.76rem;font-weight:700;padding:5px 11px;border-radius:999px;background:rgba(15,26,28,.7);backdrop-filter:blur(6px);color:var(--text)}
+.tier{position:absolute;top:12px;left:12px;z-index:5;font-size:.76rem;font-weight:700;padding:5px 11px;border-radius:999px;background:rgba(15,26,28,.8);color:var(--text)}
 .hotel.sel .tier{background:var(--tea);color:var(--tea-ink)}
 .hotel h3{font-size:1.5rem}
 .price{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin:8px 0 2px}
@@ -639,12 +642,13 @@ function photoBox(p, label){
 /* ===================== top bar + hero ===================== */
 (function(){
   const bar=$("#bar");
-  addEventListener("scroll",()=>bar.classList.toggle("scrolled",scrollY>8),{passive:true});
+  let sc=false; addEventListener("scroll",()=>{const v=scrollY>8; if(v!==sc){sc=v; bar.classList.toggle("scrolled",v)}},{passive:true});
   // highlight the section you're in
   const links=[...document.querySelectorAll(".tabs-nav a")];
   const io=new IntersectionObserver(en=>en.forEach(e=>{ if(e.isIntersecting){
     links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id));
-    const on=links.find(a=>a.classList.contains("on")); on&&on.scrollIntoView({block:"nearest",inline:"nearest"});
+    const on=links.find(a=>a.classList.contains("on")), nav=on&&on.parentElement;
+    if(nav&&nav.scrollWidth>nav.clientWidth){const l=on.offsetLeft-nav.offsetLeft, r=l+on.offsetWidth; if(l<nav.scrollLeft||r>nav.scrollLeft+nav.clientWidth) nav.scrollTo({left:l-16,behavior:"smooth"});}
   }}),{rootMargin:"-45% 0px -50% 0px"});
   document.querySelectorAll("main section[id]").forEach(s=>io.observe(s));
   // hero photo credit (photo comes from the Wikimedia set)
@@ -798,10 +802,12 @@ function animateNum(el,to){const from=+(el.dataset.v||0);el.dataset.v=to;let st=
 function slider(s){
   return `<div class="slider" data-id="${s.id}">
     <div class="ph">${camIcon}Photos coming soon</div>
-    ${s.photos.map((src,i)=>`<img class="slide" src="${src}" alt="${s.name} photo ${i+1}" loading="${i<2?"eager":"lazy"}" data-credit="${((s.credits&&s.credits[i])||s.credit||"").replace(/"/g,"&quot;")}">`).join("")}
+    ${s.photos.map((src,i)=>`<img class="slide" src="${src}" alt="${s.name} photo ${i+1}" loading="lazy" decoding="async" data-credit="${((s.credits&&s.credits[i])||s.credit||"").replace(/"/g,"&quot;")}">`).join("")}
     <button class="sl-btn prev" aria-label="Previous photo">‹</button><button class="sl-btn next" aria-label="Next photo">›</button>
     <div class="sl-dots"></div><span class="sl-count"></span><span class="sl-credit"></span></div>`;
 }
+const slideIO=new IntersectionObserver(en=>en.forEach(e=>e.target._vis&&e.target._vis(e.isIntersecting)),{rootMargin:"100px"});
+document.addEventListener("visibilitychange",()=>document.querySelectorAll(".slider").forEach(s=>s._vis&&s._vis(!document.hidden&&s.getBoundingClientRect().bottom>0&&s.getBoundingClientRect().top<innerHeight)));
 function initSlider(root){
   let i=0, timer, slides=()=>[...root.querySelectorAll(".slide")];
   const dots=root.querySelector(".sl-dots"), count=root.querySelector(".sl-count");
@@ -813,14 +819,16 @@ function initSlider(root){
   function show(k){const L=slides();if(!L.length)return;i=(k+L.length)%L.length;
     L.forEach((im,j)=>im.classList.toggle("on",j===i));[...dots.children].forEach((d,j)=>d.classList.toggle("on",j===i));count.textContent=`${i+1} / ${L.length}`;
     const c=root.querySelector(".sl-credit"); if(c) c.textContent=L[i].dataset.credit||""}
-  const go=d=>{show(i+d);restart()}, restart=()=>{clearInterval(timer);if(!still)timer=setInterval(()=>show(i+1),5000)};
+  let visible=false;
+  const go=d=>{show(i+d);restart()}, restart=()=>{clearInterval(timer);if(!still&&visible&&!document.hidden)timer=setInterval(()=>show(i+1),5000)};
+  slideIO.observe(root); root._vis=v=>{visible=v;restart()};
   slides().forEach(im=>im.addEventListener("error",()=>{im.remove();build()}));
   root.querySelector(".prev").onclick=e=>{e.stopPropagation();go(-1)}; root.querySelector(".next").onclick=e=>{e.stopPropagation();go(1)};
   dots.onclick=e=>{e.stopPropagation();const b=e.target.closest("button");if(b){show([...dots.children].indexOf(b));restart()}};
   root.addEventListener("mouseenter",()=>clearInterval(timer)); root.addEventListener("mouseleave",restart);
   let x0=null; root.addEventListener("touchstart",e=>x0=e.touches[0].clientX,{passive:true});
   root.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(dx<0?1:-1);x0=null});
-  root._stop=()=>clearInterval(timer);
+  root._stop=()=>{clearInterval(timer);slideIO.unobserve(root)};
   build(); restart();
 }
 $("#hotelToggle").insertAdjacentHTML("beforeend",TRIP.stays.map(s=>`<button data-id="${s.id}">${s.id==="std"?"National Holiday Resort":"Dream Cottage"}</button>`).join(""));
