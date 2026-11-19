@@ -326,8 +326,8 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
         <small>3 days · 2 nights</small>
       </div>
       <div class="stat"><b data-count="16">0</b><small>Travellers</small></div>
-      <div class="stat"><b id="heroTotal" data-count="265000" data-prefix="Rs. ">0</b><small>Est. total budget</small></div>
-      <div class="stat"><b id="heroPerHead" data-count="16563" data-prefix="Rs. ">0</b><small>Per head</small></div>
+      <div class="stat"><b id="heroTotal" data-count="280000" data-prefix="Rs. ">0</b><small>Est. total budget</small></div>
+      <div class="stat"><b id="heroPerHead" data-count="17500" data-prefix="Rs. ">0</b><small>Per head</small></div>
       <div class="stat" style="border:1.5px solid rgba(217,103,78,.65);background:rgba(217,103,78,.12)"><b style="color:#f08070" data-count="45000" data-prefix="Rs. ">0</b><small style="color:rgba(240,160,140,.8)">🍻 Liquor · <b style="color:#f08070">Not planned yet</b></small></div>
     </div>
     <div class="why-track">
@@ -340,7 +340,7 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
         <div class="why-tile"><div class="wi">❤️</div><div class="wt">Show the team they matter</div><div class="ws">Beyond PRs and tickets</div></div>
         <div class="why-tile"><div class="wi">🎉</div><div class="wt">Celebrate the year</div><div class="ws">Acknowledge what we built together</div></div>
         <div class="why-tile"><div class="wi">📸</div><div class="wt">Make memories</div><div class="ws">The kind people talk about for years</div></div>
-        <div class="why-tile"><div class="wi">💰</div><div class="wt">Rs. 16,500 per head</div><div class="ws">Cheapest team-building you'll make</div></div>
+        <div class="why-tile"><div class="wi">💰</div><div class="wt">Rs. 17,500 per head</div><div class="ws">Cheapest team-building you'll make</div></div>
         <div class="why-tile"><div class="wi">🌿</div><div class="wt">Nuwara Eliya mist and tea</div><div class="ws">Hill country reset for the team</div></div>
         <!-- duplicate for seamless loop -->
         <div class="why-tile"><div class="wi">🏔️</div><div class="wt">Get out of the office</div><div class="ws">Actually talk — not on RingCentral</div></div>
@@ -351,7 +351,7 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
         <div class="why-tile"><div class="wi">❤️</div><div class="wt">Show the team they matter</div><div class="ws">Beyond PRs and tickets</div></div>
         <div class="why-tile"><div class="wi">🎉</div><div class="wt">Celebrate the year</div><div class="ws">Acknowledge what we built together</div></div>
         <div class="why-tile"><div class="wi">📸</div><div class="wt">Make memories</div><div class="ws">The kind people talk about for years</div></div>
-        <div class="why-tile"><div class="wi">💰</div><div class="wt">Rs. 16,500 per head</div><div class="ws">Cheapest team-building you'll make</div></div>
+        <div class="why-tile"><div class="wi">💰</div><div class="wt">Rs. 17,500 per head</div><div class="ws">Cheapest team-building you'll make</div></div>
         <div class="why-tile"><div class="wi">🌿</div><div class="wt">Nuwara Eliya mist and tea</div><div class="ws">Hill country reset for the team</div></div>
       </div>
     </div>
@@ -534,7 +534,7 @@ const TRIP = {
   // places that are not separate map points
   extraPlaces: [
     {id:"gregory", name:"Gregory Lake (optional)", day:1, time:"~5:00 pm", desc:"Before the BBQ, for anyone who wants it: Gregory Lake park, cycling, boat ride or photography.", planned:null, spent:null, did:"", photos:[]},
-    {id:"bbq",     name:"BBQ Night",     day:1, time:"6:30 pm", desc:"BBQ with music.", planned:15000, spent:null, did:"", photos:[]},
+    {id:"bbq",     name:"BBQ Night",     day:1, time:"6:30 pm", desc:"BBQ with music.", planned:30000, spent:null, did:"", photos:[]},
     {id:"navy",    name:"Dinner: Mariners' (Navy) Restaurant", day:2, time:"~7:30 pm", desc:"Saturday dinner at the Navy-run restaurant in Nuwara Eliya, or a food provider with a big menu (to confirm).", planned:null, spent:null, did:"", photos:[]},
     {id:"shop",    name:"Nuwara Eliya shopping", day:3, time:"~11:00 am", desc:"Shopping in town before we leave at 1 pm.", planned:null, spent:null, did:"", photos:[]}
   ],
@@ -570,7 +570,7 @@ const TRIP = {
     {key:"transport", label:"Transport", basis:"Vehicle hire, 3 days", planned:100000, actual:null, color:"#123a2e"},
     {key:"stay",      label:"Accommodation", basis:"2 nights", planned:null, actual:null, color:"#e9a23b"},
     {key:"food",      label:"Food", basis:"Meals for 3 days", planned:67500, actual:null, color:"#2f6b4f"},
-    {key:"bbq",       label:"BBQ night", basis:"Extra", planned:15000, actual:null, color:"#d9674e"},
+    {key:"bbq",       label:"BBQ night", basis:"Extra", planned:30000, actual:null, color:"#d9674e"},
     {key:"tickets",   label:"On-location", basis:"Entry tickets, sightseeing", planned:22500, actual:null, color:"#8fbf7a"}
   ],
   stays: [
@@ -862,7 +862,7 @@ renderGallery();
 
 /* ===================== collection tracker ===================== */
 (function(){
-  const totalBudget = 265000;
+  const totalBudget = 280000;
   const totalCollected = 50000;
   // one entry per participant group; amount = what they paid; label = display name
   const roster = [
