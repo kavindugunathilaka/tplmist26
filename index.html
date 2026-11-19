@@ -6,7 +6,7 @@
 <title>Into the Mist — Nuwara Eliya & Horton Plains Trip 2026</title>
 <meta name="description" content="Our team trip to Nuwara Eliya and Horton Plains, 11–13 December 2026: route, itinerary, budget, stays and memories.">
 <meta property="og:title" content="Into the Mist — Nuwara Eliya & Horton Plains 2026">
-<meta property="og:description" content="3 days · 2 nights · 15 people. Route, itinerary, budget and photos from our trip.">
+<meta property="og:description" content="3 days · 2 nights · 16 people. Route, itinerary, budget and photos from our trip.">
 <meta property="og:image" content="images/cover.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -260,7 +260,7 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
     <p class="tag reveal-word" style="animation-delay:.9s">Three days in the hill country: a dawn trek to World's End, waterfalls, tea estates and a BBQ by the campfire. This page keeps the plan, the money and the memories in one place.</p>
     <div class="stats reveal-word" style="animation-delay:1.1s">
       <div class="stat"><b data-count="3">0</b><small>Days · 2 nights</small></div>
-      <div class="stat"><b data-count="15">0</b><small>Travellers</small></div>
+      <div class="stat"><b data-count="16">0</b><small>Travellers</small></div>
       <div class="stat"><b data-count="440" data-suffix=" km">0</b><small>Round trip</small></div>
       <div class="stat"><b data-count="20000" data-prefix="Rs. ">0</b><small>Per head</small></div>
     </div>
@@ -347,7 +347,7 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
   <div class="wrap">
     <div class="sec-head rv">
       <div><div class="eyebrow">05 · Where we sleep</div><h2>Two ways to stay</h2></div>
-      <p>A standard option from the approved quotes, and a higher-rate option for comparison. Pick one to update the budget above.</p>
+      <p>A budget option by Gregory Lake and a higher-rate cottage stay near Moon Plains. Pick one to update the budget above.</p>
     </div>
     <div class="hotels" id="hotels"></div>
   </div>
@@ -370,7 +370,7 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
 <section id="crew">
   <div class="wrap">
     <div class="sec-head rv">
-      <div><div class="eyebrow">07 · The crew</div><h2>Fifteen of us</h2></div>
+      <div><div class="eyebrow">07 · The crew</div><h2>Sixteen of us</h2></div>
       <p>Staff and family travelling together in one hired vehicle.</p>
     </div>
     <div class="people rv" id="people"></div>
@@ -392,7 +392,7 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
    ===================================================================== */
 const TRIP = {
   start: "2026-12-11T07:30:00+05:30",
-  people: 15,
+  people: 16,
   contributionPerHead: 20000,
   stops: [
     {id:"boral",  name:"Boralesgamuwa", lat:6.840, lng:79.902, type:"pickup", day:1, time:"7:30 am",  desc:"Departure and first pickup.", planned:null, spent:null, did:"", photos:[]},
@@ -448,16 +448,22 @@ const TRIP = {
     {key:"tickets",   label:"On-location", basis:"Entry tickets, sightseeing", planned:22500, actual:null, color:"#8fbf7a"}
   ],
   stays: [
-    {id:"std", name:"Cottages & triple rooms", tier:"Standard · approved quote", total:81000,
-     rate:"From Rs. 8,000", per:"per room / night",
-     perks:["Cottage Rs. 11,500 / night","Nuwara Eliya room Rs. 9,600 / night","Triple room Rs. 8,000 / night","Room mix confirmed after booking"],
-     photo:"images/stay-standard.jpg", sample:false},
-    {id:"prm", name:"Hill-country hotel", tier:"Higher rate · comparison", total:165000,
-     rate:"Rs. 16,500", per:"per room / night (sample)",
-     perks:["Hotel rooms with heating and hot water","Breakfast included","Restaurant and indoor lounge for rainy evenings","Closer to Gregory Lake and town"],
-     photo:"images/stay-premium.jpg", sample:true}
+    {id:"std", name:"National Holiday Resort", tier:"Budget option", total:81048,
+     rate:"Rs. 9,186+", per:"per room / night",
+     where:"Upper Lake Road, on the shore of Lake Gregory",
+     mix:"2 cottages (5 pax) + 2 triple rooms (3 pax) = 16 beds",
+     perks:["Cottage for 5: Rs. 11,076 / night","Triple room for 3: Rs. 9,186 / night","Restaurant, parking, hot water and linen","Walking distance to Gregory Lake","Full-board packages available if we want meals included"],
+     url:"https://nationalholidayresorts.lk/holiday-resort-single/nuwara-eliya", contact:"052 222 2943",
+     photo:"images/stay-national-holiday-resort.jpg", sample:false},
+    {id:"prm", name:"Dream Cottage Nuwara Eliya", tier:"Higher-rate option", total:165000,
+     rate:"Quote pending", per:"rates not listed online",
+     where:"Denipitiyawatta, Moon Plains, Nuwara Eliya",
+     mix:"2 cottages with attics + 3 triple rooms",
+     perks:["New, modern cottages","Balconies over misty hills, pine forest and tea","Near Moon Plains viewpoint","Popular for photo shoots, good for our group photos"],
+     url:"https://dreamcottagenuwaraeliya.lk/", contact:"071 632 9025 · WhatsApp 076 046 1333",
+     photo:"images/stay-dream-cottage.jpg", sample:true}
   ],
-  participants: [["Gayan (family)",3],["Teeshan",1],["Randula",1],["Kavindu",1],["Vishwa",1],["Vidusha",1],["Anuradha",1],["Shehan",1],["Dinuwara",1],["Viduranga",1],["Ryan + 1",2],["Chandeepa",1]],
+  participants: [["Gayan (family)",3],["Teeshan",1],["Randula",1],["Kavindu",1],["Vishwa",1],["Vidusha",1],["Anuradha",1],["Shehan",1],["Dinuwara",1],["Viduranga",1],["Ryan + 1",2],["Chandeepa",1],["Anu",1]],
   notes: [
     ["🧥","Pack warm","December nights are about 10–15°C, cold, wet and misty. Bring jackets and rain gear."],
     ["🚫","No polythene","Polythene is not allowed inside Horton Plains. Bags are checked at the entrance."],
@@ -636,7 +642,7 @@ function renderBudget(){
 }
 function animateNum(el,to){const from=+(el.dataset.v||0);el.dataset.v=to;let st=null;
   const f=ts=>{st??=ts;const k=Math.min((ts-st)/900,1),e=1-Math.pow(1-k,3);el.textContent=rs(from+(to-from)*e);if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
-$("#hotelToggle").insertAdjacentHTML("beforeend",TRIP.stays.map(s=>`<button data-id="${s.id}">${s.id==="std"?"Standard stay":"Higher-rate stay"}</button>`).join(""));
+$("#hotelToggle").insertAdjacentHTML("beforeend",TRIP.stays.map(s=>`<button data-id="${s.id}">${s.id==="std"?"National Holiday Resort":"Dream Cottage"}</button>`).join(""));
 $("#hotelToggle").onclick=e=>{const b=e.target.closest("button");if(b){stayId=b.dataset.id;renderBudget()}};
 $("#hotels").innerHTML = TRIP.stays.map((s,i)=>`
   <article class="hotel rv" data-id="${s.id}" style="transition-delay:${i*.12}s">
@@ -644,10 +650,13 @@ $("#hotels").innerHTML = TRIP.stays.map((s,i)=>`
     ${photoBox({photos:[s.photo],name:s.name},"Add a photo of the property")}
     <div class="hb"><h3>${s.name}</h3>
       <div class="price">${s.rate} <small>${s.per}</small></div>
+      <div style="color:var(--muted);font-size:.9rem;margin-bottom:4px">📍 ${s.where}<br>🛏️ ${s.mix}</div>
       <div style="color:var(--muted);font-size:.9rem">2 nights for the group: <b style="color:var(--ink)">${rs(s.total)}</b> · ${rs(s.total/TRIP.people)} per head</div>
       <ul>${s.perks.map(p=>`<li>${p}</li>`).join("")}</ul>
       <button class="pick" data-id="${s.id}">Use this option in the budget</button>
-      ${s.sample?`<p class="note-sample">Sample figures. Replace with the real hotel quote.</p>`:""}
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:.85rem">
+        <a href="${s.url}" target="_blank" rel="noopener" style="color:var(--moss);font-weight:700">Visit website ↗</a><span style="color:var(--muted)">📞 ${s.contact}</span></div>
+      ${s.sample?`<p class="note-sample">Total of Rs. ${s.total.toLocaleString("en-LK")} is an estimate until Dream Cottage sends a quote.</p>`:""}
     </div></article>`).join("");
 $("#hotels").onclick=e=>{const b=e.target.closest(".pick");if(b){stayId=b.dataset.id;renderBudget();$("#budget").scrollIntoView()}};
 new IntersectionObserver((en,o)=>{if(en[0].isIntersecting){renderBudget();o.disconnect()}},{threshold:.3}).observe($("#budget"));
