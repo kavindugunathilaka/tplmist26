@@ -36,3 +36,6 @@ Anyone with the link can tap **＋ Add comment**, tap a spot on the page, type t
 - **Security:** Row Level Security is on with no policies, so the public Supabase API can't read or change the table. Only the function can. Inputs are validated and length-limited, and there's a basic per-browser rate limit.
 - **Who can do what:** anyone can comment, reply, resolve or reopen. Only the browser that wrote a comment can delete it. To remove spam, delete rows in Supabase → Table Editor → `trip_comments`.
 - **Updates:** the page checks for new comments every 15 seconds.
+
+## Memories (group photo uploads)
+Tap **＋ Add photos** in the Memories section, pick photos, choose the place, and add a caption and your name. Each photo is resized in the browser (about 1600px full plus a 480px thumbnail, JPEG) and stored in the `trip_photos` table through `api/photos.js`. Images are served from `/api/photos?id=…` with long-lived CDN caching. Uploaders can delete their own photos, and anything else can be removed in Supabase → Table Editor → `trip_photos`. The free Supabase database holds 500 MB, which is roughly 1,500+ photos at these sizes.
