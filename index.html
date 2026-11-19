@@ -288,7 +288,7 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
   <div class="wrap">
     <div class="sec-head rv">
       <div><div class="eyebrow">01 · The journey</div><h2>From Colombo up into the clouds</h2></div>
-      <p>Press play to follow the van on the Day 1 route from Boralesgamuwa via the Outer Circular Expressway, Kegalle and Ramboda to Nuwara Eliya, then on to Horton Plains on Day 2. Tap any stop to see what we did there and what we spent.</p>
+      <p>Press play to follow the van on the Day 1 route from Boralesgamuwa via the Outer Circular Expressway, Kegalle and Ramboda to Nuwara Eliya, then Horton Plains, New Zealand Farm and Kande Ela on Day 2 and Bomburu Ella on Day 3. Tap any stop to see what we did there and what we spent.</p>
     </div>
     <div class="map-grid">
       <div class="map-card rv">
@@ -414,52 +414,57 @@ const TRIP = {
   stops: [
     {id:"boral",  name:"Boralesgamuwa", lat:6.8410, lng:79.9017, type:"pickup", day:1, time:"7:30 am",  desc:"Departure and first pickup.", planned:null, spent:null, did:"", photos:[]},
     {id:"maha",   name:"Maharagama",    lat:6.8447, lng:79.9342, type:"pickup", day:1, time:"7:50 am",  desc:"Second pickup at Maharagama town.", planned:null, spent:null, did:"", photos:[]},
-    {id:"batta",  name:"Battaramulla",  lat:6.8980, lng:79.9223, type:"pickup", day:1, time:"~8:20 am", desc:"Through Battaramulla towards the expressway.", planned:null, spent:null, did:"", photos:[], label:false},
-    {id:"athuru", name:"Athurugiriya",  lat:6.8834, lng:79.9766, type:"pickup", day:1, time:"~8:40 am", desc:"Join the Outer Circular Expressway at the Athurugiriya Interchange (toll road).", planned:null, spent:null, did:"", photos:[]},
-    {id:"kada",   name:"Kadawatha",     lat:7.0046, lng:79.9542, type:"pickup", day:1, time:"~9:00 am", desc:"Off the expressway onto the Kandy road.", planned:null, spent:null, did:"", photos:[]},
+    {id:"batta",  name:"Battaramulla",  lat:6.8980, lng:79.9223, type:"pickup", day:1, time:"~8:15 am", desc:"Ryan's pickup.", planned:null, spent:null, did:"", photos:[]},
+    {id:"athuru", name:"Athurugiriya",  lat:6.8834, lng:79.9766, type:"pickup", day:1, time:"~8:40 am", desc:"Join the Outer Circular Expressway at the Athurugiriya Interchange (toll road).", planned:null, spent:null, did:"", photos:[], label:false},
+    {id:"kada",   name:"Kadawatha",     lat:7.0046, lng:79.9542, type:"pickup", day:1, time:"~9:10 am", desc:"Off the expressway onto the Kandy road.", planned:null, spent:null, did:"", photos:[]},
     {id:"kegalle",name:"Kegalle",       lat:7.2567, lng:80.3464, type:"pickup", day:1, time:"~10:30 am",desc:"Pickup and breakfast stop.", planned:null, spent:null, did:"", photos:[]},
-    {id:"mawa",   name:"Mawanella",     lat:7.2522, lng:80.4468, type:"pickup", day:1, time:"~11:15 am",desc:"Through Mawanella towards Gampola.", planned:null, spent:null, did:"", photos:[]},
-    {id:"gampola",name:"Gampola",       lat:7.1635, lng:80.5702, type:"pickup", day:1, time:"~1:30 pm", desc:"Lunch around Gampola / Pussellawa.", planned:null, spent:null, did:"", photos:[]},
-    {id:"ramboda",name:"Ramboda Falls", lat:7.0565, lng:80.6938, type:"place",  day:1, time:"~2:30 pm", desc:"Photo stop at one of the tallest waterfalls on the Kandy–Nuwara Eliya road.", planned:null, spent:null, did:"", photos:[]},
-    {id:"nuwara", name:"Nuwara Eliya",  lat:6.9607, lng:80.7693, type:"stay",   day:1, time:"~4:00 pm", desc:"Check in. Gregory Lake in the evening, Victoria Park and town on Day 2.", planned:null, spent:null, did:"", photos:[]},
-    {id:"horton", name:"Horton Plains", lat:6.802, lng:80.806, type:"place",  day:2, time:"6:00 am",  desc:"Dawn trek: World's End and Baker's Falls loop, about 9 km. No polythene allowed.", planned:null, spent:null, did:"", photos:[], side:true},
-    {id:"ambewela",name:"Ambewela Farm",lat:6.880, lng:80.800, type:"place",  day:2, time:"~10:30 am",desc:"Dairy farm stop on the way back from the trek.", planned:null, spent:null, did:"", photos:[], side:true},
-    {id:"hakgala",name:"Hakgala Garden",lat:6.927, lng:80.822, type:"place",  day:2, time:"3:00 pm",  desc:"Botanical garden on the slopes below Hakgala rock.", planned:null, spent:null, did:"", photos:[], side:true}
+    {id:"mawa",   name:"Mawanella",     lat:7.2522, lng:80.4468, type:"pickup", day:1, time:"~11:15 am",desc:"Through Mawanella.", planned:null, spent:null, did:"", photos:[]},
+    {id:"hemma",  name:"Hemmathagama",  lat:7.1734, lng:80.5008, type:"pickup", day:1, time:"~11:45 am",desc:"Through Hemmathagama towards Gampola.", planned:null, spent:null, did:"", photos:[]},
+    {id:"gampola",name:"Gampola",       lat:7.1635, lng:80.5702, type:"pickup", day:1, time:"~12:45 pm",desc:"Lunch around Gampola / Pussellawa.", planned:null, spent:null, did:"", photos:[]},
+    {id:"ramboda",name:"Ramboda Falls", lat:7.0565, lng:80.6938, type:"place",  day:1, time:"~2:15 pm", desc:"Photo stop at Ramboda Falls.", planned:null, spent:null, did:"", photos:[]},
+    {id:"teaf",   name:"Tea factory",   lat:7.0241, lng:80.7194, type:"place",  day:1, time:"~3:00 pm", desc:"Tea factory photo stop on the Ramboda road (Bluefield or Labookellie, to confirm).", planned:null, spent:null, did:"", photos:[]},
+    {id:"nuwara", name:"Nuwara Eliya",  lat:6.9607, lng:80.7693, type:"stay",   day:1, time:"~4:15 pm", desc:"Check in at our stay (location to confirm). BBQ night with music from 6:30 pm.", planned:null, spent:null, did:"", photos:[]},
+    {id:"horton", name:"Horton Plains", lat:6.8020, lng:80.8060, type:"place",  day:2, time:"6:00 am",  desc:"Dawn trek: World's End and Baker's Falls loop, about 9 km. No polythene allowed.", planned:null, spent:null, did:"", photos:[], side:true},
+    {id:"nzfarm", name:"New Zealand Farm", lat:6.8685, lng:80.7976, type:"place", day:2, time:"~10:45 am",desc:"Ambewela New Zealand Farm on the way back from Horton Plains.", planned:null, spent:null, did:"", photos:[], side:true},
+    {id:"kandeela",name:"Kande Ela",    lat:6.9167, lng:80.7900, type:"place",  day:2, time:"~12:00 pm",desc:"Kande Ela Reservoir: pine forest and lake views on the way back to town.", planned:null, spent:null, did:"", photos:[], side:true},
+    {id:"bomburu",name:"Bomburu Ella",  lat:6.9472, lng:80.8311, type:"place",  day:3, time:"~7:30 am", desc:"Morning trip to Bomburu Ella waterfall, about 3 hours.", planned:null, spent:null, did:"", photos:[], side:true}
   ],
-  // extra places that are not separate map points
+  // places that are not separate map points
   extraPlaces: [
-    {id:"gregory", name:"Gregory Lake",  day:1, time:"5:00 pm", desc:"Evening walk around the lake.", planned:null, spent:null, did:"", photos:[]},
-    {id:"victoria",name:"Victoria Park & Town", day:2, time:"5:30 pm", desc:"Park, town walk and shopping.", planned:null, spent:null, did:"", photos:[]},
-    {id:"bbq",     name:"BBQ Night",     day:2, time:"7:30 pm", desc:"Team games and a campfire.", planned:15000, spent:null, did:"", photos:[]},
-    {id:"tea",     name:"Tea Factory",   day:3, time:"9:00 am", desc:"Tea factory / estate visit before check-out.", planned:null, spent:null, did:"", photos:[]}
+    {id:"gregory", name:"Gregory Lake (optional)", day:1, time:"~5:00 pm", desc:"Before the BBQ, for anyone who wants it: Gregory Lake park, cycling, boat ride or photography.", planned:null, spent:null, did:"", photos:[]},
+    {id:"bbq",     name:"BBQ Night",     day:1, time:"6:30 pm", desc:"BBQ with music.", planned:15000, spent:null, did:"", photos:[]},
+    {id:"navy",    name:"Dinner: Mariners' (Navy) Restaurant", day:2, time:"~7:30 pm", desc:"Saturday dinner at the Navy-run restaurant in Nuwara Eliya, or a food provider with a big menu (to confirm).", planned:null, spent:null, did:"", photos:[]},
+    {id:"shop",    name:"Nuwara Eliya shopping", day:3, time:"~11:00 am", desc:"Shopping in town before we leave at 1 pm.", planned:null, spent:null, did:"", photos:[]}
   ],
   days: [
     {label:"Day 1", date:"Fri 11 Dec", items:[
       ["7:30 am","Departure","Boralesgamuwa pickup","boral"],
-      ["7:50 – 8:10 am","Maharagama pickup","","maha"],
-      ["~8:40 am","Outer Circular Expressway","Battaramulla → Athurugiriya Interchange → Kadawatha","athuru"],
-      ["~10:30 am","Kegalle stop","Pickup and breakfast","kegalle"],
-      ["~11:15 am","Mawanella","On the way to Gampola","mawa"],
-      ["~1:30 pm","Lunch","Around Gampola / Pussellawa","gampola"],
-      ["~2:30 pm","Ramboda Falls","Photo stop","ramboda",1],
-      ["~4:00 pm","Arrive at Nuwara Eliya","Check in","nuwara"],
-      ["5:00 – 6:30 pm","Gregory Lake","Evening walk","gregory",1],
-      ["7:30 pm","Dinner and rest","Early start tomorrow",""]]},
+      ["7:50 am","Maharagama pickup","","maha"],
+      ["~8:15 am","Battaramulla","Ryan's pickup","batta"],
+      ["~8:40 am","Outer Circular Expressway","Athurugiriya Interchange → Kadawatha","athuru"],
+      ["~10:30 am","Kegalle","Pickup and breakfast","kegalle"],
+      ["~11:15 am","Mawanella → Hemmathagama","","hemma"],
+      ["~12:45 pm","Lunch","Around Gampola / Pussellawa","gampola"],
+      ["~2:15 pm","Ramboda Falls","Photo stop","ramboda",1],
+      ["~3:00 pm","Tea factory","Photo location","teaf",1],
+      ["~4:15 pm","Arrive at Nuwara Eliya","Check in · ⏳ stay location to confirm","nuwara"],
+      ["~5:00 – 6:15 pm","Optional: Gregory Lake","Park, cycling, boat ride or photography, for anyone who wants it","gregory"],
+      ["6:30 pm","BBQ night","BBQ with music","bbq",1]]},
     {label:"Day 2", date:"Sat 12 Dec", items:[
-      ["4:30 am","Leave for Horton Plains","Packed breakfast",""],
+      ["4:30 am","Leave for Horton Plains","⏳ Breakfast: need to find a food provider",""],
       ["6:00 – 10:00 am","Horton Plains trek","World's End and Baker's Falls loop, about 9 km","horton",1],
-      ["~10:30 am","Ambewela farm","","ambewela"],
-      ["~12:30 pm","Lunch and rest","At the accommodation",""],
-      ["3:00 – 5:00 pm","Hakgala Botanical Garden","","hakgala"],
-      ["5:30 – 6:30 pm","Victoria Park and town","","victoria"],
-      ["7:30 pm onward","BBQ night","Team games and a campfire","bbq",1]]},
+      ["~10:45 am","New Zealand Farm, Ambewela","","nzfarm"],
+      ["~12:00 pm","Kande Ela Reservoir","On the way back","kandeela"],
+      ["~1:00 pm","Lunch on the way","⏳ Option to check",""],
+      ["Afternoon","Rest at the stay","",""],
+      ["~7:30 pm","Saturday dinner","Mariners' (Navy) Restaurant, or a provider with a big menu · ⏳ to confirm","navy",1]]},
     {label:"Day 3", date:"Sun 13 Dec", items:[
-      ["8:00 am","Breakfast","",""],
-      ["9:00 – 10:30 am","Tea factory / estate visit","","tea",1],
-      ["~11:00 am","Check-out","",""],
-      ["~12:30 pm","Lunch on the way","",""],
-      ["~5:00 pm","Kegalle drop-off","","kegalle"],
-      ["~7:30 pm","Home","Maharagama / Boralesgamuwa","boral"]]}
+      ["Early morning","Breakfast","",""],
+      ["~7:30 – 10:30 am","Bomburu Ella","About 3 hours","bomburu",1],
+      ["~11:00 am","Shopping in Nuwara Eliya","","shop"],
+      ["1:00 pm","Leave Nuwara Eliya","Check-out and depart for Colombo","nuwara"],
+      ["~2:30 pm","Lunch stop on the way","",""],
+      ["Evening","Kegalle drop-off, then home","Maharagama / Boralesgamuwa","boral"]]}
   ],
   budget: [ // planned totals (Rs.) — accommodation is replaced by the chosen stay option
     {key:"transport", label:"Transport", basis:"Vehicle hire, 3 days", planned:100000, actual:null, color:"#123a2e"},
@@ -469,11 +474,11 @@ const TRIP = {
     {key:"tickets",   label:"On-location", basis:"Entry tickets, sightseeing", planned:22500, actual:null, color:"#8fbf7a"}
   ],
   stays: [
-    {id:"std", name:"National Holiday Resort", tier:"Budget option", total:81048,
-     rate:"Rs. 9,186+", per:"per room / night",
+    {id:"std", name:"National Holiday Resort", tier:"Budget option", total:60000,
+     rate:"Rs. 30,000", per:"per night for the group",
      where:"Upper Lake Road, on the shore of Lake Gregory",
-     mix:"2 cottages (5 pax) + 2 triple rooms (3 pax) = 16 beds",
-     perks:["Cottage for 5: Rs. 11,076 / night","Triple room for 3: Rs. 9,186 / night","Restaurant, parking, hot water and linen","Walking distance to Gregory Lake","Full-board packages available if we want meals included"],
+     mix:"1 cottage for 6 + 2 rooms",
+     perks:["Cottage for 6: Rs. 11,000 / night","2 rooms at Rs. 9,500 / night each","Restaurant, parking, hot water and linen","Walking distance to Gregory Lake","Full-board packages available if we want meals included"],
      url:"https://nationalholidayresorts.lk/holiday-resort-single/nuwara-eliya", contact:"052 222 2943",
      photos:["images/nhr-1.jpg","images/nhr-2.jpg","images/nhr-3.jpg","images/nhr-4.jpg","images/nhr-5.jpg","images/nhr-6.jpg","images/nhr-7.jpg","images/nhr-8.jpg","images/nhr-9.jpg","images/nhr-10.jpg"], credit:"Photos: nationalholidayresorts.lk",
      sample:false},
@@ -488,10 +493,10 @@ const TRIP = {
   ],
   participants: [["Gayan (family)",3],["Teeshan",1],["Randula",1],["Kavindu",1],["Vishwa",1],["Vidusha",1],["Anuradha",1],["Shehan",1],["Dinuwara",1],["Viduranga",1],["Ryan + 1",2],["Chandeepa",1],["Anu",1]],
   notes: [
+    ["⏳","Still to arrange","Day 2 breakfast provider · Day 2 lunch option on the way · Saturday dinner (Mariners' or a provider with a big menu) · stay location in Nuwara Eliya · which tea factory."],
     ["🧥","Pack warm","December nights are about 10–15°C, cold, wet and misty. Bring jackets and rain gear."],
     ["🚫","No polythene","Polythene is not allowed inside Horton Plains. Bags are checked at the entrance."],
-    ["🚐","Transport","Quote to be confirmed for the full ~430–450 km round trip, including driver charges."],
-    ["🛏️","Book early","December is peak season in Nuwara Eliya, so rooms are booked early."]
+    ["🚐","Transport","Day 1 is 211 km and uses the Outer Circular Expressway (tolls). Confirm the full-trip quote with the operator."]
   ]
 };
 
@@ -564,7 +569,7 @@ roadSide.style.opacity=0;
 TRIP.stops.forEach(s=>{
   const g = el("g",{class:`node ${s.type}`,transform:`translate(${s.x},${s.y})`});
   el("circle",{class:"ring",r:6},g); el("circle",{class:"dot",r:6},g);
-  if(s.label!==false){const right = s.x<600 || s.id==="hakgala"; const t=el("text",{x:right?12:-12,y:s.id==="gampola"||s.id==="boral"?18:4,"text-anchor":right?"start":"end"},g);t.textContent=s.name}
+  if(s.label!==false){const right = s.x<600 || s.id==="bomburu"; const t=el("text",{x:right?12:-12,y:s.id==="gampola"||s.id==="boral"?18:s.id==="hemma"?-8:s.id==="nuwara"?-6:4,"text-anchor":right?"start":"end"},g);t.textContent=s.name}
   g.addEventListener("click",()=>{pause();showStop(s)}); s.g=g;
 });
 // vehicle
