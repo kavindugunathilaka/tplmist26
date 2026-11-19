@@ -15,6 +15,6 @@ All content comes from the `TRIP` object at the top of the `<script>` in `index.
 5. Add `images/cover.jpg`. It's used as the preview image when the link is shared on WhatsApp or Facebook.
 
 ## Stay slideshows (10 photos each)
-- **National Holiday Resort:** 10 photos load from the resort's official site. To use your own, put them in `images/` and change the paths in `stays[0].photos`.
-- **Dream Cottage:** slides 1–9 load from the property's own website. Add a 10th as `images/dream-10.jpg`. To stop depending on their site, download the photos into `images/` and change the paths in `stays[1].photos`.
+- **National Holiday Resort:** `images/nhr-1.jpg` … `nhr-10.jpg` (from the resort's official site).
+- **Dream Cottage:** `images/dream-1.jpg` … `dream-9.jpg` (from its official site); add a 10th as `images/dream-10.jpg`.
 - A photo that is missing or fails to load is skipped, so the slideshow only shows photos that load.
