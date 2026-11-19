@@ -392,5 +392,194 @@ window.PLACE_PHOTOS = {
    "credit": "Mala chaubey · CC BY-SA 4.0 · Wikimedia Commons",
    "page": "https://commons.wikimedia.org/wiki/File:Nuwaraellia_Town.jpg"
   }
+ ],
+ "boral": [
+  {
+   "src": "images/places/boral-2.jpg",
+   "credit": "Niha Nir · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Boralasgamuwa_Lake.jpg"
+  },
+  {
+   "src": "images/places/boral-3.jpg",
+   "credit": "Shehanw · CC BY-SA 3.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Bellanwila_Vihara.jpg"
+  },
+  {
+   "src": "images/places/boral-4.jpg",
+   "credit": "Udendra Geeganage · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Bellanwila-Attidiya_Sanctuary.jpg"
+  },
+  {
+   "src": "images/places/boral-5.jpg",
+   "credit": "Sandaru Senitha Wickramasinghe · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Birds_at_Attidiya.jpg"
+  },
+  {
+   "src": "images/places/boral-8.jpg",
+   "credit": "Kaveen Weerarathna · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Bolgoda_Lake,_Sri_Lanka.jpg"
+  },
+  {
+   "src": "images/places/boral-9.jpg",
+   "credit": "Chamal N · CC BY-SA 3.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Bolgoda_lake.JPG"
+  },
+  {
+   "src": "images/places/boral-10.jpg",
+   "credit": "briandemel · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Bolgoda_Lake.jpg"
+  }
+ ],
+ "batta": [
+  {
+   "src": "images/places/batta-1.jpg",
+   "credit": "Randeepa · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Battaramulla_City.jpg"
+  },
+  {
+   "src": "images/places/batta-2.jpg",
+   "credit": "Randeepa · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Battaramulla_Polduwa_Junction.jpg"
+  },
+  {
+   "src": "images/places/batta-3.jpg",
+   "credit": "Weranga Rajapaksha · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Diyatha_uyana.jpg"
+  },
+  {
+   "src": "images/places/batta-4.jpg",
+   "credit": "Nisnuwon · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Evening_over_city.jpg"
+  },
+  {
+   "src": "images/places/batta-6.jpg",
+   "credit": "Prasanna Liyanage · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Diyatha_Boat_Ride.jpg"
+  },
+  {
+   "src": "images/places/batta-7.jpg",
+   "credit": "Randeepa · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Sri_Lanka_National_War_Memorial.jpg"
+  },
+  {
+   "src": "images/places/batta-8.jpg",
+   "credit": "Prasanna Liyanage · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Diyatha_Boat_Ride_to_nawala_1.jpg"
+  },
+  {
+   "src": "images/places/batta-10.jpg",
+   "credit": "Nisnuwon · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Sunset_over_city.jpg"
+  }
+ ],
+ "athuru": [
+  {
+   "src": "images/places/athuru-3.jpg",
+   "credit": "Jeroen84 · CC BY-SA 3.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Purple_faced_langur.jpg"
+  }
+ ],
+ "kegalle": [
+  {
+   "src": "images/places/kegalle-2.jpg",
+   "credit": "Damitha K Tennakoon · CC BY 2.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Jubilee_Ambalama_Kegalle_Sri_Lanka.jpg"
+  },
+  {
+   "src": "images/places/kegalle-3.jpg",
+   "credit": "Luboš Holič · CC BY-SA 3.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Kegalle,_Sri_Lanka_-_panoramio_(19).jpg"
+  },
+  {
+   "src": "images/places/kegalle-4.jpg",
+   "credit": "Luboš Holič · CC BY-SA 3.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Kegalle,_Sri_Lanka_-_panoramio_(7).jpg"
+  },
+  {
+   "src": "images/places/kegalle-5.jpg",
+   "credit": "Luboš Holič · CC BY-SA 3.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Kegalle,_Sri_Lanka_-_panoramio_(20).jpg"
+  }
+ ],
+ "mawa": [
+  {
+   "src": "images/places/mawa-2.jpg",
+   "credit": "Николай Максимович · CC BY 3.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Mawanella,_Sri_Lanka_-_panoramio.jpg"
+  },
+  {
+   "src": "images/places/mawa-4.jpg",
+   "credit": "Pubudu Alahakoon · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Paddy_field_mawanella.jpg"
+  },
+  {
+   "src": "images/places/mawa-5.jpg",
+   "credit": "Sanidi · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Bo_Ella_-_Mawanella.jpg"
+  },
+  {
+   "src": "images/places/mawa-7.jpg",
+   "credit": "MediaJet · CC BY-SA 3.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Giruwa_Ambalama_Aluthnuwara_Mawanella.jpg"
+  },
+  {
+   "src": "images/places/mawa-8.jpg",
+   "credit": "MediaJet · CC BY-SA 3.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Beligammana_Raja_Maha_Viharaya_Mawanella.jpg"
+  },
+  {
+   "src": "images/places/mawa-9.jpg",
+   "credit": "Anuradha Dullewe Wijeyeratne,\n168 / 7, Inner Flower Road,\nColombo 7, Sri Lanka.\n\nE - Mail : anuradha.wijeyeratne@gmail.com · Public domain · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Dedimunda_Devalaya_%E2%80%93_Aluthnuwara.jpg"
+  },
+  {
+   "src": "images/places/mawa-10.jpg",
+   "credit": "Nisal Senanayaka · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Alagalla_mountain_range_03.jpg"
+  }
+ ],
+ "hemma": [
+  {
+   "src": "images/places/hemma-2.jpg",
+   "credit": "Rimaz Khan Naleer · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Ambuluweva_-_Hemmathagama.jpg"
+  },
+  {
+   "src": "images/places/hemma-3.jpg",
+   "credit": "Rimaz Khan Naleer · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Ambuluweva_To_Hemmathagama.jpg"
+  }
+ ],
+ "gampola": [
+  {
+   "src": "images/places/gampola-3.jpg",
+   "credit": "Hash Milhan · CC BY 2.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Gampola_rail_tracks.jpg"
+  },
+  {
+   "src": "images/places/gampola-4.jpg",
+   "credit": "Fazulrahman2020 · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:BRIDGE_IN_GAMPOLA.jpg"
+  },
+  {
+   "src": "images/places/gampola-5.jpg",
+   "credit": "Cherubino · CC BY-SA 3.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Gampola.JPG"
+  },
+  {
+   "src": "images/places/gampola-7.jpg",
+   "credit": "Hayas ahamed · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Ancient_bridge.jpg"
+  },
+  {
+   "src": "images/places/gampola-9.jpg",
+   "credit": "PRAVEEN230 · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Gampola_-_Sri_lanka.jpg"
+  },
+  {
+   "src": "images/places/gampola-10.jpg",
+   "credit": "PRAVEEN230 · CC BY-SA 4.0 · Wikimedia Commons",
+   "page": "https://commons.wikimedia.org/wiki/File:Gampola_-_Sri_lanka_002.jpg"
+  }
  ]
 };

@@ -30,6 +30,16 @@ PLACES = {
     "kandeela": ["Kande Ela", "Kandapola"],
     "bomburu":  ["Bomburu Ella", "Bomburuella"],
     "shop":     ["Nuwara Eliya market", "Nuwara Eliya town", "Nuwara Eliya post office"],
+    # towns on the Day 1 route (town name boards are fine)
+    "boral":    ["Boralesgamuwa", "Bellanwila", "Bolgoda"],
+    "maha":     ["Maharagama"],
+    "batta":    ["Battaramulla", "Sri Jayawardenepura Kotte parliament"],
+    "athuru":   ["Athurugiriya", "Outer Circular Expressway"],
+    "kada":     ["Kadawatha", "Kadawatha interchange"],
+    "kegalle":  ["Kegalle", "Pinnawala"],
+    "mawa":     ["Mawanella", "Kadugannawa"],
+    "hemma":    ["Hemmathagama", "Hemmathagama town"],
+    "gampola":  ["Gampola", "Ambuluwawa"],
 }
 
 def get(url, params=None, binary=False):
