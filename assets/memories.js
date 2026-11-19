@@ -22,7 +22,11 @@
   .mem-empty{border:2px dashed rgba(255,255,255,.2);border-radius:18px;padding:60px 20px;text-align:center;color:rgba(255,255,255,.7);cursor:pointer;transition:.2s}
   .mem-empty:hover{border-color:var(--amber,#e9a23b);color:#fff}
   .mem-empty b{display:block;font:600 1.3rem var(--display,Georgia,serif);color:#fff;margin-bottom:6px}
-  .shot .ph-box{width:100%;background:#1d3a31}
+  #gallery{columns:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  #gallery .shot{margin:0}
+  #gallery .shot img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;background:#1d3a31}
+  #gallery .mem-empty{grid-column:1/-1}
+  @media(max-width:600px){#gallery{grid-template-columns:repeat(2,1fr);gap:8px}#gallery .shot figcaption{padding:22px 8px 6px;font-size:.72rem}}
   .shot figcaption small{display:block;opacity:.7;font-size:.72rem;margin-top:2px}
   .mem-modal{position:fixed;inset:0;z-index:120;background:rgba(5,12,10,.75);display:grid;place-items:center;padding:16px;animation:pop .25s}
   .mem-card{background:#fff;color:#0f1f1a;border-radius:20px;width:min(560px,100%);max-height:92vh;overflow:auto;padding:24px;font:.92rem/1.5 var(--body,system-ui)}
@@ -149,7 +153,7 @@
     if (!apiOk) { gallery.innerHTML = `<div class="mem-empty" style="cursor:default">Photos can't be loaded right now.</div>`; return; }
     gallery.innerHTML = view.length ? view.map((p, i) => `
       <figure class="shot" data-i="${i}">
-        <img src="${src(p, "thumb")}" alt="${esc(p.caption || placeName(p.place))}" loading="lazy" width="${p.width}" height="${p.height}" style="aspect-ratio:${p.width}/${p.height};background:#1d3a31">
+        <img src="${src(p, "thumb")}" alt="${esc(p.caption || placeName(p.place))}" loading="lazy">
         <figcaption>${esc(placeName(p.place))}${p.caption ? ` · ${esc(p.caption)}` : ""}<small>by ${esc(p.author)}</small></figcaption>
       </figure>`).join("")
       : `<div class="mem-empty" id="memEmpty"><b>No photos yet</b>Tap here to add the first one.</div>`;
