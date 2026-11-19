@@ -918,5 +918,6 @@ $("#notes").innerHTML = TRIP.notes.map(([ic,h,p],i)=>`<div class="note rv" style
 const io=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".rv").forEach(n=>io.observe(n));
 </script>
+<script src="assets/pin-comments.js" defer></script>
 </body>
 </html>
