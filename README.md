@@ -18,3 +18,13 @@ All content comes from the `TRIP` object at the top of the `<script>` in `index.
 - **National Holiday Resort:** `images/nhr-1.jpg` … `nhr-10.jpg` (from the resort's official site).
 - **Dream Cottage:** `images/dream-1.jpg` … `dream-9.jpg` (from its official site); add a 10th as `images/dream-10.jpg`.
 - A photo that is missing or fails to load is skipped, so the slideshow only shows photos that load.
+
+## Location photos (10 per place, free licence)
+The place cards, map panel and Memories gallery fill themselves from Wikimedia Commons. Run this from the repo root on your machine:
+
+```bash
+python3 scripts/fetch-place-photos.py
+git add images/places && git commit -m "Add location photos" && git push
+```
+
+The script downloads up to 10 photos per place into `images/places/` and writes `images/places/credits.js` with the author and licence of each one. It only keeps CC0, public domain, CC BY and CC BY-SA photos, and the site shows the credit on every photo. To change the search terms, edit `PLACES` at the top of the script. Your own trip photos (`photos:` in the `TRIP` data) always show before these.

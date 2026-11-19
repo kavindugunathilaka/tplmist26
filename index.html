@@ -193,6 +193,9 @@ nav.solid .logo,nav.solid .links a{color:var(--ink)}
 .sl-count{position:absolute;top:16px;right:16px;z-index:3;background:rgba(0,0,0,.5);color:#fff;font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:999px}
 .sl-credit{position:absolute;bottom:10px;right:12px;z-index:3;font-size:.65rem;color:rgba(255,255,255,.8)}
 .slider .badge{z-index:4}
+.stop-panel .slider{height:240px}.pcard .slider{height:190px}
+.pcard .sl-credit{top:14px;bottom:auto;left:12px;right:auto;text-align:left;max-width:62%;line-height:1.3}.pcard .sl-dots{bottom:12px}
+.sl-credit{max-width:70%;text-align:right;text-shadow:0 1px 3px rgba(0,0,0,.6)}
 @media(max-width:600px){.slider{height:230px}.sl-btn{opacity:1}}
 .hotel .hb{padding:26px}
 .hotel h3{font-size:1.8rem}
@@ -400,6 +403,7 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
   Nuwara Eliya & Horton Plains · 11–13 December 2026 · Organised by Kavindu Gunathilaka
 </footer>
 
+<script src="images/places/credits.js"></script>
 <script>
 /* =====================================================================
    TRIP DATA — edit only this block after the trip.
@@ -500,6 +504,16 @@ const TRIP = {
   ]
 };
 
+/* ===== merge place photos from scripts/fetch-place-photos.py (images/places/credits.js) ===== */
+(function(){
+  const extra = window.PLACE_PHOTOS || {};
+  [...TRIP.stops, ...TRIP.extraPlaces].forEach(p=>{
+    const own = p.photos.map(src=>({src, credit:""}));            // our own trip photos first
+    const all = own.concat(extra[p.id] || []);
+    p.photos = all.map(x=>x.src); p.credits = all.map(x=>x.credit||"");
+  });
+})();
+
 /* ===================== helpers ===================== */
 const $ = s => document.querySelector(s);
 const rs = n => n==null ? "—" : "Rs. " + Math.round(n).toLocaleString("en-LK");
@@ -507,6 +521,7 @@ const allPlaces = () => [...TRIP.stops.filter(s=>s.type!=="pickup"), ...TRIP.ext
 const byId = id => TRIP.stops.find(s=>s.id===id) || TRIP.extraPlaces.find(s=>s.id===id);
 const camIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="4"/></svg>';
 function photoBox(p, label){
+  if (p && p.photos && p.photos.length > 1) return slider(p);
   const src = p && p.photos && p.photos[0];
   return `<div class="stop-photo">${src?`<img src="${src}" alt="${p.name}" onerror="this.remove()">`:""}
     <div class="ph">${camIcon}${label||"Photo added after the trip"}</div></div>`;
@@ -579,6 +594,7 @@ el("circle",{r:8,fill:"#e9a23b",stroke:"#fff","stroke-width":2.5},van);
 van.style.display="none";
 
 function showStop(s){
+  const old=$("#stopPanel .slider"); old&&old._stop&&old._stop();
   document.querySelectorAll(".node").forEach(n=>n.classList.remove("active")); s.g&&s.g.classList.add("active");
   const typeLbl={pickup:"Road stop",place:"Place",stay:"Our base"}[s.type]||"Place";
   $("#stopPanel").innerHTML = `<div class="anim-in" style="display:flex;flex-direction:column;height:100%">${photoBox(s)}
@@ -586,6 +602,7 @@ function showStop(s){
    <h3>${s.name}</h3><p>${s.desc}</p>
    ${s.did?`<p style="margin-top:10px;color:var(--ink)"><b>What we did:</b> ${s.did}</p>`:""}
    <div class="kv"><div><small>Planned</small><b>${rs(s.planned)}</b></div><div><small>Actual spent</small><b>${s.spent==null?"Add after trip":rs(s.spent)}</b></div></div></div></div>`;
+  const sl=$("#stopPanel .slider"); sl&&initSlider(sl);
 }
 showStop(byId("boral"));
 
@@ -638,7 +655,7 @@ $("#placeGrid").innerHTML = allPlaces().map((p,i)=>`
     <div class="pb"><span class="chip">Day ${p.day} · ${p.time}</span><h3 style="margin-top:8px">${p.name}</h3><p>${p.did||p.desc}</p>
     <div class="foot"><span>Planned ${rs(p.planned)}</span><span>${p.spent==null?"Spent: TBA":"Spent "+rs(p.spent)}</span></div></div>
   </article>`).join("");
-$("#placeGrid").onclick=e=>{const c=e.target.closest(".pcard");if(!c)return;const s=TRIP.stops.find(x=>x.id===c.dataset.id);
+$("#placeGrid").onclick=e=>{if(e.target.closest(".sl-btn,.sl-dots"))return;const c=e.target.closest(".pcard");if(!c)return;const s=TRIP.stops.find(x=>x.id===c.dataset.id);
   if(s){showStop(s);$("#route").scrollIntoView()}};
 
 /* ===================== budget + stays ===================== */
@@ -674,9 +691,9 @@ function animateNum(el,to){const from=+(el.dataset.v||0);el.dataset.v=to;let st=
 function slider(s){
   return `<div class="slider" data-id="${s.id}">
     <div class="ph">${camIcon}Add photos to images/ (see README)</div>
-    ${s.photos.map((src,i)=>`<img class="slide" src="${src}" alt="${s.name} photo ${i+1}" loading="${i<2?"eager":"lazy"}" referrerpolicy="no-referrer">`).join("")}
+    ${s.photos.map((src,i)=>`<img class="slide" src="${src}" alt="${s.name} photo ${i+1}" loading="${i<2?"eager":"lazy"}" data-credit="${((s.credits&&s.credits[i])||s.credit||"").replace(/"/g,"&quot;")}">`).join("")}
     <button class="sl-btn prev" aria-label="Previous photo">‹</button><button class="sl-btn next" aria-label="Next photo">›</button>
-    <div class="sl-dots"></div><span class="sl-count"></span>${s.credit?`<span class="sl-credit">${s.credit}</span>`:""}</div>`;
+    <div class="sl-dots"></div><span class="sl-count"></span><span class="sl-credit"></span></div>`;
 }
 function initSlider(root){
   let i=0, timer, slides=()=>[...root.querySelectorAll(".slide")];
@@ -686,7 +703,8 @@ function initSlider(root){
     dots.innerHTML=slides().map((_,k)=>`<button aria-label="Photo ${k+1}"></button>`).join(""); if(i>=n)i=0; show(i);
   }
   function show(k){const L=slides();if(!L.length)return;i=(k+L.length)%L.length;
-    L.forEach((im,j)=>im.classList.toggle("on",j===i));[...dots.children].forEach((d,j)=>d.classList.toggle("on",j===i));count.textContent=`${i+1} / ${L.length}`}
+    L.forEach((im,j)=>im.classList.toggle("on",j===i));[...dots.children].forEach((d,j)=>d.classList.toggle("on",j===i));count.textContent=`${i+1} / ${L.length}`;
+    const c=root.querySelector(".sl-credit"); if(c) c.textContent=L[i].dataset.credit||""}
   const go=d=>{show(i+d);restart()}, restart=()=>{clearInterval(timer);timer=setInterval(()=>show(i+1),4000)};
   slides().forEach(im=>im.addEventListener("error",()=>{im.remove();build()}));
   root.querySelector(".prev").onclick=()=>go(-1); root.querySelector(".next").onclick=()=>go(1);
@@ -694,6 +712,7 @@ function initSlider(root){
   root.addEventListener("mouseenter",()=>clearInterval(timer)); root.addEventListener("mouseleave",restart);
   let x0=null; root.addEventListener("touchstart",e=>x0=e.touches[0].clientX,{passive:true});
   root.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(dx<0?1:-1);x0=null});
+  root._stop=()=>clearInterval(timer);
   build(); restart();
 }
 $("#hotelToggle").insertAdjacentHTML("beforeend",TRIP.stays.map(s=>`<button data-id="${s.id}">${s.id==="std"?"National Holiday Resort":"Dream Cottage"}</button>`).join(""));
@@ -720,14 +739,14 @@ new IntersectionObserver((en,o)=>{if(en[0].isIntersecting){renderBudget();o.disc
 let filter="all";
 function renderGallery(){
   const items=[]; allPlaces().forEach(p=>{
-    if(p.photos.length) p.photos.forEach(src=>items.push({p,src}));
+    if(p.photos.length) p.photos.forEach((src,k)=>items.push({p,src,credit:p.credits[k]}));
     else items.push({p,src:null});
   });
   const ars=["4/5","4/3","1/1","3/4","16/10"];
   $("#gallery").innerHTML = items.filter(i=>filter==="all"||i.p.id===filter).map((it,k)=>`
-    <figure class="shot rv in" data-src="${it.src||""}" data-cap="${it.p.name}${it.p.did?" — "+it.p.did:""}">
+    <figure class="shot rv in" data-src="${it.src||""}" data-cap="${it.p.name}${it.p.did?" — "+it.p.did:""}${it.credit?" · Photo: "+it.credit.replace(/"/g,"&quot;"):""}">
       ${it.src?`<img src="${it.src}" alt="${it.p.name}" loading="lazy">`:`<div class="stop-photo" style="--ar:${ars[k%ars.length]};background:linear-gradient(${120+k*25}deg,#1d4a3c,#2f6b4f 60%,#8fbf7a)"><div class="ph">${camIcon}${it.p.name}</div></div>`}
-      <figcaption>${it.p.name}</figcaption></figure>`).join("");
+      <figcaption>${it.p.name}${it.credit?`<small style="display:block;opacity:.7;font-size:.68rem">${it.credit}</small>`:""}</figcaption></figure>`).join("");
 }
 $("#filters").innerHTML = `<button class="btn on" data-f="all">All</button>`+allPlaces().map(p=>`<button class="btn" data-f="${p.id}">${p.name}</button>`).join("");
 $("#filters").onclick=e=>{const b=e.target.closest("button");if(!b)return;filter=b.dataset.f;
