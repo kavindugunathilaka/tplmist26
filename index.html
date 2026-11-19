@@ -227,6 +227,39 @@ nav.solid .logo,nav.solid .links a{color:var(--ink)}
 .lightbox p{text-align:center;margin-top:12px;color:#fff}
 .lightbox .x{position:absolute;top:20px;right:24px;color:#fff;font-size:2rem}
 
+/* ---------- LEAVE NOTICE ---------- */
+.leave-notice{display:flex;align-items:center;gap:12px;background:rgba(217,103,78,.18);border:1.5px solid rgba(217,103,78,.65);color:#f08070;padding:14px 22px;border-radius:14px;font-weight:700;font-size:.92rem;margin-top:22px;max-width:500px;backdrop-filter:blur(4px)}
+.leave-notice .pulse{width:11px;height:11px;border-radius:50%;background:#e05a3a;flex-shrink:0;box-shadow:0 0 0 0 rgba(217,103,78,.7);animation:leavePulse 1.6s ease-in-out infinite}
+@keyframes leavePulse{0%{box-shadow:0 0 0 0 rgba(217,103,78,.7)}70%{box-shadow:0 0 0 8px rgba(217,103,78,0)}100%{box-shadow:0 0 0 0 rgba(217,103,78,0)}}
+.leave-notice span{opacity:.85;font-weight:500;color:rgba(240,160,140,.9)}
+
+/* ---------- BACKUP PLAN ---------- */
+#backup{background:var(--forest);color:#fff}
+#backup .eyebrow{color:var(--tea)} #backup .sec-head p{color:rgba(255,255,255,.7)}
+.bp-notice{display:flex;gap:20px;align-items:flex-start;background:rgba(217,103,78,.18);border:1.5px solid rgba(217,103,78,.65);border-radius:var(--r);padding:32px;max-width:640px}
+.bp-notice-icon{font-size:2rem;line-height:1;flex-shrink:0;margin-top:2px}
+.bp-notice-title{font-family:var(--display);font-size:1.35rem;font-weight:600;margin-bottom:8px;color:#f08070}
+.bp-notice-desc{color:rgba(240,160,140,.9);line-height:1.6;font-size:.95rem}
+.bp-notice-desc strong{color:#fff}
+
+/* ---------- COLLECTION TRACKER ---------- */
+.collect-box{margin-top:28px;background:rgba(0,0,0,.28);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:22px 26px;max-width:600px}
+.collect-title{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-bottom:10px}
+.collect-bar-wrap{background:rgba(255,255,255,.12);border-radius:999px;height:10px;overflow:hidden;margin-bottom:6px}
+.collect-bar{height:100%;border-radius:999px;background:linear-gradient(90deg,#8fbf7a,#e9a23b);transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.collect-nums{display:flex;justify-content:space-between;font-size:.8rem;opacity:.8;margin-bottom:16px}
+.collect-nums b{color:#fff;opacity:1}
+.collect-avatars{display:flex;flex-wrap:wrap;gap:7px}
+.ca{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:default}
+.ca .av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;border:2px solid transparent;transition:.3s}
+.ca.paid .av{border-color:#8fbf7a;box-shadow:0 0 10px rgba(143,191,122,.5)}
+.ca.unpaid .av{opacity:.55;filter:grayscale(.4)}
+.ca .cn{font-size:.6rem;opacity:.7;max-width:38px;text-align:center;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ca.paid .cn{color:#8fbf7a;opacity:1}
+.collect-remain{margin-top:12px;font-size:.82rem;color:rgba(255,255,255,.75)}
+.collect-remain b{color:#e9a23b}
+.collect-cta{margin-top:14px;display:inline-block;background:linear-gradient(135deg,#2f6b4f,#8fbf7a);color:#fff;font-weight:700;font-size:.82rem;padding:8px 18px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase;cursor:default}
+
 /* ---------- PEOPLE & NOTES ---------- */
 .people{display:flex;flex-wrap:wrap;gap:12px}
 .person{display:flex;align-items:center;gap:10px;background:#fff;padding:8px 16px 8px 8px;border-radius:999px;box-shadow:0 6px 18px -12px rgba(0,0,0,.3);font-weight:600}
@@ -248,7 +281,7 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
   <div class="logo">Into the Mist ’26</div>
   <div class="links">
     <a href="#route">Route</a><a href="#plan">Itinerary</a><a href="#places">Places</a>
-    <a href="#budget">Budget</a><a href="#stay">Stay</a><a href="#memories">Memories</a><a href="#crew">Crew</a>
+    <a href="#budget">Budget</a><a href="#stay">Stay</a><a href="#memories">Memories</a><a href="#crew">Crew</a><a href="#backup">Handover</a>
   </div>
 </div></nav>
 
@@ -276,12 +309,25 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
     <h1 id="heroTitle">Into the Mist <span>Nuwara Eliya</span></h1>
     <p class="tag reveal-word" style="animation-delay:.9s">Three days in the hill country: a dawn trek to World's End, waterfalls, tea estates and a BBQ by the campfire. This page keeps the plan, the money and the memories in one place.</p>
     <div class="stats reveal-word" style="animation-delay:1.1s">
-      <div class="stat"><b data-count="3">0</b><small>Days · 2 nights</small></div>
+      <div class="stat" style="min-width:140px">
+        <b style="font-size:1rem;line-height:1.5;letter-spacing:.01em"><span style="color:#e05a3a">Fri</span>&thinsp;·&thinsp;Sat&thinsp;·&thinsp;Sun</b>
+        <small style="display:block;margin-top:2px"><span style="color:#e05a3a">11</span> · 12 · 13 Dec</small>
+        <small>3 days · 2 nights</small>
+      </div>
       <div class="stat"><b data-count="16">0</b><small>Travellers</small></div>
-      <div class="stat"><b data-count="440" data-suffix=" km">0</b><small>Round trip</small></div>
-      <div class="stat"><b data-count="20000" data-prefix="Rs. ">0</b><small>Per head</small></div>
+      <div class="stat"><b id="heroTotal" data-count="265000" data-prefix="Rs. ">0</b><small>Est. total budget</small></div>
+      <div class="stat"><b id="heroPerHead" data-count="16563" data-prefix="Rs. ">0</b><small>Per head</small></div>
     </div>
-    <div class="countdown reveal-word" style="animation-delay:1.3s" id="countdown"></div>
+    <div class="leave-notice reveal-word" style="animation-delay:1.3s">
+      <div class="pulse"></div>
+      <div>📋 Project backup plan and leave coverage · <b>Gayan</b> <span>— Backup plan &amp; support roster being prepared · will be shared internally by Gayan.</span></div>
+    </div>
+    <div class="leave-notice reveal-word" style="animation-delay:1.3s">
+      <div class="pulse"></div>
+      <div>🗓️ Leave required · <b>Friday 11 Dec</b> <span>— Please apply with your manager ahead of time.</span></div>
+    </div>
+    <div class="collect-box reveal-word" style="animation-delay:1.6s" id="collectBox"></div>
+    <div class="countdown reveal-word" style="animation-delay:1.8s" id="countdown"></div>
   </div>
   <div class="scroll-cue"></div>
 </header>
@@ -398,6 +444,19 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
   </div>
 </section>
 
+<!-- ================= BACKUP PLAN ================= -->
+<section id="backup">
+  <div class="wrap">
+    <div class="sec-head rv" style="flex-direction:column;align-items:flex-start">
+      <div><div class="eyebrow">08 · Backup plan</div><h2>Project handovers</h2></div>
+    </div>
+    <div class="leave-notice rv" style="transition-delay:.1s">
+      <div class="pulse"></div>
+      <div>📋 Project backup plan and leave coverage · <b>Gayan</b> <span>— Backup plan &amp; support roster being prepared · will be shared internally by Gayan.</span></div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <b>Into the Mist ’26</b>
   Nuwara Eliya & Horton Plains · 11–13 December 2026 · Organised by Kavindu Gunathilaka
@@ -412,25 +471,25 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
    • spent:   actual Rs. spent at that location (null = not added yet)
    ===================================================================== */
 const TRIP = {
-  start: "2026-12-11T07:30:00+05:30",
+  start: "2026-12-11T06:30:00+05:30",
   people: 16,
-  contributionPerHead: 20000,
+  contributionPerHead: 3125,
   stops: [
-    {id:"boral",  name:"Boralesgamuwa", lat:6.8410, lng:79.9017, type:"pickup", day:1, time:"7:30 am",  desc:"Departure and first pickup.", planned:null, spent:null, did:"", photos:[]},
-    {id:"maha",   name:"Maharagama",    lat:6.8447, lng:79.9342, type:"pickup", day:1, time:"7:50 am",  desc:"Second pickup at Maharagama town.", planned:null, spent:null, did:"", photos:[]},
-    {id:"batta",  name:"Battaramulla",  lat:6.8980, lng:79.9223, type:"pickup", day:1, time:"~8:15 am", desc:"Ryan's pickup.", planned:null, spent:null, did:"", photos:[]},
-    {id:"athuru", name:"Athurugiriya",  lat:6.8834, lng:79.9766, type:"pickup", day:1, time:"~8:40 am", desc:"Join the Outer Circular Expressway at the Athurugiriya Interchange (toll road).", planned:null, spent:null, did:"", photos:[], label:false},
-    {id:"kada",   name:"Kadawatha",     lat:7.0046, lng:79.9542, type:"pickup", day:1, time:"~9:10 am", desc:"Off the expressway onto the Kandy road.", planned:null, spent:null, did:"", photos:[]},
-    {id:"kegalle",name:"Kegalle",       lat:7.2567, lng:80.3464, type:"pickup", day:1, time:"~10:30 am",desc:"Pickup and breakfast stop.", planned:null, spent:null, did:"", photos:[]},
-    {id:"mawa",   name:"Mawanella",     lat:7.2522, lng:80.4468, type:"pickup", day:1, time:"~11:15 am",desc:"Through Mawanella.", planned:null, spent:null, did:"", photos:[]},
-    {id:"hemma",  name:"Hemmathagama",  lat:7.1734, lng:80.5008, type:"pickup", day:1, time:"~11:45 am",desc:"Through Hemmathagama towards Gampola.", planned:null, spent:null, did:"", photos:[]},
-    {id:"gampola",name:"Gampola",       lat:7.1635, lng:80.5702, type:"pickup", day:1, time:"~12:45 pm",desc:"Lunch around Gampola / Pussellawa.", planned:null, spent:null, did:"", photos:[]},
-    {id:"ramboda",name:"Ramboda Falls", lat:7.0565, lng:80.6938, type:"place",  day:1, time:"~2:15 pm", desc:"Photo stop at Ramboda Falls.", planned:null, spent:null, did:"", photos:[]},
-    {id:"teaf",   name:"Tea factory",   lat:7.0241, lng:80.7194, type:"place",  day:1, time:"~3:00 pm", desc:"Tea factory photo stop on the Ramboda road (Bluefield or Labookellie, to confirm).", planned:null, spent:null, did:"", photos:[]},
-    {id:"nuwara", name:"Nuwara Eliya",  lat:6.9607, lng:80.7693, type:"stay",   day:1, time:"~4:15 pm", desc:"Check in at our stay (location to confirm). BBQ night with music from 6:30 pm.", planned:null, spent:null, did:"", photos:[]},
-    {id:"horton", name:"Horton Plains", lat:6.8020, lng:80.8060, type:"place",  day:2, time:"6:00 am",  desc:"Dawn trek: World's End and Baker's Falls loop, about 9 km. No polythene allowed.", planned:null, spent:null, did:"", photos:[], side:true},
-    {id:"nzfarm", name:"New Zealand Farm", lat:6.8685, lng:80.7976, type:"place", day:2, time:"~10:45 am",desc:"Ambewela New Zealand Farm on the way back from Horton Plains.", planned:null, spent:null, did:"", photos:[], side:true},
-    {id:"kandeela",name:"Kande Ela",    lat:6.9167, lng:80.7900, type:"place",  day:2, time:"~12:00 pm",desc:"Kande Ela Reservoir: pine forest and lake views on the way back to town.", planned:null, spent:null, did:"", photos:[], side:true},
+    {id:"boral",  name:"Boralesgamuwa", lat:6.8410, lng:79.9017, type:"pickup", day:1, time:"6:30 am",  desc:"Departure and first pickup.", planned:null, spent:null, did:"", photos:[]},
+    {id:"maha",   name:"Maharagama",    lat:6.8447, lng:79.9342, type:"pickup", day:1, time:"~6:50 am", desc:"Second pickup at Maharagama town.", planned:null, spent:null, did:"", photos:[]},
+    {id:"batta",  name:"Battaramulla",  lat:6.8980, lng:79.9223, type:"pickup", day:1, time:"~7:15 am", desc:"Ryan's pickup.", planned:null, spent:null, did:"", photos:[]},
+    {id:"athuru", name:"Athurugiriya",  lat:6.8834, lng:79.9766, type:"pickup", day:1, time:"~7:40 am", desc:"Join the Outer Circular Expressway at the Athurugiriya Interchange (toll road).", planned:null, spent:null, did:"", photos:[], label:false},
+    {id:"kada",   name:"Kadawatha",     lat:7.0046, lng:79.9542, type:"pickup", day:1, time:"~8:10 am", desc:"Off the expressway onto the Kandy road.", planned:null, spent:null, did:"", photos:[]},
+    {id:"kegalle",name:"Kegalle",       lat:7.2567, lng:80.3464, type:"pickup", day:1, time:"~9:30 am", desc:"Pickup — having breakfast while travelling.", planned:null, spent:null, did:"", photos:[]},
+    {id:"mawa",   name:"Mawanella",     lat:7.2522, lng:80.4468, type:"pickup", day:1, time:"~10:00 am",desc:"Through Mawanella.", planned:null, spent:null, did:"", photos:[]},
+    {id:"hemma",  name:"Hemmathagama",  lat:7.1734, lng:80.5008, type:"pickup", day:1, time:"~11:30 am",desc:"Through Hemmathagama towards Gampola.", planned:null, spent:null, did:"", photos:[]},
+    {id:"gampola",name:"Gampola",       lat:7.1635, lng:80.5702, type:"pickup", day:1, time:"~11:50 am",desc:"Through Gampola / Pussellawa.", planned:null, spent:null, did:"", photos:[]},
+    {id:"ramboda",name:"Ramboda Falls", lat:7.0565, lng:80.6938, type:"place",  day:1, time:"~12:10 pm",desc:"Ramboda Falls on the route up.", planned:null, spent:null, did:"", photos:[]},
+    {id:"teaf",   name:"Tea factory",   lat:7.0241, lng:80.7194, type:"place",  day:1, time:"~11:45 am",desc:"Tea factory photo stop on the Ramboda road (Bluefield or Labookellie, to confirm).", planned:null, spent:null, did:"", photos:[]},
+    {id:"nuwara", name:"Nuwara Eliya",  lat:6.9607, lng:80.7693, type:"stay",   day:1, time:"~12:30 – 1:00 pm", desc:"Check in at our stay (location to confirm). BBQ night with music from 6:30 pm.", planned:null, spent:null, did:"", photos:[]},
+    {id:"horton", name:"Horton Plains", lat:6.8020, lng:80.8060, type:"place",  day:2, time:"11:00 am – 4:00 pm", desc:"Trek: World's End and Baker's Falls loop, about 9 km. No polythene allowed.", planned:null, spent:null, did:"", photos:[], side:true},
+    {id:"nzfarm", name:"New Zealand Farm", lat:6.8685, lng:80.7976, type:"place", day:2, time:"~4:30 pm", desc:"Ambewela New Zealand Farm on the way back from Horton Plains.", planned:null, spent:null, did:"", photos:[], side:true},
+    {id:"kandeela",name:"Kande Ela",    lat:6.9167, lng:80.7900, type:"place",  day:2, time:"~9:00 am", desc:"Kande Ela Reservoir: pine forest and lake views on the way to Horton Plains.", planned:null, spent:null, did:"", photos:[], side:true},
     {id:"bomburu",name:"Bomburu Ella",  lat:6.9472, lng:80.8311, type:"place",  day:3, time:"~7:30 am", desc:"Morning trip to Bomburu Ella waterfall, about 3 hours.", planned:null, spent:null, did:"", photos:[], side:true}
   ],
   // places that are not separate map points
@@ -442,24 +501,22 @@ const TRIP = {
   ],
   days: [
     {label:"Day 1", date:"Fri 11 Dec", items:[
-      ["7:30 am","Departure","Boralesgamuwa pickup","boral"],
-      ["7:50 am","Maharagama pickup","","maha"],
-      ["~8:15 am","Battaramulla","Ryan's pickup","batta"],
-      ["~8:40 am","Outer Circular Expressway","Athurugiriya Interchange → Kadawatha","athuru"],
-      ["~10:30 am","Kegalle","Pickup and breakfast","kegalle"],
-      ["~11:15 am","Mawanella → Hemmathagama","","hemma"],
-      ["~12:45 pm","Lunch","Around Gampola / Pussellawa","gampola"],
-      ["~2:15 pm","Ramboda Falls","Photo stop","ramboda",1],
-      ["~3:00 pm","Tea factory","Photo location","teaf",1],
-      ["~4:15 pm","Arrive at Nuwara Eliya","Check in · ⏳ stay location to confirm","nuwara"],
-      ["~5:00 – 6:15 pm","Optional: Gregory Lake","Park, cycling, boat ride or photography, for anyone who wants it","gregory"],
+      ["6:30 am","Departure","Boralesgamuwa pickup","boral"],
+      ["~6:50 am","Maharagama pickup","","maha"],
+      ["~7:15 am","Battaramulla","Ryan's pickup","batta"],
+      ["~7:40 am","Outer Circular Expressway","Athurugiriya Interchange → Kadawatha","athuru"],
+      ["~9:30 am","Kegalle","Pickup — having breakfast while travelling","kegalle"],
+      ["~10:00 am","Mawanella","","mawa"],
+      ["~11:45 am","Tea factory","Photo location","teaf",1],
+      ["~12:30 – 1:00 pm","Arrive at Nuwara Eliya","Check in · ⏳ stay location to confirm","nuwara"],
+      ["5:00 – 6:15 pm","Optional: Gregory Lake","Park, cycling, boat ride or photography, for anyone who wants it","gregory"],
       ["6:30 pm","BBQ night","BBQ with music","bbq",1]]},
     {label:"Day 2", date:"Sat 12 Dec", items:[
-      ["4:30 am","Leave for Horton Plains","⏳ Breakfast: need to find a food provider",""],
-      ["6:00 – 10:00 am","Horton Plains trek","World's End and Baker's Falls loop, about 9 km","horton",1],
-      ["~10:45 am","New Zealand Farm, Ambewela","","nzfarm"],
-      ["~12:00 pm","Kande Ela Reservoir","On the way back","kandeela"],
+      ["8:00 am","Leave for Horton Plains","⏳ Breakfast: need to find a food provider",""],
+      ["~9:00 am","Kande Ela Reservoir","On the way","kandeela"],
+      ["11:00 am – 4:00 pm","Horton Plains trek","World's End and Baker's Falls loop, about 9 km","horton",1],
       ["~1:00 pm","Lunch on the way","⏳ Option to check",""],
+      ["~4:30 pm","New Zealand Farm, Ambewela","On the way back","nzfarm"],
       ["Afternoon","Rest at the stay","",""],
       ["~7:30 pm","Saturday dinner","Mariners' (Navy) Restaurant, or a provider with a big menu · ⏳ to confirm","navy",1]]},
     {label:"Day 3", date:"Sun 13 Dec", items:[
@@ -496,6 +553,11 @@ const TRIP = {
      credit:"Photos: dreamcottagenuwaraeliya.lk", sample:true}
   ],
   participants: [["Gayan (family)",3],["Teeshan",1],["Randula",1],["Kavindu",1],["Vishwa",1],["Vidusha",1],["Anuradha",1],["Shehan",1],["Dinuwara",1],["Viduranga",1],["Ryan + 1",2],["Chandeepa",1],["Anu",1]],
+  backupPlans: [
+    {project:"Project 1", backup:"", contact:"", status:"pending", notes:"Add handover notes — what needs attention while you're away."},
+    {project:"Project 2", backup:"", contact:"", status:"pending", notes:""},
+    {project:"Project 3", backup:"", contact:"", status:"pending", notes:""}
+  ],
   notes: [
     ["⏳","Still to arrange","Day 2 breakfast provider · Day 2 lunch option on the way · Saturday dinner (Mariners' or a provider with a big menu) · stay location in Nuwara Eliya · which tea factory."],
     ["🧥","Pack warm","December nights are about 10–15°C, cold, wet and misty. Bring jackets and rain gear."],
@@ -673,6 +735,9 @@ function renderBudget(){
     c.style.strokeDasharray=`${Math.max(len-3,0)} ${C}`;c.style.strokeDashoffset=-off;off+=len});
   animateNum($("#perHead"),perHead);
   $("#totalLbl").textContent="Total "+rs(est);
+  // keep hero stats in sync with budget
+  const hT=$("#heroTotal"), hP=$("#heroPerHead");
+  if(hT) animateNum(hT,est); if(hP) animateNum(hP,perHead);
   // bars
   $("#bars").innerHTML = rows.map(r=>`<div class="bar-row"><div class="lbl"><span>${r.label}</span><span>${rs(r.planned)} · ${rs(r.planned/TRIP.people)}/head</span></div>
     <div class="bar"><i style="background:${r.color}" data-w="${r.planned/max*100}"></i>${r.actual!=null?`<i class="actual" data-w="${r.actual/max*100}"></i>`:""}</div>
@@ -755,6 +820,55 @@ $("#gallery").onclick=e=>{const f=e.target.closest(".shot");if(!f||!f.dataset.sr
   $("#lbImg").src=f.dataset.src;$("#lbCap").textContent=f.dataset.cap;$("#lb").classList.add("open")};
 const lb=$("#lb"); lb.onclick=e=>{if(e.target===lb)lb.classList.remove("open")};
 renderGallery();
+
+/* ===================== collection tracker ===================== */
+(function(){
+  const totalBudget = 265000;
+  const totalCollected = 50000;
+  // one entry per participant group; amount = what they paid; label = display name
+  const roster = [
+    {key:"Gayan",   label:"Gayan",    badge:"+2", paid:true,  amount:10000},
+    {key:"Teeshan", label:"Teeshan",  badge:"",   paid:true,  amount:5000},
+    {key:"Randula", label:"Randula",  badge:"",   paid:true,  amount:5000},
+    {key:"Kavindu", label:"Kavindu",  badge:"",   paid:true,  amount:5000},
+    {key:"Vishwa",  label:"Vishwa",   badge:"",   paid:true,  amount:5000},
+    {key:"Vidusha", label:"Vidusha",  badge:"",   paid:true,  amount:5000},
+    {key:"Shehan",  label:"Shehan",   badge:"",   paid:true,  amount:5000},
+    {key:"Dinuwara",label:"Dinuwara", badge:"",   paid:true,  amount:5000},
+    {key:"Viduranga",label:"Viduranga",badge:"",  paid:true,  amount:5000},
+    {key:"Ryan",    label:"Ryan",     badge:"+1", paid:false, amount:5000},
+    {key:"Chandeepa",label:"Chandeepa",badge:"",  paid:false, amount:5000},
+    {key:"Anu",     label:"Anu",      badge:"",   paid:false, amount:5000},
+    {key:"Anuradha",label:"Anuradha", badge:"",   paid:false, amount:5000},
+  ];
+  const pal=["#123a2e","#2f6b4f","#e9a23b","#d9674e","#5b8c73","#9a5d0b","#4a7c5f","#b8734a","#3d6e55","#c47f3e","#2a5940","#a06832","#6b4f9a"];
+  const pct = Math.round(totalCollected/totalBudget*100);
+  const remain = totalBudget - totalCollected;
+  const unpaidCount = roster.filter(r=>!r.paid).length;
+  const box = $("#collectBox");
+  if(!box) return;
+  box.innerHTML = `
+    <div class="collect-title">💰 Trip fund collection · ${pct}% of target</div>
+    <div class="collect-bar-wrap"><div class="collect-bar" id="cBar" style="width:0%"></div></div>
+    <div class="collect-nums">
+      <span><b>Rs. ${totalCollected.toLocaleString()}</b> collected</span>
+      <span>Total budget <b>Rs. ${totalBudget.toLocaleString()}</b></span>
+    </div>
+    <div class="collect-avatars">
+      ${roster.map((r,i)=>`
+        <div class="ca ${r.paid?"paid":"unpaid"}" title="${r.label}${r.badge?" ("+r.badge+")":""} — ${r.paid?"✓ Rs. "+r.amount.toLocaleString()+" paid":"⏳ Rs. "+r.amount.toLocaleString()+" pending"}">
+          <div class="av" style="background:${pal[i%pal.length]};position:relative">
+            ${r.label[0].toUpperCase()}
+            ${r.badge?`<span style="position:absolute;top:-5px;right:-8px;font-size:.5rem;background:#e9a23b;color:#0f1f1a;border-radius:999px;padding:1px 4px;font-weight:800;line-height:1.4">${r.badge}</span>`:""}
+          </div>
+          <div class="cn">${r.label}</div>
+        </div>`).join("")}
+    </div>
+    <div class="collect-remain">⏳ <b>Rs. ${remain.toLocaleString()}</b> remaining to reach budget · ${unpaidCount} ${unpaidCount===1?"person":"people"} yet to contribute</div>
+    <div class="collect-cta">🤝 Ryan — your sponsorship closes the gap!</div>
+  `;
+  setTimeout(()=>{ const b=$("#cBar"); if(b) b.style.width=pct+"%"; }, 600);
+})();
 
 /* ===================== crew + notes ===================== */
 const pal=["#123a2e","#2f6b4f","#e9a23b","#d9674e","#5b8c73","#9a5d0b"];
