@@ -2,422 +2,428 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Into the Mist — Nuwara Eliya & Horton Plains Trip 2026</title>
-<meta name="description" content="Our team trip to Nuwara Eliya and Horton Plains, 11–13 December 2026: route, itinerary, budget, stays and memories.">
-<meta property="og:title" content="Into the Mist — Nuwara Eliya & Horton Plains 2026">
-<meta property="og:description" content="3 days · 2 nights · 15 people. Route, itinerary, budget and photos from our trip.">
-<meta property="og:image" content="images/cover.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F1A1C">
+<title>Into the Mist ’26 · Nuwara Eliya & Horton Plains</title>
+<meta name="description" content="Our team trip to Nuwara Eliya and Horton Plains, 11–13 December 2026: route, plan, budget, stay and photos.">
+<meta property="og:title" content="Into the Mist ’26 · Nuwara Eliya & Horton Plains">
+<meta property="og:description" content="Three days in the hill country, 11–13 December 2026. Route, plan, budget and photos.">
+<meta property="og:image" content="images/places/horton-1.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* ---------- tokens ---------- */
 :root{
-  --ink:#0f1f1a; --forest:#123a2e; --moss:#2f6b4f; --tea:#8fbf7a; --mist:#eef3ef;
-  --fog:#dfe8e2; --amber:#e9a23b; --rose:#d9674e; --paper:#f7f8f4; --muted:#5d6f66;
-  --r:18px; --shadow:0 20px 50px -20px rgba(15,31,26,.35);
-  --display:"Fraunces",Georgia,serif; --body:"Manrope",system-ui,sans-serif;
+  --bg:#0F1A1C; --s1:#152225; --s2:#1B2B2F; --s3:#233739; --line:#2A3D41;
+  --text:#EEF3F1; --soft:#C3D1CE; --muted:#8FA4A1;
+  --tea:#4FCB8E; --tea-ink:#06150D; --mist:#8EC5E8; --amber:#F2B84B; --rose:#F07A6A;
+  --r-xl:28px; --r-lg:20px; --r-md:14px; --r-sm:10px;
+  --font:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  /* aliases used by assets/pin-comments.js and assets/memories.js */
+  --forest:var(--s2); --moss:var(--tea); --ink:var(--text); --paper:var(--bg); --mist-bg:var(--s2);
+  --body:var(--font); --display:var(--font);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:120px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.55;font-size:16px;overflow-x:hidden;font-feature-settings:"tnum" 0}
 img{max-width:100%;display:block}
+a{color:inherit}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
-.wrap{width:min(1180px,92vw);margin-inline:auto}
-h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-.01em}
-.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--moss)}
-section{padding:110px 0}
-.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
-.sec-head h2{font-size:clamp(2.2rem,5vw,3.6rem);max-width:16ch}
-.sec-head p{max-width:46ch;color:var(--muted)}
+:focus-visible{outline:2px solid var(--mist);outline-offset:3px;border-radius:6px}
+.num,.tl-time,.price,.kv b,.totals b,.facts b{font-variant-numeric:tabular-nums}
+.wrap{width:min(1200px,calc(100% - 40px));margin-inline:auto}
+h1,h2,h3,h4{line-height:1.08;letter-spacing:-.025em;font-weight:700}
+section{padding:72px 0 8px}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:12px 40px;align-items:end;margin-bottom:28px}
+.head h2{font-size:clamp(1.9rem,4vw,2.8rem)}
+.head p{color:var(--muted);font-size:.98rem;max-width:46ch}
+@media(max-width:760px){.head{grid-template-columns:1fr}section{padding-top:56px}}
 
-/* ---------- NAV ---------- */
-nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:.4s}
-nav .wrap{display:flex;justify-content:space-between;align-items:center;height:72px}
-nav.solid{background:rgba(247,248,244,.85);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
-.logo{font-family:var(--display);font-weight:800;font-size:1.25rem;color:#fff;transition:.4s}
-nav.solid .logo,nav.solid .links a{color:var(--ink)}
-.links{display:flex;gap:26px}
-.links a{color:rgba(255,255,255,.9);text-decoration:none;font-weight:600;font-size:.92rem;transition:.3s}
-.links a:hover{color:var(--amber)}
-@media(max-width:820px){.links{display:none}}
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(15,26,28,.82);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid transparent;transition:border-color .2s}
+.topbar.scrolled{border-bottom-color:var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.brand svg{width:26px;height:26px}
+.tabs-nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.tabs-nav::-webkit-scrollbar{display:none}
+.tabs-nav a{padding:8px 14px;border-radius:999px;text-decoration:none;color:var(--soft);font-weight:600;font-size:.9rem;white-space:nowrap;transition:background .15s,color .15s}
+.tabs-nav a:hover{color:var(--text);background:var(--s2)}
+.tabs-nav a.on{background:var(--text);color:var(--bg)}
+@media(max-width:760px){.topbar .wrap{flex-wrap:wrap;height:auto;padding:10px 0 8px;gap:6px}.tabs-nav{margin-left:-6px;width:calc(100% + 12px)}.brand{font-size:1.02rem}}
 
-/* ---------- HERO ---------- */
-.hero{position:relative;min-height:100vh;height:auto;overflow:hidden;color:#fff;
-  background:linear-gradient(180deg,#0c2420 0%,#1d4a3c 45%,#7aa592 78%,#cfdcd3 100%)}
-.hero svg.layer{position:absolute;left:-5%;width:110%;bottom:0;will-change:transform}
-.sun{position:absolute;width:240px;height:240px;border-radius:50%;right:16%;top:22%;
-  background:radial-gradient(circle,#ffe3a8 0%,rgba(255,200,120,.35) 45%,transparent 70%);animation:glow 6s ease-in-out infinite}
-@keyframes glow{50%{transform:scale(1.08);opacity:.85}}
-.mist{position:absolute;left:-50%;width:200%;height:180px;border-radius:50%;
-  background:radial-gradient(ellipse at center,rgba(255,255,255,.55),transparent 65%);filter:blur(18px);animation:drift linear infinite}
-@keyframes drift{from{transform:translateX(0)}to{transform:translateX(25%)}}
-.hero-inner{position:relative;z-index:5;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:clamp(60px,10vh,120px);padding-bottom:clamp(60px,10vh,120px)}
-.hero h1{font-size:clamp(3.2rem,10vw,8.5rem);font-weight:800;max-width:11ch}
-.hero h1 span{display:block;font-style:italic;font-weight:400;color:var(--tea)}
-.hero .tag{margin-top:22px;font-size:1.15rem;max-width:48ch;color:rgba(255,255,255,.85)}
-.reveal-word{display:inline-block;opacity:0;transform:translateY(40px);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
-@keyframes up{to{opacity:1;transform:none}}
-.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
-.stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px);
-  padding:14px 20px;border-radius:14px;min-width:140px}
-.stat b{display:block;font-family:var(--display);font-size:1.6rem}
-.stat small{opacity:.75;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
-.countdown{display:flex;gap:10px;margin-top:26px;align-items:center;font-size:.9rem}
-.countdown .cd{font-family:var(--display);font-size:1.5rem;font-weight:600;background:rgba(0,0,0,.25);padding:4px 12px;border-radius:10px;min-width:58px;text-align:center}
-.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:6;width:26px;height:42px;border:2px solid rgba(255,255,255,.6);border-radius:20px}
-.scroll-cue::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;background:#fff;border-radius:2px;animation:cue 1.8s infinite}
-@keyframes cue{to{transform:translateY(14px);opacity:0}}
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,1fr);gap:20px;padding-top:20px}
+.hero-photo{position:relative;border-radius:var(--r-xl);overflow:hidden;min-height:520px;background:var(--s2)}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes settle{from{transform:scale(1.08);filter:saturate(.6) brightness(.8)}}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,26,28,0) 35%,rgba(15,26,28,.88) 100%)}
+.hero-copy{position:absolute;left:32px;right:32px;bottom:30px;z-index:2}
+.hero-copy h1{font-size:clamp(2.6rem,6.2vw,5rem);font-weight:800;letter-spacing:-.04em;line-height:.95;max-width:11ch}
+.hero-copy p{margin-top:14px;color:var(--soft);max-width:44ch;font-size:1.02rem}
+.hero-credit{position:absolute;top:16px;right:18px;z-index:2;font-size:.7rem;color:rgba(255,255,255,.7);background:rgba(0,0,0,.35);padding:3px 9px;border-radius:999px;max-width:60%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-alt{position:absolute;top:16px;left:18px;z-index:2;display:flex;align-items:center;gap:8px;background:rgba(15,26,28,.6);backdrop-filter:blur(8px);padding:6px 12px;border-radius:999px;font-size:.82rem;font-weight:600}
+.hero-alt i{width:8px;height:8px;border-radius:50%;background:var(--tea);box-shadow:0 0 0 4px rgba(79,203,142,.2)}
 
-/* ---------- REVEAL ---------- */
-.rv{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.8,.2,1)}
-.rv.in{opacity:1;transform:none}
+/* boarding pass: the one bold piece */
+.pass{position:relative;display:flex;flex-direction:column;background:var(--text);color:var(--bg);border-radius:var(--r-xl);overflow:hidden;animation:issue .9s .25s cubic-bezier(.2,.8,.2,1) both}
+@keyframes issue{from{transform:translateY(24px) rotate(1.2deg);opacity:0}}
+.pass-top{padding:24px 26px 18px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.pass-top b{font-size:1.05rem;letter-spacing:-.01em}
+.pass-top span{font-size:.82rem;color:#4B5E5B}
+.pass-route{padding:0 26px;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:10px}
+.pass-route .code{font-size:clamp(2.6rem,4.4vw,3.4rem);font-weight:800;letter-spacing:-.05em;line-height:.9}
+.pass-route .place{font-size:.84rem;color:#4B5E5B;margin-top:6px}
+.pass-route .to{text-align:right}
+.pass-route svg{width:72px;height:26px;margin-bottom:22px;color:#4B5E5B}
+.pass-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 12px;padding:22px 26px}
+.pass-grid small{display:block;font-size:.74rem;color:#5E716E}
+.pass-grid b{font-size:1.02rem;font-variant-numeric:tabular-nums}
+.pass-stops{padding:0 26px 20px}
+.pass-stops small{display:block;font-size:.74rem;color:#5E716E;margin-bottom:6px}
+.pass-stops ol{list-style:none;display:grid;gap:4px}
+.pass-stops li{display:flex;justify-content:space-between;gap:12px;font-size:.92rem;font-weight:600;padding:5px 0;border-bottom:1px solid #D5DEDC}
+.pass-stops li:last-child{border-bottom:0}
+.pass-stops li span{color:#4B5E5B;font-weight:500;font-variant-numeric:tabular-nums}
+@media(max-width:560px){.pass-stops{padding:0 20px 16px}}
+.perf{position:relative;height:0;border-top:2px dashed #B9C6C3;margin:0 18px}
+.perf::before,.perf::after{content:"";position:absolute;top:-13px;width:24px;height:24px;border-radius:50%;background:var(--bg)}
+.perf::before{left:-31px}.perf::after{right:-31px}
+.pass-stub{padding:18px 26px 22px;margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.pass-stub small{font-size:.78rem;color:#5E716E;display:block}
+.countdown{display:flex;gap:6px;align-items:baseline;font-weight:800;font-size:1.5rem;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.countdown span{font-size:.78rem;font-weight:600;color:#5E716E;margin-right:6px;letter-spacing:0}
+.barcode{height:38px;width:120px;background:repeating-linear-gradient(90deg,var(--bg) 0 2px,transparent 2px 4px,var(--bg) 4px 5px,transparent 5px 8px,var(--bg) 8px 11px,transparent 11px 12px);opacity:.85;border-radius:2px}
+@media(max-width:960px){.hero{grid-template-columns:1fr}.hero-photo{min-height:440px}}
+@media(max-width:560px){.hero-photo{min-height:380px;border-radius:var(--r-lg)}.hero-copy{left:20px;right:20px;bottom:22px}.pass{border-radius:var(--r-lg)}.pass-top,.pass-route,.pass-grid,.pass-stub{padding-left:20px;padding-right:20px}}
 
-/* ---------- ROUTE MAP ---------- */
-#route{background:var(--forest);color:#fff}
-#route .eyebrow{color:var(--tea)} #route .sec-head p{color:rgba(255,255,255,.7)}
-.map-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:28px}
+/* reasons row */
+.reasons{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 0 4px;scrollbar-width:none}
+.reasons::-webkit-scrollbar{display:none}
+.reason{scroll-snap-align:start;flex:0 0 auto;background:var(--s1);border:1px solid var(--line);border-radius:var(--r-md);padding:12px 16px;min-width:210px}
+.reason b{display:block;font-size:.92rem}
+.reason span{font-size:.8rem;color:var(--muted)}
+
+/* ---------- shared bits ---------- */
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--s2);color:var(--text);border:1px solid var(--line);padding:9px 15px;border-radius:999px;font-weight:600;font-size:.88rem;text-decoration:none;transition:background .15s}
+.btn:hover{background:var(--s3)}
+.btn.primary{background:var(--tea);color:var(--tea-ink);border-color:var(--tea)}
+.btn.primary:hover{background:#6AD8A2}
+.chip{display:inline-block;font-size:.76rem;font-weight:600;background:var(--s3);color:var(--soft);padding:3px 10px;border-radius:999px}
+.chip.amber{background:rgba(242,184,75,.16);color:var(--amber)}
+.anim-in{animation:pop .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}}
+.panel{background:var(--s1);border:1px solid var(--line);border-radius:var(--r-lg)}
+
+/* ---------- route ---------- */
+.map-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px}
 @media(max-width:900px){.map-grid{grid-template-columns:1fr}}
-.map-card{background:linear-gradient(160deg,#18483a,#0e2e25);border-radius:var(--r);padding:16px;position:relative;box-shadow:var(--shadow);overflow:hidden}
+.map-card{padding:16px;position:relative;overflow:hidden}
 #map{width:100%;height:auto;display:block}
-.road-bg{fill:none;stroke:rgba(255,255,255,.12);stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
-.road{fill:none;stroke:var(--amber);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
-.road-dash{fill:none;stroke:#fff;stroke-width:1.2;stroke-dasharray:4 8;opacity:.5}
-.side-road{fill:none;stroke:var(--tea);stroke-width:2.5;stroke-dasharray:6 6;opacity:.8}
+.road-bg{fill:none;stroke:rgba(238,243,241,.07);stroke-width:12;stroke-linecap:round;stroke-linejoin:round}
+.road{fill:none;stroke:var(--mist);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.road-dash{fill:none;stroke:var(--bg);stroke-width:1.2;stroke-dasharray:3 9;opacity:.6}
+.side-road{fill:none;stroke:var(--tea);stroke-width:2.5;stroke-dasharray:6 6}
+.node{cursor:pointer}
 .node circle.ring{fill:none;stroke:var(--amber);stroke-width:2;opacity:0}
 .node.active circle.ring{animation:ping 1.4s ease-out infinite}
 @keyframes ping{0%{r:6;opacity:1}100%{r:22;opacity:0}}
-.node{cursor:pointer}
-.node circle.dot{fill:#fff;stroke:var(--forest);stroke-width:3;transition:.3s}
+.node circle.dot{fill:var(--text);stroke:var(--s1);stroke-width:3;transition:r .2s}
 .node.place circle.dot{fill:var(--tea)}
-.node.stay circle.dot{fill:var(--amber)}
+.node.stay circle.dot{fill:var(--mist)}
 .node:hover circle.dot,.node.active circle.dot{r:9}
-.node text{fill:#fff;font-size:12px;font-weight:600;font-family:var(--body);paint-order:stroke;stroke:#0e2e25;stroke-width:4px}
-.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
-.btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:9px 14px;border-radius:999px;font-weight:600;font-size:.86rem;transition:.25s}
-.btn:hover{background:rgba(255,255,255,.2)}
-.btn.primary{background:var(--amber);color:var(--ink);border-color:var(--amber)}
-.progress{flex:1;min-width:120px;height:6px;background:rgba(255,255,255,.12);border-radius:6px;overflow:hidden}
+.node text{fill:var(--soft);font-size:12.5px;font-weight:600;font-family:var(--font);paint-order:stroke;stroke:var(--s1);stroke-width:4px}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.progress{flex:1;min-width:120px;height:4px;background:var(--s3);border-radius:4px;overflow:hidden}
 .progress i{display:block;height:100%;width:0;background:var(--amber)}
-.legend{display:flex;gap:16px;font-size:.78rem;opacity:.8;margin-top:10px;flex-wrap:wrap}
-.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px;background:#fff}
-.legend .lp::before{background:var(--tea)} .legend .ls::before{background:var(--amber)}
-.ride{margin-top:28px;display:grid;grid-template-columns:1.4fr 1fr;background:#fff;color:var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
-.ride .slider{height:100%;min-height:320px}
-.ride-body{padding:30px}
-.ride-body .eyebrow{color:var(--moss)!important}
-.ride-body h3{font-size:2rem;margin:6px 0 10px}
-.ride-body p{color:var(--muted)}
-.ride-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
-.ride-facts div{background:var(--mist);border-radius:12px;padding:10px 12px}
-.ride-facts small{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.ride-facts b{font-size:1rem}
-@media(max-width:820px){.ride{grid-template-columns:1fr}.ride .slider{min-height:240px;height:240px}.ride-body{padding:22px}}
-.stop-panel{background:#fff;color:var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
-.stop-photo{height:210px;position:relative;background:linear-gradient(135deg,#2f6b4f,#8fbf7a);display:grid;place-items:center;overflow:hidden}
-.stop-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 12s ease-in-out infinite alternate}
-@keyframes kb{to{transform:scale(1.12)}}
-.ph{color:rgba(255,255,255,.85);text-align:center;font-size:.82rem;padding:12px}
-.ph svg{width:34px;height:34px;margin:0 auto 6px;display:block;opacity:.8}
-.stop-body{padding:22px;flex:1}
-.stop-body .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-.chip{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--mist);color:var(--moss);padding:4px 10px;border-radius:999px}
-.chip.amber{background:#fdf0dc;color:#9a5d0b}
-.stop-body h3{font-size:1.7rem;margin-bottom:6px}
+.route-meta{display:flex;gap:10px 16px;flex-wrap:wrap;align-items:center;margin-top:12px;font-size:.86rem;color:var(--muted)}
+.legend{display:flex;gap:16px;font-size:.8rem;color:var(--muted);margin-top:10px;flex-wrap:wrap}
+.legend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0;background:var(--text)}
+.legend .lp::before{background:var(--tea)} .legend .ls::before{background:var(--mist)}
+.stop-panel{overflow:hidden;display:flex;flex-direction:column}
+.stop-photo{height:220px;position:relative;background:var(--s2);display:grid;place-items:center;overflow:hidden}
+.stop-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph{color:var(--muted);text-align:center;font-size:.84rem;padding:12px}
+.ph svg{width:30px;height:30px;margin:0 auto 6px;display:block;opacity:.7}
+.stop-body{padding:20px 22px 22px;flex:1}
+.stop-body .meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.stop-body h3{font-size:1.6rem;margin-bottom:6px}
 .stop-body p{color:var(--muted);font-size:.95rem}
-.kv{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
-.kv div{background:var(--mist);border-radius:12px;padding:10px 12px}
-.kv small{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.kv b{font-size:1rem}
-.anim-in{animation:pop .5s cubic-bezier(.2,.8,.2,1)}
-@keyframes pop{from{opacity:0;transform:translateY(12px)}}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.kv div{background:var(--s2);border-radius:var(--r-sm);padding:10px 12px}
+.kv small{display:block;font-size:.76rem;color:var(--muted)}
+.kv b{font-size:.98rem}
 
-/* ---------- ITINERARY ---------- */
-.tabs{display:flex;gap:10px;margin-bottom:34px;flex-wrap:wrap}
-.tab{padding:12px 22px;border-radius:999px;background:var(--fog);font-weight:700;transition:.3s}
-.tab small{display:block;font-weight:500;font-size:.75rem;opacity:.7}
-.tab.on{background:var(--forest);color:#fff}
-.timeline{position:relative;padding-left:34px}
-.timeline::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--tea),var(--moss))}
-.tl-item{position:relative;display:grid;grid-template-columns:130px 1fr;gap:20px;padding:18px 0;border-bottom:1px dashed #cfd9d2}
-.tl-item::before{content:"";position:absolute;left:-30px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--moss)}
-.tl-item.hl::before{background:var(--amber);border-color:var(--amber);box-shadow:0 0 0 6px rgba(233,162,59,.2)}
-.tl-time{font-weight:700;color:var(--moss);font-size:.92rem}
-.tl-item h4{font-size:1.1rem;font-family:var(--display);font-weight:600}
-.tl-item p{color:var(--muted);font-size:.92rem}
-.tl-item .did{margin-top:8px;font-size:.88rem;background:#fff;border-left:3px solid var(--tea);padding:8px 12px;border-radius:0 10px 10px 0}
-@media(max-width:600px){.tl-item{grid-template-columns:1fr;gap:4px}}
+/* ride */
+.ride{margin-top:16px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);overflow:hidden}
+.ride .slider{height:100%;min-height:320px}
+.ride-body{padding:28px}
+.ride-body .kicker{color:var(--tea);font-weight:600;font-size:.9rem}
+.ride-body h3{font-size:2rem;margin:4px 0 10px}
+.ride-body p{color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.facts div{background:var(--s2);border-radius:var(--r-sm);padding:10px 12px}
+.facts small{display:block;font-size:.74rem;color:var(--muted)}
+.facts b{font-size:1rem}
+@media(max-width:820px){.ride{grid-template-columns:1fr}.ride .slider{min-height:240px;height:240px}.ride-body{padding:22px}}
 
-/* ---------- PLACES ---------- */
-#places{background:var(--mist)}
-.place-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
-.pcard{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 10px 30px -18px rgba(0,0,0,.3);transition:.45s cubic-bezier(.2,.8,.2,1);cursor:pointer}
-.pcard:hover{transform:translateY(-8px) rotate(-.4deg);box-shadow:var(--shadow)}
-.pcard .stop-photo{height:190px}
-.pcard .pb{padding:18px}
-.pcard h3{font-size:1.3rem}
-.pcard p{font-size:.88rem;color:var(--muted);margin-top:4px}
-.pcard .foot{display:flex;justify-content:space-between;margin-top:14px;font-size:.8rem;font-weight:700}
-.pcard .foot span:last-child{color:var(--moss)}
-
-/* ---------- BUDGET ---------- */
-.budget-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:start}
-@media(max-width:900px){.budget-grid{grid-template-columns:1fr}}
-.donut-card,.bars-card,.hotel{background:#fff;border-radius:var(--r);padding:28px;box-shadow:0 10px 30px -18px rgba(0,0,0,.3)}
-.donut-wrap{position:relative;width:min(300px,100%);margin:0 auto}
-.donut-wrap svg{transform:rotate(-90deg)}
-.donut-wrap circle{fill:none;stroke-width:26;transition:stroke-dasharray 1.4s cubic-bezier(.2,.8,.2,1),stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1)}
-.donut-center{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
-.donut-center b{font-family:var(--display);font-size:2.2rem;display:block}
-.donut-center small{color:var(--muted);font-size:.8rem}
-.bar-row{margin-bottom:18px}
-.bar-row .lbl{display:flex;justify-content:space-between;font-size:.9rem;font-weight:600;margin-bottom:6px}
-.bar-row .lbl span:last-child{color:var(--muted);font-weight:500}
-.bar{height:12px;border-radius:12px;background:var(--fog);overflow:hidden;position:relative}
-.bar i{display:block;height:100%;width:0;border-radius:12px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
-.bar i.actual{position:absolute;top:0;left:0;height:100%;background:repeating-linear-gradient(45deg,rgba(0,0,0,.25) 0 4px,transparent 4px 8px);}
-.totals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
-.totals div{background:var(--mist);border-radius:14px;padding:14px}
-.totals small{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.totals b{display:block;font-family:var(--display);font-size:1.35rem}
-.toggle{display:inline-flex;background:var(--fog);border-radius:999px;padding:5px;margin-bottom:30px;position:relative}
-.toggle button{position:relative;z-index:2;padding:10px 22px;border-radius:999px;font-weight:700;font-size:.9rem;transition:.3s}
-.toggle button.on{color:#fff}
-.toggle .pill{position:absolute;z-index:1;top:5px;bottom:5px;border-radius:999px;background:var(--forest);transition:.45s cubic-bezier(.2,.8,.2,1)}
-
-/* ---------- HOTELS ---------- */
-#stay{background:linear-gradient(180deg,var(--paper),var(--mist))}
-.hotels{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-@media(max-width:820px){.hotels{grid-template-columns:1fr}}
-.hotel{padding:0;overflow:hidden;position:relative;transition:.4s;border:2px solid transparent}
-.hotel.sel{border-color:var(--amber);transform:translateY(-6px);box-shadow:var(--shadow)}
-.hotel .stop-photo{height:230px}
-.slider{position:relative;height:300px;overflow:hidden;background:linear-gradient(135deg,#2f6b4f,#8fbf7a)}
+/* ---------- slideshows (shared) ---------- */
+.slider{position:relative;height:300px;overflow:hidden;background:var(--s2)}
 .slider .ph{position:absolute;inset:0;display:grid;place-content:center}
-.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity 1s ease,transform 6s ease}
-.slide.on{opacity:1;transform:scale(1.12);z-index:1}
-.sl-btn{position:absolute;top:50%;z-index:3;width:40px;height:40px;margin-top:-20px;border-radius:50%;background:rgba(255,255,255,.85);color:var(--ink);font-size:1.3rem;display:grid;place-items:center;opacity:0;transition:.3s}
-.slider:hover .sl-btn{opacity:1}
-.sl-btn.prev{left:12px}.sl-btn.next{right:12px}
-.sl-dots{position:absolute;bottom:30px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:6px}
-.sl-dots button{width:8px;height:8px;border-radius:8px;background:rgba(255,255,255,.55);transition:.35s}
-.sl-dots button.on{width:24px;background:#fff}
-.sl-count{position:absolute;top:16px;right:16px;z-index:3;background:rgba(0,0,0,.5);color:#fff;font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:999px}
-.sl-credit{position:absolute;bottom:10px;right:12px;z-index:3;font-size:.65rem;color:rgba(255,255,255,.8)}
-.slider .badge{z-index:4}
-.stop-panel .slider{height:240px}.pcard .slider{height:190px}
-.pcard .sl-credit{top:14px;bottom:auto;left:12px;right:auto;text-align:left;max-width:62%;line-height:1.3}.pcard .sl-dots{bottom:12px}
-.sl-credit{max-width:70%;text-align:right;background:rgba(0,0,0,.45);padding:2px 8px;border-radius:6px;color:#fff!important}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
+.slide.on{opacity:1;z-index:1}
+.sl-btn{position:absolute;top:50%;z-index:3;width:38px;height:38px;margin-top:-19px;border-radius:50%;background:rgba(15,26,28,.65);backdrop-filter:blur(6px);color:var(--text);font-size:1.3rem;display:grid;place-items:center;opacity:0;transition:opacity .2s}
+.slider:hover .sl-btn,.slider:focus-within .sl-btn{opacity:1}
+.sl-btn.prev{left:10px}.sl-btn.next{right:10px}
+.sl-dots{position:absolute;bottom:12px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:5px}
+.sl-dots button{width:6px;height:6px;border-radius:6px;background:rgba(255,255,255,.45);transition:width .3s,background .3s}
+.sl-dots button.on{width:18px;background:#fff}
+.sl-count{position:absolute;top:12px;right:12px;z-index:3;background:rgba(15,26,28,.65);color:#fff;font-size:.72rem;font-weight:600;padding:3px 9px;border-radius:999px;font-variant-numeric:tabular-nums}
+.sl-credit{position:absolute;bottom:30px;right:10px;z-index:3;font-size:.64rem;color:#fff;background:rgba(0,0,0,.45);padding:2px 7px;border-radius:6px;max-width:70%;text-align:right}
 .sl-credit:empty{display:none}
-@media(max-width:600px){.slider{height:230px}.sl-btn{opacity:1}}
-.hotel .hb{padding:26px}
-.hotel h3{font-size:1.8rem}
-.hotel .price{font-family:var(--display);font-size:2.4rem;font-weight:800;margin:10px 0 2px}
-.hotel .price small{font-family:var(--body);font-size:.9rem;font-weight:500;color:var(--muted)}
-.hotel ul{list-style:none;margin:16px 0 20px}
-.hotel li{padding:6px 0 6px 26px;position:relative;font-size:.93rem}
-.hotel li::before{content:"✓";position:absolute;left:0;color:var(--moss);font-weight:800}
-.badge{position:absolute;top:16px;left:16px;z-index:5;background:var(--amber);color:var(--ink);font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
-.badge.alt{background:#fff}
-.pick{width:100%;padding:14px;border-radius:12px;background:var(--forest);color:#fff;font-weight:700;transition:.3s}
-.hotel.sel .pick{background:var(--amber);color:var(--ink)}
-.note-sample{font-size:.8rem;color:var(--rose);margin-top:10px}
+@media(hover:none){.sl-btn{opacity:1}}
 
-/* ---------- GALLERY ---------- */
-#memories{background:var(--ink);color:#fff}
-#memories .eyebrow{color:var(--tea)} #memories .sec-head p{color:rgba(255,255,255,.65)}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
-.filters .btn.on{background:var(--amber);color:var(--ink);border-color:var(--amber)}
-.masonry{columns:3 260px;column-gap:16px}
-.shot{break-inside:avoid;margin-bottom:16px;border-radius:14px;overflow:hidden;position:relative;cursor:zoom-in;background:#1d3a31}
-.shot img{width:100%;transition:transform .8s}
-.shot:hover img{transform:scale(1.06)}
-.shot figcaption{position:absolute;inset:auto 0 0 0;padding:30px 14px 12px;font-size:.85rem;background:linear-gradient(transparent,rgba(0,0,0,.75))}
-.shot .stop-photo{height:auto;aspect-ratio:var(--ar,4/3)}
-.lightbox{position:fixed;inset:0;background:rgba(5,12,10,.92);z-index:100;display:none;place-items:center;padding:4vw}
-.lightbox.open{display:grid;animation:pop .3s}
-.lightbox img{max-height:82vh;border-radius:12px}
-.lightbox p{text-align:center;margin-top:12px;color:#fff}
-.lightbox .x{position:absolute;top:20px;right:24px;color:#fff;font-size:2rem}
+/* ---------- plan ---------- */
+.seg{display:inline-flex;gap:4px;padding:4px;background:var(--s1);border:1px solid var(--line);border-radius:999px;margin-bottom:22px}
+.tab{padding:9px 18px;border-radius:999px;font-weight:600;color:var(--soft);transition:background .2s,color .2s;text-align:left;line-height:1.2}
+.tab small{display:block;font-weight:500;font-size:.74rem;color:var(--muted)}
+.tab.on{background:var(--text);color:var(--bg)}
+.tab.on small{color:#4B5E5B}
+@media(max-width:760px){.seg{display:flex}.tab{flex:1;padding:8px 10px}}
+.timeline{display:flex;flex-direction:column}
+.tl-item{display:grid;grid-template-columns:150px 22px minmax(0,1fr);gap:0 14px;padding:14px 0;border-top:1px solid var(--line)}
+.tl-item:first-child{border-top:0}
+.tl-time{color:var(--muted);font-weight:600;font-size:.92rem;padding-top:2px}
+.tl-mark{position:relative}
+.tl-mark::before{content:"";position:absolute;left:6px;top:7px;width:10px;height:10px;border-radius:50%;border:2px solid var(--muted)}
+.tl-item.hl .tl-mark::before{background:var(--tea);border-color:var(--tea)}
+.tl-item h4{font-size:1.08rem;font-weight:600;letter-spacing:-.01em}
+.tl-item p{color:var(--muted);font-size:.92rem}
+.tl-item .did{margin-top:8px;font-size:.88rem;background:var(--s2);padding:8px 12px;border-radius:var(--r-sm)}
+@media(max-width:600px){.tl-item{grid-template-columns:22px minmax(0,1fr)}.tl-time{grid-column:2;order:-1;padding:0}.tl-mark{grid-row:1/3}}
 
-/* ---------- LEAVE NOTICE ---------- */
-.leave-notice{display:flex;align-items:center;gap:12px;background:rgba(217,103,78,.18);border:1.5px solid rgba(217,103,78,.65);color:#f08070;padding:14px 22px;border-radius:14px;font-weight:700;font-size:.92rem;margin-top:22px;backdrop-filter:blur(4px)}
-.leave-notice .pulse{width:11px;height:11px;border-radius:50%;background:#e05a3a;flex-shrink:0;box-shadow:0 0 0 0 rgba(217,103,78,.7);animation:leavePulse 1.6s ease-in-out infinite}
-@keyframes leavePulse{0%{box-shadow:0 0 0 0 rgba(217,103,78,.7)}70%{box-shadow:0 0 0 8px rgba(217,103,78,0)}100%{box-shadow:0 0 0 0 rgba(217,103,78,0)}}
-.leave-notice span{opacity:.85;font-weight:500;color:rgba(240,160,140,.9)}
+/* ---------- places ---------- */
+.place-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.pcard{position:relative;cursor:pointer;overflow:hidden;transition:border-color .2s}
+.pcard:hover{border-color:#3C5357}
+.pcard .slider,.pcard .stop-photo{height:200px}
+.pcard .pb{padding:14px 16px 16px}
+.pcard .when{font-size:.8rem;color:var(--muted);font-weight:600}
+.pcard h3{font-size:1.2rem;margin:4px 0 4px;letter-spacing:-.015em}
+.pcard p{font-size:.88rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pcard .foot{display:flex;justify-content:space-between;margin-top:12px;font-size:.8rem;color:var(--soft);font-variant-numeric:tabular-nums}
+.pcard .foot span:last-child{color:var(--tea)}
+.pcard .sl-credit{top:auto;bottom:24px;left:10px;right:auto;text-align:left;max-width:75%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.6rem;background:rgba(0,0,0,.5)}
 
-/* ---------- BACKUP PLAN ---------- */
-.bp-notice{display:flex;gap:20px;align-items:flex-start;background:rgba(217,103,78,.18);border:1.5px solid rgba(217,103,78,.65);border-radius:var(--r);padding:32px;max-width:640px}
-.bp-notice-icon{font-size:2rem;line-height:1;flex-shrink:0;margin-top:2px}
-.bp-notice-title{font-family:var(--display);font-size:1.35rem;font-weight:600;margin-bottom:8px;color:#f08070}
-.bp-notice-desc{color:rgba(240,160,140,.9);line-height:1.6;font-size:.95rem}
-.bp-notice-desc strong{color:#fff}
+/* ---------- budget ---------- */
+.toggle{position:relative;display:inline-flex;padding:4px;background:var(--s1);border:1px solid var(--line);border-radius:999px;margin-bottom:16px;max-width:100%;overflow-x:auto}
+.toggle button{position:relative;z-index:2;padding:9px 18px;border-radius:999px;font-weight:600;font-size:.9rem;color:var(--soft);white-space:nowrap;transition:color .25s}
+.toggle button.on{color:var(--bg)}
+.toggle .pill{position:absolute;z-index:1;top:4px;bottom:4px;border-radius:999px;background:var(--text);transition:left .35s cubic-bezier(.2,.8,.2,1),width .35s cubic-bezier(.2,.8,.2,1)}
+.budget-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:16px;align-items:stretch}
+@media(max-width:900px){.budget-grid{grid-template-columns:1fr}}
+.donut-card,.bars-card{padding:26px}
+.donut-card{display:flex;flex-direction:column;justify-content:center}
+.donut-wrap{position:relative;width:min(280px,100%);margin:0 auto}
+.donut-wrap svg{transform:rotate(-90deg)}
+.donut-wrap circle{fill:none;stroke-width:22;transition:stroke-dasharray 1.1s cubic-bezier(.2,.8,.2,1),stroke-dashoffset 1.1s cubic-bezier(.2,.8,.2,1)}
+.donut-center{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.donut-center b{font-size:2rem;display:block;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.donut-center small{color:var(--muted);font-size:.82rem}
+.not-in{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-size:.86rem;color:var(--muted)}
+.not-in b{color:var(--rose)}
+.bar-row{margin-bottom:16px}
+.bar-row .lbl{display:flex;justify-content:space-between;gap:10px;font-size:.92rem;font-weight:600;margin-bottom:6px}
+.bar-row .lbl span:last-child{color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums;text-align:right}
+.bar{height:8px;border-radius:8px;background:var(--s3);overflow:hidden;position:relative}
+.bar i{display:block;height:100%;width:0;border-radius:8px;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.bar i.actual{position:absolute;top:0;left:0;background:repeating-linear-gradient(45deg,rgba(0,0,0,.4) 0 3px,transparent 3px 6px)}
+.bar-row small{color:var(--muted);font-size:.78rem}
+.totals{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.totals div{background:var(--s2);border-radius:var(--r-sm);padding:12px}
+.totals small{font-size:.76rem;color:var(--muted)}
+.totals b{display:block;font-size:1.15rem;letter-spacing:-.01em}
+/* trip fund */
+.fund{margin-top:16px;padding:24px 26px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px 40px;align-items:center}
+@media(max-width:900px){.fund{grid-template-columns:1fr}}
+.fund h3{font-size:1.25rem}
+.fund-num{font-size:2.2rem;font-weight:800;letter-spacing:-.03em;margin-top:6px;font-variant-numeric:tabular-nums}
+.fund-num span{font-size:.95rem;font-weight:500;color:var(--muted);letter-spacing:0}
+.fund-track{height:10px;border-radius:10px;background:var(--s3);overflow:hidden;margin:14px 0 8px}
+.fund-track i{display:block;height:100%;width:0;background:var(--tea);border-radius:10px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.fund-note{font-size:.86rem;color:var(--muted)}
+.fund-people{display:flex;flex-wrap:wrap;gap:8px}
+.fp{display:flex;align-items:center;gap:8px;background:var(--s2);border-radius:999px;padding:4px 12px 4px 4px;font-size:.84rem;font-weight:600}
+.fp .av{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:.75rem;font-weight:700;background:var(--s3);color:var(--soft)}
+.fp.paid .av{background:var(--tea);color:var(--tea-ink)}
+.fp.unpaid{color:var(--muted)}
+.fp em{font-style:normal;font-size:.72rem;color:var(--muted);font-weight:500}
 
-/* ---------- WHY THIS TRIP TICKER ---------- */
-.why-track{overflow:hidden;margin-top:28px}
-.why-inner{display:flex;gap:14px;width:max-content;animation:ticker 32s linear infinite}
-.why-inner:hover{animation-play-state:paused}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.why-tile{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:12px 18px;white-space:nowrap;flex-shrink:0}
-.why-tile .wi{font-size:1rem;margin-bottom:3px}
-.why-tile .wt{font-weight:700;font-size:.85rem;color:#fff}
-.why-tile .ws{font-size:.75rem;color:rgba(255,255,255,.6);margin-top:1px}
+/* ---------- stay ---------- */
+.hotels{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:860px){.hotels{grid-template-columns:1fr}}
+.hotel{position:relative;overflow:hidden;transition:border-color .25s}
+.hotel.sel{border-color:var(--tea)}
+.hotel .slider{height:260px}
+.hotel .hb{padding:22px 24px 24px}
+.tier{position:absolute;top:12px;left:12px;z-index:5;font-size:.76rem;font-weight:700;padding:5px 11px;border-radius:999px;background:rgba(15,26,28,.7);backdrop-filter:blur(6px);color:var(--text)}
+.hotel.sel .tier{background:var(--tea);color:var(--tea-ink)}
+.hotel h3{font-size:1.5rem}
+.price{font-size:1.9rem;font-weight:800;letter-spacing:-.03em;margin:8px 0 2px}
+.price small{font-size:.86rem;font-weight:500;color:var(--muted);letter-spacing:0}
+.hotel .where{color:var(--muted);font-size:.9rem;margin-bottom:6px}
+.hotel .tot{font-size:.9rem;color:var(--muted)}
+.hotel .tot b{color:var(--text)}
+.hotel ul{list-style:none;margin:16px 0 20px;display:grid;gap:6px}
+.hotel li{padding-left:22px;position:relative;font-size:.92rem;color:var(--soft)}
+.hotel li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:6px;border-left:2px solid var(--tea);border-bottom:2px solid var(--tea);transform:rotate(-45deg)}
+.pick{width:100%;padding:13px;border-radius:12px;background:var(--s3);color:var(--text);font-weight:700;transition:background .2s}
+.pick:hover{background:#2C4447}
+.hotel.sel .pick{background:var(--tea);color:var(--tea-ink)}
+.hotel .links{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:.86rem;color:var(--muted)}
+.hotel .links a{color:var(--mist);font-weight:600;text-decoration:none}
+.note-sample{font-size:.82rem;color:var(--amber);margin-top:10px}
 
-/* ---------- COLLECTION TRACKER ---------- */
-.collect-box{margin-top:28px;background:rgba(0,0,0,.28);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:22px 26px;max-width:600px}
-.collect-title{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-bottom:10px}
-.collect-bar-wrap{background:rgba(255,255,255,.12);border-radius:999px;height:10px;overflow:hidden;margin-bottom:6px}
-.collect-bar{height:100%;border-radius:999px;background:linear-gradient(90deg,#8fbf7a,#e9a23b);transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
-.collect-nums{display:flex;justify-content:space-between;font-size:.8rem;opacity:.8;margin-bottom:16px}
-.collect-nums b{color:#fff;opacity:1}
-.collect-avatars{display:flex;flex-wrap:wrap;gap:7px}
-.ca{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:default}
-.ca .av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;border:2px solid transparent;transition:.3s}
-.ca.paid .av{border-color:#8fbf7a;box-shadow:0 0 10px rgba(143,191,122,.5)}
-.ca.unpaid .av{opacity:.55;filter:grayscale(.4)}
-.ca .cn{font-size:.6rem;opacity:.7;max-width:38px;text-align:center;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ca.paid .cn{color:#8fbf7a;opacity:1}
-.collect-remain{margin-top:12px;font-size:.82rem;color:rgba(255,255,255,.75)}
-.collect-remain b{color:#e9a23b}
-.collect-cta{margin-top:14px;display:inline-block;background:linear-gradient(135deg,#2f6b4f,#8fbf7a);color:#fff;font-weight:700;font-size:.82rem;padding:8px 18px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase;cursor:default}
+/* ---------- memories (markup built by assets/memories.js) ---------- */
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.filters .btn.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+.shot{position:relative;border-radius:var(--r-md);overflow:hidden;cursor:zoom-in;background:var(--s2)}
+.shot figcaption{position:absolute;inset:auto 0 0 0;padding:28px 12px 10px;font-size:.84rem;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.78))}
+.lightbox{position:fixed;inset:0;background:rgba(6,12,13,.94);z-index:100;display:none;place-items:center;padding:4vw}
+.lightbox.open{display:grid;animation:pop .25s}
+.lightbox img{max-height:80vh;border-radius:var(--r-md)}
+.lightbox p{text-align:center;margin-top:12px;color:var(--soft)}
+.lightbox .x{position:absolute;top:16px;right:20px;color:#fff;font-size:2rem;width:44px;height:44px}
 
-/* ---------- PEOPLE & NOTES ---------- */
-.people{display:flex;flex-wrap:wrap;gap:12px}
-.person{display:flex;align-items:center;gap:10px;background:#fff;padding:8px 16px 8px 8px;border-radius:999px;box-shadow:0 6px 18px -12px rgba(0,0,0,.3);font-weight:600}
-.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:.9rem}
+/* ---------- crew ---------- */
+.people{display:flex;flex-wrap:wrap;gap:8px}
+.person{display:flex;align-items:center;gap:10px;background:var(--s1);border:1px solid var(--line);padding:6px 16px 6px 6px;border-radius:999px;font-weight:600}
+.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.88rem;background:var(--s3);color:var(--text)}
 .person small{color:var(--muted);font-weight:500}
-.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:50px}
-.note{background:#fff;border-radius:16px;padding:22px;border-top:4px solid var(--tea)}
-.note .ic{font-size:1.6rem}
-.note h4{font-family:var(--display);font-size:1.15rem;margin:6px 0}
-.note p{font-size:.9rem;color:var(--muted)}
-footer{background:var(--forest);color:rgba(255,255,255,.75);padding:50px 0;text-align:center;font-size:.9rem}
-footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;margin-bottom:6px}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+.notes{margin-top:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+@media(max-width:760px){.notes{grid-template-columns:1fr}}
+.note{padding:18px 0;border-top:1px solid var(--line)}
+.note h4{font-size:1.05rem;margin-bottom:4px}
+.note p{font-size:.92rem;color:var(--muted)}
+.note.todo h4{color:var(--amber)}
+
+footer{margin-top:80px;border-top:1px solid var(--line);padding:28px 0 110px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer b{color:var(--text)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
+
 <body>
 
-<nav id="nav"><div class="wrap">
-  <div class="logo">Into the Mist ’26</div>
-  <div class="links">
-    <a href="#route">Route</a><a href="#plan">Itinerary</a><a href="#places">Places</a>
-    <a href="#budget">Budget</a><a href="#stay">Stay</a><a href="#memories">Memories</a><a href="#crew">Crew</a>
-  </div>
-</div></nav>
+<header class="topbar" id="bar"><div class="wrap">
+  <a class="brand" href="#top" aria-label="Into the Mist, back to top">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 24 L11 11 L16 17 L21 9 L30 24 Z" fill="#4FCB8E"/><path d="M4 27h24" stroke="#8EC5E8" stroke-width="2.4" stroke-linecap="round"/></svg>
+    Into the Mist ’26
+  </a>
+  <nav class="tabs-nav" aria-label="Sections">
+    <a href="#route">Route</a><a href="#plan">Plan</a><a href="#places">Places</a><a href="#budget">Budget</a><a href="#stay">Stay</a><a href="#memories">Photos</a><a href="#crew">Who's coming</a>
+  </nav>
+</div></header>
 
+<main>
 <!-- ================= HERO ================= -->
-<header class="hero" id="top">
-  <div class="sun"></div>
-  <svg class="layer" data-speed="0.15" viewBox="0 0 1440 520" preserveAspectRatio="none" style="height:70%">
-    <path fill="#2c5a4b" opacity=".55" d="M0 300 L120 210 L230 260 L360 140 L470 230 L600 120 L720 220 L860 100 L990 210 L1110 150 L1240 240 L1360 170 L1440 220 V520 H0Z"/>
-  </svg>
-  <div class="mist" style="bottom:34%;animation-duration:38s"></div>
-  <svg class="layer" data-speed="0.3" viewBox="0 0 1440 520" preserveAspectRatio="none" style="height:55%">
-    <path fill="#1b4136" d="M0 340 L150 250 L300 320 L420 230 L560 300 L700 210 L840 290 L980 220 L1120 300 L1260 240 L1440 310 V520 H0Z"/>
-  </svg>
-  <div class="mist" style="bottom:18%;animation-duration:26s;animation-direction:reverse"></div>
-  <svg class="layer" data-speed="0.5" viewBox="0 0 1440 520" preserveAspectRatio="none" style="height:38%">
-    <path fill="#0f2b23" d="M0 380 C200 320 320 400 480 350 S800 300 960 360 S1260 330 1440 370 V520 H0Z"/>
-    <!-- tea bush rows -->
-    <g fill="#163c30">
-      <ellipse cx="160" cy="430" rx="90" ry="18"/><ellipse cx="420" cy="455" rx="120" ry="20"/>
-      <ellipse cx="760" cy="440" rx="110" ry="18"/><ellipse cx="1100" cy="460" rx="140" ry="22"/><ellipse cx="1350" cy="430" rx="90" ry="16"/>
-    </g>
-  </svg>
-  <div class="wrap hero-inner">
-    <div class="eyebrow" style="color:var(--tea)">Team trip · 11–13 December 2026</div>
-    <div style="font-size:.78rem;color:rgba(255,255,255,.5);margin-top:6px;letter-spacing:.04em">Organised by <b style="color:rgba(255,255,255,.75)">Kavindu Gunathilaka</b> &amp; <b style="color:rgba(255,255,255,.75)">Vidusha Mindula</b></div>
-    <h1 id="heroTitle">Into the Mist <span>Nuwara Eliya</span></h1>
-    <p class="tag reveal-word" style="animation-delay:.9s">Three days in the hill country: a dawn trek to World's End, waterfalls, tea estates and a BBQ by the campfire. This page keeps the plan, the money and the memories in one place.</p>
-    <div class="stats reveal-word" style="animation-delay:1.1s">
-      <div class="stat" style="min-width:140px">
-        <b style="font-size:1rem;line-height:1.5;letter-spacing:.01em"><span style="color:#e05a3a">Fri</span>&thinsp;·&thinsp;Sat&thinsp;·&thinsp;Sun</b>
-        <small style="display:block;margin-top:2px"><span style="color:#e05a3a">11</span> · 12 · 13 Dec</small>
-        <small>3 days · 2 nights</small>
+<div class="wrap" id="top">
+  <div class="hero">
+    <figure class="hero-photo">
+      <img id="heroImg" src="images/places/horton-1.jpg" alt="Grassland and forest at Horton Plains">
+      <span class="hero-alt"><i></i>Horton Plains, 2,100 m</span>
+      <span class="hero-credit" id="heroCredit"></span>
+      <figcaption class="hero-copy">
+        <h1>Nuwara Eliya &amp; Horton Plains</h1>
+        <p>Three days in the hill country: World's End, waterfalls, tea country and a BBQ night. The plan, the money and the photos live here.</p>
+      </figcaption>
+    </figure>
+
+    <aside class="pass" aria-label="Trip summary">
+      <div class="pass-top"><div><b>Into the Mist ’26</b><br><span>Team trip, 3 days and 2 nights</span></div><span>Fri 11 – Sun 13 Dec</span></div>
+      <div class="pass-route">
+        <div><div class="code">CMB</div><div class="place">Boralesgamuwa</div></div>
+        <svg viewBox="0 0 72 26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 20 C20 2, 50 2, 68 20" stroke-dasharray="3 4"/><path d="M62 18 l6 2 -2 -6"/></svg>
+        <div class="to"><div class="code">NE</div><div class="place">Nuwara Eliya</div></div>
       </div>
-      <div class="stat"><b data-count="15">0</b><small>Travellers</small></div>
-      <div class="stat"><b id="heroTotal" data-count="280000" data-prefix="Rs. ">0</b><small>Est. total budget</small></div>
-      <div class="stat"><b id="heroPerHead" data-count="18667" data-prefix="Rs. ">0</b><small>Per head</small></div>
-      <div class="stat" style="border:1.5px solid rgba(217,103,78,.65);background:rgba(217,103,78,.12)"><b style="color:#f08070" data-count="45000" data-prefix="Rs. ">0</b><small style="color:rgba(240,160,140,.8)">🍻 Liquor · <b style="color:#f08070">Not planned yet</b></small></div>
-    </div>
-    <div class="why-track">
-      <div class="why-inner">
-        <div class="why-tile"><div class="wi">🏔️</div><div class="wt">Get out of the office</div><div class="ws">Actually talk — not on RingCentral</div></div>
-        <div class="why-tile"><div class="wi">💪</div><div class="wt">Trek 9 km together</div><div class="ws">Suffer together, stay together</div></div>
-        <div class="why-tile"><div class="wi">🔋</div><div class="wt">Recharge before the new year</div><div class="ws">Come back fresh for 2027</div></div>
-        <div class="why-tile"><div class="wi">🤝</div><div class="wt">Build real trust</div><div class="ws">No call can replace this</div></div>
-        <div class="why-tile"><div class="wi">🧠</div><div class="wt">Break the silo</div><div class="ws">6 hrs in a van = 6 months of standups</div></div>
-        <div class="why-tile"><div class="wi">❤️</div><div class="wt">Show the team they matter</div><div class="ws">Beyond PRs and tickets</div></div>
-        <div class="why-tile"><div class="wi">🎉</div><div class="wt">Celebrate the year</div><div class="ws">Acknowledge what we built together</div></div>
-        <div class="why-tile"><div class="wi">📸</div><div class="wt">Make memories</div><div class="ws">The kind people talk about for years</div></div>
-        <div class="why-tile"><div class="wi">💰</div><div class="wt">Rs. 18,667 per head</div><div class="ws">Cheapest team-building you'll make</div></div>
-        <div class="why-tile"><div class="wi">🌿</div><div class="wt">Nuwara Eliya mist and tea</div><div class="ws">Hill country reset for the team</div></div>
-        <!-- duplicate for seamless loop -->
-        <div class="why-tile"><div class="wi">🏔️</div><div class="wt">Get out of the office</div><div class="ws">Actually talk — not on RingCentral</div></div>
-        <div class="why-tile"><div class="wi">💪</div><div class="wt">Trek 9 km together</div><div class="ws">Suffer together, stay together</div></div>
-        <div class="why-tile"><div class="wi">🔋</div><div class="wt">Recharge before the new year</div><div class="ws">Come back fresh for 2027</div></div>
-        <div class="why-tile"><div class="wi">🤝</div><div class="wt">Build real trust</div><div class="ws">No call can replace this</div></div>
-        <div class="why-tile"><div class="wi">🧠</div><div class="wt">Break the silo</div><div class="ws">6 hrs in a van = 6 months of standups</div></div>
-        <div class="why-tile"><div class="wi">❤️</div><div class="wt">Show the team they matter</div><div class="ws">Beyond PRs and tickets</div></div>
-        <div class="why-tile"><div class="wi">🎉</div><div class="wt">Celebrate the year</div><div class="ws">Acknowledge what we built together</div></div>
-        <div class="why-tile"><div class="wi">📸</div><div class="wt">Make memories</div><div class="ws">The kind people talk about for years</div></div>
-        <div class="why-tile"><div class="wi">💰</div><div class="wt">Rs. 18,667 per head</div><div class="ws">Cheapest team-building you'll make</div></div>
-        <div class="why-tile"><div class="wi">🌿</div><div class="wt">Nuwara Eliya mist and tea</div><div class="ws">Hill country reset for the team</div></div>
+      <div class="pass-grid">
+        <div><small>Departs</small><b>6:30 am</b></div>
+        <div><small>Travellers</small><b>15</b></div>
+        <div><small>Vehicle</small><b>Coaster</b></div>
+        <div><small>Distance</small><b>211 km</b></div>
+        <div><small>Total</small><b id="heroTotal">Rs. 280,000</b></div>
+        <div><small>Per head</small><b id="heroPerHead">Rs. 18,667</b></div>
       </div>
-    </div>
-    <div class="collect-box reveal-word" style="animation-delay:1.6s" id="collectBox"></div>
-    <div class="countdown reveal-word" style="animation-delay:1.8s" id="countdown"></div>
+      <div class="pass-stops"><small>Pickups</small><ol id="passStops"></ol></div>
+      <div class="perf" aria-hidden="true"></div>
+      <div class="pass-stub">
+        <div><small id="cdLabel">Leaves in</small><div class="countdown" id="countdown"></div></div>
+        <div class="barcode" aria-hidden="true"></div>
+      </div>
+    </aside>
   </div>
-  <div class="scroll-cue"></div>
-</header>
+
+  <div class="reasons" aria-label="Why we're going">
+    <div class="reason"><b>Get out of the office</b><span>Talk face to face, not on RingCentral</span></div>
+    <div class="reason"><b>Trek 9 km together</b><span>World's End and Baker's Falls</span></div>
+    <div class="reason"><b>Recharge before 2027</b><span>Come back to the new year fresh</span></div>
+    <div class="reason"><b>Build real trust</b><span>No call replaces a shared road trip</span></div>
+    <div class="reason"><b>Break the silos</b><span>Six hours in a bus beats six months of stand-ups</span></div>
+    <div class="reason"><b>Celebrate the year</b><span>Mark what we built together</span></div>
+    <div class="reason"><b>Rs. 18,667 a head</b><span>Good value for three days away</span></div>
+  </div>
+</div>
 
 <!-- ================= ROUTE ================= -->
 <section id="route">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div><div class="eyebrow">01 · The journey</div><h2>From Colombo up into the clouds</h2></div>
-      <p>Press play to follow the van on the Day 1 route from Boralesgamuwa via the Outer Circular Expressway, Kegalle and Ramboda to Nuwara Eliya, then Horton Plains, New Zealand Farm and Kande Ela on Day 2 and Bomburu Ella on Day 3. Tap any stop to see what we did there and what we spent.</p>
+    <div class="head">
+      <h2>The route</h2>
+      <p>Press play to follow the bus from Boralesgamuwa up to Nuwara Eliya, then out to Horton Plains, the farm and Bomburu Ella. Tap any stop for details.</p>
     </div>
     <div class="map-grid">
-      <div class="map-card rv">
-        <svg id="map" viewBox="0 0 800 470"></svg>
+      <div class="map-card panel">
+        <svg id="map" viewBox="0 0 800 470" role="img" aria-label="Route map from Colombo to Nuwara Eliya"></svg>
         <div class="controls">
-          <button class="btn primary" id="playBtn">▶ Play route</button>
-          <button class="btn" id="resetBtn">⟲</button>
-          <button class="btn" id="speedBtn">1×</button>
+          <button class="btn primary" id="playBtn">Play route</button>
+          <button class="btn" id="resetBtn" aria-label="Restart">Restart</button>
+          <button class="btn" id="speedBtn" aria-label="Playback speed">1×</button>
           <div class="progress"><i id="prog"></i></div>
         </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px;font-size:.85rem">
-          <a class="btn" style="text-decoration:none;color:#fff" href="https://maps.app.goo.gl/AyUBr6hKRUT45nLaA" target="_blank" rel="noopener">🗺️ Open Day 1 route in Google Maps ↗</a>
-          <span style="opacity:.8">Day 1: Boralesgamuwa → Nuwara Eliya · 211 km · about 6 hr 50 min driving, plus stops</span></div>
-        <div class="legend"><span>Pickup / road stop</span><span class="lp">Place we visit</span><span class="ls">Our stay</span></div>
+        <div class="route-meta">
+          <a class="btn" href="https://maps.app.goo.gl/AyUBr6hKRUT45nLaA" target="_blank" rel="noopener">Open Day 1 in Google Maps</a>
+          <span>Day 1 is 211 km, about 6 hr 50 min of driving plus stops</span>
+        </div>
+        <div class="legend"><span>Pickup or road stop</span><span class="lp">Place we visit</span><span class="ls">Where we stay</span></div>
       </div>
-      <aside class="stop-panel rv" id="stopPanel"></aside>
+      <aside class="stop-panel panel" id="stopPanel" aria-live="polite"></aside>
     </div>
-    <div class="ride rv" id="ourRide">
+    <div class="ride panel" id="ourRide">
       <div class="ride-media"></div>
       <div class="ride-body">
-        <div class="eyebrow">Our ride</div>
+        <div class="kicker">Our bus</div>
         <h3>Toyota Coaster</h3>
-        <p>Our minibus for all three days: room for the whole group, the bags and the BBQ supplies. One vehicle from the first pickup in Boralesgamuwa to the last drop-off.</p>
-        <div class="ride-facts">
-          <div><small>Seats us</small><b>All 15</b></div>
+        <p>One minibus for all three days, with room for everyone, the bags and the BBQ supplies, from the first pickup to the last drop-off.</p>
+        <div class="facts">
+          <div><small>Seats</small><b>All 15</b></div>
           <div><small>Day 1 drive</small><b>211 km</b></div>
-          <div><small>Transport budget</small><b id="rideBudget">—</b></div>
+          <div><small>Transport</small><b id="rideBudget">—</b></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= ITINERARY ================= -->
+<!-- ================= PLAN ================= -->
 <section id="plan">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div><div class="eyebrow">02 · Itinerary</div><h2>Hour by hour</h2></div>
-      <p>The plan as approved. After the trip, each item gets a short note on what actually happened.</p>
+    <div class="head">
+      <h2>Day by day</h2>
+      <p>The agreed plan. Times are approximate, and after the trip each stop gets a note on what actually happened.</p>
     </div>
-    <div class="tabs rv" id="tabs"></div>
+    <div class="seg" id="tabs" role="tablist"></div>
     <div class="timeline" id="timeline"></div>
   </div>
 </section>
@@ -425,9 +431,9 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
 <!-- ================= PLACES ================= -->
 <section id="places">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div><div class="eyebrow">03 · Places</div><h2>Where we went</h2></div>
-      <p>Each card shows the planned cost and, after the trip, what we really spent at that location.</p>
+    <div class="head">
+      <h2>Places</h2>
+      <p>Everywhere we're stopping. Tap a place to see it on the map.</p>
     </div>
     <div class="place-grid" id="placeGrid"></div>
   </div>
@@ -436,70 +442,70 @@ footer b{color:#fff;font-family:var(--display);font-size:1.4rem;display:block;ma
 <!-- ================= BUDGET ================= -->
 <section id="budget">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div><div class="eyebrow">04 · Budget</div><h2>Where the money goes</h2></div>
-      <p>Switch the stay option to see how it changes the total and the cost per head. Striped bars show actual spend once we add it.</p>
+    <div class="head">
+      <h2>Budget</h2>
+      <p>Switch the stay to see how the total and cost per head change. Actual spending shows as striped bars once we add it.</p>
     </div>
-    <div class="toggle rv" id="hotelToggle"><span class="pill"></span></div>
+    <div class="toggle" id="hotelToggle"><span class="pill"></span></div>
     <div class="budget-grid">
-      <div class="donut-card rv">
+      <div class="donut-card panel">
         <div class="donut-wrap">
-          <svg viewBox="0 0 220 220" id="donut"></svg>
+          <svg viewBox="0 0 220 220" id="donut" aria-hidden="true"></svg>
           <div class="donut-center"><div><small>Per head</small><b id="perHead">—</b><small id="totalLbl"></small></div></div>
         </div>
+        <p class="not-in">Not in the budget: liquor, about <b>Rs. 45,000</b>, not planned yet.</p>
       </div>
-      <div class="bars-card rv">
+      <div class="bars-card panel">
         <div id="bars"></div>
         <div class="totals">
           <div><small>Estimated</small><b id="tEst">—</b></div>
           <div><small>Collected</small><b id="tCol">—</b></div>
-          <div><small>Actual spent</small><b id="tAct">—</b></div>
+          <div><small>Spent</small><b id="tAct">—</b></div>
         </div>
       </div>
     </div>
+    <div class="fund panel" id="collectBox"></div>
   </div>
 </section>
 
 <!-- ================= STAY ================= -->
 <section id="stay">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div><div class="eyebrow">05 · Where we sleep</div><h2>Two ways to stay</h2></div>
-      <p>A budget option by Gregory Lake and a higher-rate cottage stay near Moon Plains. Pick one to update the budget above.</p>
+    <div class="head">
+      <h2>Where we'll stay</h2>
+      <p>A budget option by Gregory Lake and a higher-rate cottage stay near Moon Plains. Choosing one updates the budget.</p>
     </div>
     <div class="hotels" id="hotels"></div>
   </div>
 </section>
 
-<!-- ================= MEMORIES ================= -->
+<!-- ================= PHOTOS ================= -->
 <section id="memories">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div><div class="eyebrow">06 · Memories</div><h2>What we did</h2></div>
-      <p>Photos from the trip, added by all of us. Tap ＋ Add photos to upload yours.</p>
+    <div class="head">
+      <h2>Photos</h2>
+      <p>Trip photos from all of us. Add yours from your phone.</p>
     </div>
-    <div class="filters rv" id="filters"></div>
+    <div class="filters" id="filters"></div>
     <div class="masonry" id="gallery"></div>
   </div>
 </section>
-<div class="lightbox" id="lb"><button class="x" onclick="lb.classList.remove('open')">×</button><div><img id="lbImg" alt=""><p id="lbCap"></p></div></div>
+<div class="lightbox" id="lb"><button class="x" onclick="lb.classList.remove('open')" aria-label="Close">×</button><div><img id="lbImg" alt=""><p id="lbCap"></p></div></div>
 
-<!-- ================= CREW & NOTES ================= -->
+<!-- ================= CREW ================= -->
 <section id="crew">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div><div class="eyebrow">07 · The crew</div><h2>Fifteen of us</h2></div>
-      <p>Staff and family travelling together in one hired vehicle.</p>
+    <div class="head">
+      <h2>Who's coming</h2>
+      <p>Fifteen of us, staff and family, in one bus.</p>
     </div>
-    <div class="people rv" id="people"></div>
+    <div class="people" id="people"></div>
     <div class="notes" id="notes"></div>
   </div>
 </section>
+</main>
 
-<footer>
-  <b>Into the Mist ’26</b>
-  Nuwara Eliya & Horton Plains · 11–13 December 2026
-</footer>
+<footer><div class="wrap"><span><b>Into the Mist ’26</b>, Nuwara Eliya &amp; Horton Plains</span><span>11–13 December 2026</span></div></footer>
 
 <script src="images/places/credits.js"></script>
 <script>
@@ -615,44 +621,46 @@ const TRIP = {
   });
 })();
 
+
 /* ===================== helpers ===================== */
 const $ = s => document.querySelector(s);
 const rs = n => n==null ? "—" : "Rs. " + Math.round(n).toLocaleString("en-LK");
 const allPlaces = () => [...TRIP.stops.filter(s=>s.type!=="pickup"), ...TRIP.extraPlaces];
 const byId = id => TRIP.stops.find(s=>s.id===id) || TRIP.extraPlaces.find(s=>s.id===id);
 const camIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="4"/></svg>';
+const BUDGET_COLORS = {transport:"#8EC5E8", stay:"#4FCB8E", food:"#E7EFEC", bbq:"#F07A6A", tickets:"#F2B84B"};
 function photoBox(p, label){
   if (p && p.photos && p.photos.length > 1) return slider(p);
   const src = p && p.photos && p.photos[0];
   return `<div class="stop-photo">${src?`<img src="${src}" alt="${p.name}" onerror="this.remove()">`:""}
-    <div class="ph">${camIcon}${label||"Photo added after the trip"}</div></div>`;
+    <div class="ph">${camIcon}${label||"Photo coming after the trip"}</div></div>`;
 }
 
-/* ===================== hero ===================== */
+/* ===================== top bar + hero ===================== */
 (function(){
-  const h = $("#heroTitle"), sub = h.querySelector("span").outerHTML;
-  const words = "Into the Mist".split(" ");
-  h.innerHTML = words.map((w,i)=>`<span class="reveal-word" style="display:inline-block;font-style:normal;font-weight:800;color:#fff;animation-delay:${i*.12}s">${w}&nbsp;</span>`).join("") +
-    sub.replace('<span>','<span class="reveal-word" style="animation-delay:.45s">');
-  // parallax
-  const layers=[...document.querySelectorAll(".hero .layer")];
-  addEventListener("scroll",()=>{const y=scrollY;layers.forEach(l=>l.style.transform=`translateY(${y*l.dataset.speed}px)`);
-    $("#nav").classList.toggle("solid",y>60)},{passive:true});
-  // countdown
-  const end = new Date(TRIP.start).getTime();
+  const bar=$("#bar");
+  addEventListener("scroll",()=>bar.classList.toggle("scrolled",scrollY>8),{passive:true});
+  // highlight the section you're in
+  const links=[...document.querySelectorAll(".tabs-nav a")];
+  const io=new IntersectionObserver(en=>en.forEach(e=>{ if(e.isIntersecting){
+    links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id));
+    const on=links.find(a=>a.classList.contains("on")); on&&on.scrollIntoView({block:"nearest",inline:"nearest"});
+  }}),{rootMargin:"-45% 0px -50% 0px"});
+  document.querySelectorAll("main section[id]").forEach(s=>io.observe(s));
+  // hero photo credit (photo comes from the Wikimedia set)
+  const h=(window.PLACE_PHOTOS||{}).horton;
+  if(h&&h[0]){ $("#heroImg").src=h[0].src; $("#heroCredit").textContent=h[0].credit; } else $("#heroCredit").remove();
+  // countdown on the boarding pass
+  const end=new Date(TRIP.start).getTime(), cd=$("#countdown");
   function tick(){
-    const d = end-Date.now(), el=$("#countdown");
-    if(d<=0){el.innerHTML='<span class="cd" style="min-width:auto">We went. Scroll for the memories ↓</span>';return}
-    const u=[Math.floor(d/864e5),Math.floor(d/36e5)%24,Math.floor(d/6e4)%60,Math.floor(d/1e3)%60];
-    el.innerHTML = ["days","hrs","min","sec"].map((l,i)=>`<div><div class="cd">${String(u[i]).padStart(2,"0")}</div><small style="opacity:.7;display:block;text-align:center">${l}</small></div>`).join("");
+    const d=end-Date.now();
+    if(d<=0){ $("#cdLabel").textContent="Departed"; cd.innerHTML="See you in the hills"; return; }
+    const D=Math.floor(d/864e5), H=Math.floor(d/36e5)%24, M=Math.floor(d/6e4)%60;
+    cd.innerHTML=`${D}<span>d</span>${String(H).padStart(2,"0")}<span>h</span>${String(M).padStart(2,"0")}<span>m</span>`;
   }
-  tick(); setInterval(tick,1000);
-  // counters
-  setTimeout(()=>document.querySelectorAll("[data-count]").forEach(el=>{
-    const t=+el.dataset.count,p=el.dataset.prefix||"",s=el.dataset.suffix||"";let st=null;
-    const step=ts=>{st??=ts;const k=Math.min((ts-st)/1600,1),e=1-Math.pow(1-k,3);
-      el.textContent=p+Math.round(t*e).toLocaleString("en-LK")+s;if(k<1)requestAnimationFrame(step)};
-    requestAnimationFrame(step)}),1100);
+  tick(); setInterval(tick,30000);
+  // pickup times on the pass
+  $("#passStops").innerHTML=["boral","maha","batta","kegalle"].map(id=>{const s=TRIP.stops.find(x=>x.id===id);return s?`<li>${s.name}<span>${s.time.replace(/^~/,"")}</span></li>`:""}).join("");
 })();
 
 /* ===================== route map ===================== */
@@ -667,11 +675,10 @@ function smooth(pts){ // catmull-rom → bezier
   return d;
 }
 const el = (t,a,p=svg)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
-// decorative hills + labels
-el("text",{x:60,y:440,fill:"rgba(255,255,255,.35)","font-size":12,"font-family":"Manrope"}).textContent="Colombo suburbs";
-el("text",{x:610,y:455,fill:"rgba(255,255,255,.35)","font-size":12,"font-family":"Manrope"}).textContent="Central Highlands ▲";
-for(let i=0;i<14;i++){const x=560+Math.random()*220,y=150+Math.random()*290,s=8+Math.random()*12;
-  el("path",{d:`M${x-s},${y} L${x},${y-s*1.2} L${x+s},${y}Z`,fill:"rgba(143,191,122,.12)"})}
+// quiet contour rings around the highlands
+[[690,330,60,40],[690,330,105,72],[690,330,150,104],[690,330,195,136]].forEach(([cx,cy,rx,ry])=>el("ellipse",{cx,cy,rx,ry,fill:"none",stroke:"rgba(142,197,232,.08)","stroke-width":1}));
+el("text",{x:60,y:448,fill:"#8FA4A1","font-size":12,"font-family":"Schibsted Grotesk, sans-serif","font-weight":600}).textContent="Colombo";
+el("text",{x:640,y:458,fill:"#8FA4A1","font-size":12,"font-family":"Schibsted Grotesk, sans-serif","font-weight":600}).textContent="Central Highlands";
 const fullRoute = [...main, ...side.slice(1)];
 const dMain = smooth(main), dSide = smooth(side);
 el("path",{d:dMain,class:"road-bg"}); el("path",{d:dSide,class:"road-bg"});
@@ -679,38 +686,36 @@ const roadMain = el("path",{d:dMain,class:"road"});
 const roadSide = el("path",{d:dSide,class:"side-road"});
 el("path",{d:dMain,class:"road-dash"});
 const Lm = roadMain.getTotalLength(), Ls = roadSide.getTotalLength();
-[roadMain].forEach(r=>{r.style.strokeDasharray=Lm;r.style.strokeDashoffset=Lm});
+roadMain.style.strokeDasharray=Lm; roadMain.style.strokeDashoffset=Lm;
 roadSide.style.opacity=0;
-// nodes
 TRIP.stops.forEach(s=>{
-  const g = el("g",{class:`node ${s.type}`,transform:`translate(${s.x},${s.y})`});
+  const g = el("g",{class:`node ${s.type}`,transform:`translate(${s.x},${s.y})`,tabindex:0,role:"button","aria-label":s.name});
   el("circle",{class:"ring",r:6},g); el("circle",{class:"dot",r:6},g);
   if(s.label!==false){const right = s.x<600 || s.id==="bomburu"; const t=el("text",{x:right?12:-12,y:s.id==="gampola"||s.id==="boral"?18:s.id==="hemma"?-8:s.id==="nuwara"?-6:4,"text-anchor":right?"start":"end"},g);t.textContent=s.name}
-  g.addEventListener("click",()=>{pause();showStop(s)}); s.g=g;
+  const open=()=>{pause();showStop(s)};
+  g.addEventListener("click",open); g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}}); s.g=g;
 });
-// vehicle
 const van = el("g",{});
-el("circle",{r:13,fill:"rgba(233,162,59,.25)"},van);
-el("circle",{r:8,fill:"#e9a23b",stroke:"#fff","stroke-width":2.5},van);
+el("circle",{r:14,fill:"rgba(242,184,75,.22)"},van);
+el("circle",{r:7,fill:"#F2B84B",stroke:"#0F1A1C","stroke-width":2.5},van);
 van.style.display="none";
 
 function showStop(s){
   const old=$("#stopPanel .slider"); old&&old._stop&&old._stop();
   document.querySelectorAll(".node").forEach(n=>n.classList.remove("active")); s.g&&s.g.classList.add("active");
-  const typeLbl={pickup:"Road stop",place:"Place",stay:"Our base"}[s.type]||"Place";
+  const typeLbl={pickup:"Road stop",place:"Place",stay:"Where we stay"}[s.type]||"Place";
   $("#stopPanel").innerHTML = `<div class="anim-in" style="display:flex;flex-direction:column;height:100%">${photoBox(s)}
    <div class="stop-body"><div class="meta"><span class="chip">Day ${s.day}</span><span class="chip">${s.time}</span><span class="chip amber">${typeLbl}</span></div>
    <h3>${s.name}</h3><p>${s.desc}</p>
-   ${s.did?`<p style="margin-top:10px;color:var(--ink)"><b>What we did:</b> ${s.did}</p>`:""}
-   <div class="kv"><div><small>Planned</small><b>${rs(s.planned)}</b></div><div><small>Actual spent</small><b>${s.spent==null?"Add after trip":rs(s.spent)}</b></div></div></div></div>`;
+   ${s.did?`<p style="margin-top:10px;color:var(--text)"><b>What we did:</b> ${s.did}</p>`:""}
+   <div class="kv"><div><small>Planned</small><b>${rs(s.planned)}</b></div><div><small>Spent</small><b>${s.spent==null?"After the trip":rs(s.spent)}</b></div></div></div></div>`;
   const sl=$("#stopPanel .slider"); sl&&initSlider(sl);
 }
-showStop(byId("boral"));
 
 // playback
 let playing=false, t=0, speed=1, last=null, raf, holdUntil=0, lastStop=null;
 const total = Lm+Ls, stopPos = [];
-fullRoute.forEach(s=>{ // find length position of each stop along the path
+fullRoute.forEach(s=>{
   const onSide = s.side, path = onSide?roadSide:roadMain, L = onSide?Ls:Lm; let best=0,bd=1e9;
   for(let i=0;i<=200;i++){const p=path.getPointAtLength(L*i/200),d=(p.x-s.x)**2+(p.y-s.y)**2;if(d<bd){bd=d;best=L*i/200}}
   stopPos.push({s,at:onSide?Lm+best:best});
@@ -725,36 +730,36 @@ function frame(ts){
   $("#prog").style.width=(t/total*100)+"%";
   const hit = stopPos.filter(o=>o.at<=t+1).pop();
   if(hit && hit.s!==lastStop){lastStop=hit.s; showStop(hit.s); holdUntil=ts+1300/speed;}
-  if(t>=total){playing=false;$("#playBtn").textContent="▶ Replay";return}
+  if(t>=total){playing=false;$("#playBtn").textContent="Play again";return}
   raf=requestAnimationFrame(frame);
 }
-function play(){ if(t>=total){t=0;lastStop=null} playing=true;last=null;$("#playBtn").textContent="❚❚ Pause";raf=requestAnimationFrame(frame)}
-function pause(){playing=false;cancelAnimationFrame(raf);$("#playBtn").textContent="▶ Play route"}
+function play(){ if(t>=total){t=0;lastStop=null} playing=true;last=null;$("#playBtn").textContent="Pause";raf=requestAnimationFrame(frame)}
+function pause(){playing=false;cancelAnimationFrame(raf);$("#playBtn").textContent="Play route"}
 $("#playBtn").onclick=()=>playing?pause():play();
 $("#resetBtn").onclick=()=>{pause();t=0;lastStop=null;roadMain.style.strokeDashoffset=Lm;roadSide.style.opacity=0;van.style.display="none";$("#prog").style.width=0;showStop(byId("boral"))};
 $("#speedBtn").onclick=e=>{speed=speed===1?2:speed===2?4:1;e.target.textContent=speed+"×"};
-// auto-play when map scrolls into view
-new IntersectionObserver((en,o)=>{if(en[0].isIntersecting){setTimeout(play,500);o.disconnect()}},{threshold:.5}).observe($("#map"));
+if(matchMedia("(prefers-reduced-motion: reduce)").matches){ roadMain.style.strokeDashoffset=0; roadSide.style.opacity=1; }
+else new IntersectionObserver((en,o)=>{if(en[0].isIntersecting){setTimeout(play,500);o.disconnect()}},{threshold:.5}).observe($("#map"));
 
-/* ===================== itinerary ===================== */
+/* ===================== plan ===================== */
 function renderDay(i){
-  document.querySelectorAll(".tab").forEach((b,j)=>b.classList.toggle("on",i===j));
-  $("#timeline").innerHTML = TRIP.days[i].items.map(([time,title,sub,id,hl],k)=>{
+  document.querySelectorAll(".tab").forEach((b,j)=>{b.classList.toggle("on",i===j);b.setAttribute("aria-selected",i===j)});
+  $("#timeline").innerHTML = TRIP.days[i].items.map(([time,title,sub,id,hl])=>{
     const p=id&&byId(id);
-    return `<div class="tl-item ${hl?"hl":""} anim-in" style="animation-delay:${k*.06}s;animation-fill-mode:both">
-      <div class="tl-time">${time}</div><div><h4>${title}</h4>${sub?`<p>${sub}</p>`:""}
-      ${p&&p.did?`<div class="did">📸 ${p.did}</div>`:""}</div></div>`}).join("");
+    return `<div class="tl-item ${hl?"hl":""} anim-in">
+      <div class="tl-time">${time}</div><div class="tl-mark"></div><div><h4>${title}</h4>${sub?`<p>${sub}</p>`:""}
+      ${p&&p.did?`<div class="did">${p.did}</div>`:""}</div></div>`}).join("");
 }
-$("#tabs").innerHTML = TRIP.days.map((d,i)=>`<button class="tab" data-i="${i}">${d.label}<small>${d.date}</small></button>`).join("");
+$("#tabs").innerHTML = TRIP.days.map((d,i)=>`<button class="tab" role="tab" data-i="${i}">${d.date.split(" ")[0]}<small>${d.date.split(" ").slice(1).join(" ")}</small></button>`).join("");
 $("#tabs").onclick=e=>{const b=e.target.closest(".tab");b&&renderDay(+b.dataset.i)};
 renderDay(0);
 
 /* ===================== places ===================== */
-$("#placeGrid").innerHTML = allPlaces().map((p,i)=>`
-  <article class="pcard rv" style="transition-delay:${(i%4)*.08}s" data-id="${p.id}">
+$("#placeGrid").innerHTML = allPlaces().map(p=>`
+  <article class="pcard panel" data-id="${p.id}">
     ${photoBox(p)}
-    <div class="pb"><span class="chip">Day ${p.day} · ${p.time}</span><h3 style="margin-top:8px">${p.name}</h3><p>${p.did||p.desc}</p>
-    <div class="foot"><span>Planned ${rs(p.planned)}</span><span>${p.spent==null?"Spent: TBA":"Spent "+rs(p.spent)}</span></div></div>
+    <div class="pb"><div class="when">Day ${p.day}, ${p.time.replace(/^~/,"about ")}</div><h3>${p.name}</h3><p>${p.did||p.desc}</p>
+    <div class="foot"><span>Planned ${rs(p.planned)}</span><span>${p.spent==null?"Spent after the trip":"Spent "+rs(p.spent)}</span></div></div>
   </article>`).join("");
 $("#placeGrid").onclick=e=>{if(e.target.closest(".sl-btn,.sl-dots"))return;const c=e.target.closest(".pcard");if(!c)return;const s=TRIP.stops.find(x=>x.id===c.dataset.id);
   if(s){showStop(s);$("#route").scrollIntoView()}};
@@ -763,38 +768,36 @@ $("#placeGrid").onclick=e=>{if(e.target.closest(".sl-btn,.sl-dots"))return;const
 let stayId="std";
 function renderBudget(){
   const stay=TRIP.stays.find(s=>s.id===stayId);
-  const rows = TRIP.budget.map(b=>b.key==="stay"?{...b,planned:stay.total,label:"Accommodation",basis:stay.name+", 2 nights"}:b);
+  const rows = TRIP.budget.map(b=>({...b,color:BUDGET_COLORS[b.key]||b.color})).map(b=>b.key==="stay"?{...b,planned:stay.total,label:"Accommodation",basis:stay.name+", 2 nights"}:b);
   const est = rows.reduce((a,b)=>a+b.planned,0), max=Math.max(...rows.map(r=>r.planned));
   const act = rows.some(r=>r.actual!=null)?rows.reduce((a,b)=>a+(b.actual||0),0):null;
   const perHead = est/TRIP.people;
-  // donut
   const C=2*Math.PI*85; let off=0;
-  const d=$("#donut"); if(!d.children.length){d.innerHTML=`<circle cx="110" cy="110" r="85" stroke="#eef3ef"/>`+rows.map(()=>`<circle cx="110" cy="110" r="85" stroke-dasharray="0 ${C}"/>`).join("")}
+  const d=$("#donut"); if(!d.children.length){d.innerHTML=`<circle cx="110" cy="110" r="85" stroke="#233739"/>`+rows.map(()=>`<circle cx="110" cy="110" r="85" stroke-dasharray="0 ${C}"/>`).join("")}
   [...d.children].slice(1).forEach((c,i)=>{const len=rows[i].planned/est*C;c.style.stroke=rows[i].color;
     c.style.strokeDasharray=`${Math.max(len-3,0)} ${C}`;c.style.strokeDashoffset=-off;off+=len});
   animateNum($("#perHead"),perHead);
-  $("#totalLbl").textContent="Total "+rs(est);
-  // keep hero stats in sync with budget
+  $("#totalLbl").textContent="of "+rs(est)+" total";
   const hT=$("#heroTotal"), hP=$("#heroPerHead");
   if(hT) animateNum(hT,est); if(hP) animateNum(hP,perHead);
-  // bars
-  $("#bars").innerHTML = rows.map(r=>`<div class="bar-row"><div class="lbl"><span>${r.label}</span><span>${rs(r.planned)} · ${rs(r.planned/TRIP.people)}/head</span></div>
+  $("#bars").innerHTML = rows.map(r=>`<div class="bar-row"><div class="lbl"><span>${r.label}</span><span>${rs(r.planned)} <small>(${rs(r.planned/TRIP.people)} each)</small></span></div>
     <div class="bar"><i style="background:${r.color}" data-w="${r.planned/max*100}"></i>${r.actual!=null?`<i class="actual" data-w="${r.actual/max*100}"></i>`:""}</div>
-    <small style="color:var(--muted);font-size:.78rem">${r.basis}</small></div>`).join("");
+    <small>${r.basis}</small></div>`).join("");
   requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll(".bar i").forEach(i=>i.style.width=i.dataset.w+"%")));
-  $("#tEst").textContent=rs(est); $("#tCol").textContent=rs(TRIP.contributionPerHead*TRIP.people); $("#tAct").textContent=act==null?"After trip":rs(act);
-  // toggle + cards
+  $("#tEst").textContent=rs(est); $("#tCol").textContent=rs(TRIP.contributionPerHead*TRIP.people); $("#tAct").textContent=act==null?"After the trip":rs(act);
   document.querySelectorAll("#hotelToggle button").forEach(b=>b.classList.toggle("on",b.dataset.id===stayId));
   const on=$(`#hotelToggle button[data-id="${stayId}"]`); const pill=$("#hotelToggle .pill");
   if(on){pill.style.left=on.offsetLeft+"px";pill.style.width=on.offsetWidth+"px"}
   document.querySelectorAll(".hotel").forEach(h=>h.classList.toggle("sel",h.dataset.id===stayId));
 }
 function animateNum(el,to){const from=+(el.dataset.v||0);el.dataset.v=to;let st=null;
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){el.textContent=rs(to);return}
   const f=ts=>{st??=ts;const k=Math.min((ts-st)/900,1),e=1-Math.pow(1-k,3);el.textContent=rs(from+(to-from)*e);if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
-/* ===================== stay slideshows ===================== */
+
+/* ===================== slideshows ===================== */
 function slider(s){
   return `<div class="slider" data-id="${s.id}">
-    <div class="ph">${camIcon}Add photos to images/ (see README)</div>
+    <div class="ph">${camIcon}Photos coming soon</div>
     ${s.photos.map((src,i)=>`<img class="slide" src="${src}" alt="${s.name} photo ${i+1}" loading="${i<2?"eager":"lazy"}" data-credit="${((s.credits&&s.credits[i])||s.credit||"").replace(/"/g,"&quot;")}">`).join("")}
     <button class="sl-btn prev" aria-label="Previous photo">‹</button><button class="sl-btn next" aria-label="Next photo">›</button>
     <div class="sl-dots"></div><span class="sl-count"></span><span class="sl-credit"></span></div>`;
@@ -802,6 +805,7 @@ function slider(s){
 function initSlider(root){
   let i=0, timer, slides=()=>[...root.querySelectorAll(".slide")];
   const dots=root.querySelector(".sl-dots"), count=root.querySelector(".sl-count");
+  const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
   function build(){
     const n=slides().length; root.querySelector(".ph").style.display=n?"none":""; root.querySelectorAll(".sl-btn,.sl-dots,.sl-count").forEach(e=>e.style.display=n>1?"":"none");
     dots.innerHTML=slides().map((_,k)=>`<button aria-label="Photo ${k+1}"></button>`).join(""); if(i>=n)i=0; show(i);
@@ -809,10 +813,10 @@ function initSlider(root){
   function show(k){const L=slides();if(!L.length)return;i=(k+L.length)%L.length;
     L.forEach((im,j)=>im.classList.toggle("on",j===i));[...dots.children].forEach((d,j)=>d.classList.toggle("on",j===i));count.textContent=`${i+1} / ${L.length}`;
     const c=root.querySelector(".sl-credit"); if(c) c.textContent=L[i].dataset.credit||""}
-  const go=d=>{show(i+d);restart()}, restart=()=>{clearInterval(timer);timer=setInterval(()=>show(i+1),4000)};
+  const go=d=>{show(i+d);restart()}, restart=()=>{clearInterval(timer);if(!still)timer=setInterval(()=>show(i+1),5000)};
   slides().forEach(im=>im.addEventListener("error",()=>{im.remove();build()}));
-  root.querySelector(".prev").onclick=()=>go(-1); root.querySelector(".next").onclick=()=>go(1);
-  dots.onclick=e=>{const b=e.target.closest("button");if(b){show([...dots.children].indexOf(b));restart()}};
+  root.querySelector(".prev").onclick=e=>{e.stopPropagation();go(-1)}; root.querySelector(".next").onclick=e=>{e.stopPropagation();go(1)};
+  dots.onclick=e=>{e.stopPropagation();const b=e.target.closest("button");if(b){show([...dots.children].indexOf(b));restart()}};
   root.addEventListener("mouseenter",()=>clearInterval(timer)); root.addEventListener("mouseleave",restart);
   let x0=null; root.addEventListener("touchstart",e=>x0=e.touches[0].clientX,{passive:true});
   root.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(dx<0?1:-1);x0=null});
@@ -821,90 +825,73 @@ function initSlider(root){
 }
 $("#hotelToggle").insertAdjacentHTML("beforeend",TRIP.stays.map(s=>`<button data-id="${s.id}">${s.id==="std"?"National Holiday Resort":"Dream Cottage"}</button>`).join(""));
 $("#hotelToggle").onclick=e=>{const b=e.target.closest("button");if(b){stayId=b.dataset.id;renderBudget()}};
-$("#hotels").innerHTML = TRIP.stays.map((s,i)=>`
-  <article class="hotel rv" data-id="${s.id}" style="transition-delay:${i*.12}s">
-    <span class="badge ${i?"alt":""}">${s.tier}</span>
+$("#hotels").innerHTML = TRIP.stays.map(s=>`
+  <article class="hotel panel" data-id="${s.id}">
+    <span class="tier">${s.tier}</span>
     ${slider(s)}
     <div class="hb"><h3>${s.name}</h3>
       <div class="price">${s.rate} <small>${s.per}</small></div>
-      <div style="color:var(--muted);font-size:.9rem;margin-bottom:4px">📍 ${s.where}<br>🛏️ ${s.mix}</div>
-      <div style="color:var(--muted);font-size:.9rem">2 nights for the group: <b style="color:var(--ink)">${rs(s.total)}</b> · ${rs(s.total/TRIP.people)} per head</div>
+      <p class="where">${s.where}. ${s.mix}.</p>
+      <p class="tot">2 nights for the group: <b>${rs(s.total)}</b>, or ${rs(s.total/TRIP.people)} each</p>
       <ul>${s.perks.map(p=>`<li>${p}</li>`).join("")}</ul>
-      <button class="pick" data-id="${s.id}">Use this option in the budget</button>
-      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:.85rem">
-        <a href="${s.url}" target="_blank" rel="noopener" style="color:var(--moss);font-weight:700">Visit website ↗</a><span style="color:var(--muted)">📞 ${s.contact}</span></div>
-      ${s.sample?`<p class="note-sample">Total of Rs. ${s.total.toLocaleString("en-LK")} is an estimate until Dream Cottage sends a quote.</p>`:""}
+      <button class="pick" data-id="${s.id}">Use this stay in the budget</button>
+      <div class="links"><a href="${s.url}" target="_blank" rel="noopener">Visit website</a><span>${s.contact}</span></div>
+      ${s.sample?`<p class="note-sample">The Rs. ${s.total.toLocaleString("en-LK")} total is an estimate until Dream Cottage sends a quote.</p>`:""}
     </div></article>`).join("");
-/* our ride (bus) slideshow */
 (function(){
   const box=$("#ourRide .ride-media"); if(!box) return;
   box.innerHTML=slider({id:"bus",name:"Our Toyota Coaster",photos:["images/bus/bus-1.jpg","images/bus/bus-2.jpg","images/bus/bus-3.jpg","images/bus/bus-4.jpg"],credit:""});
   const t=TRIP.budget.find(b=>b.key==="transport"); if(t) $("#rideBudget").textContent=rs(t.planned);
 })();
 document.querySelectorAll(".slider").forEach(initSlider);
+showStop(byId("boral"));
 $("#hotels").onclick=e=>{const b=e.target.closest(".pick");if(b){stayId=b.dataset.id;renderBudget();$("#budget").scrollIntoView()}};
-new IntersectionObserver((en,o)=>{if(en[0].isIntersecting){renderBudget();o.disconnect()}},{threshold:.3}).observe($("#budget"));
+new IntersectionObserver((en,o)=>{if(en[0].isIntersecting){renderBudget();o.disconnect()}},{threshold:.2}).observe($("#budget"));
+renderBudget();
 
-/* ===================== memories (group photo uploads: assets/memories.js) ===================== */
+/* ===================== photos (group uploads: assets/memories.js) ===================== */
 window.TRIP_PLACES=[...TRIP.stops,...TRIP.extraPlaces].map(p=>({id:p.id,name:p.name}));
 const lb=$("#lb"); lb.onclick=e=>{if(e.target===lb)lb.classList.remove("open")};
 
-/* ===================== collection tracker ===================== */
+/* ===================== trip fund ===================== */
 (function(){
   const totalBudget = 280000;
   const totalCollected = 50000;
   // one entry per participant group; amount = what they paid; label = display name
   const roster = [
-    {key:"Gayan",   label:"Gayan",    badge:"+2", paid:true,  amount:10000},
-    {key:"Teeshan", label:"Teeshan",  badge:"",   paid:true,  amount:5000},
-    {key:"Randula", label:"Randula",  badge:"",   paid:true,  amount:5000},
-    {key:"Kavindu", label:"Kavindu",  badge:"",   paid:true,  amount:5000},
-    {key:"Vishwa",  label:"Vishwa",   badge:"",   paid:true,  amount:5000},
-    {key:"Vidusha", label:"Vidusha",  badge:"",   paid:true,  amount:5000},
-    {key:"Shehan",  label:"Shehan",   badge:"",   paid:true,  amount:5000},
-    {key:"Dinuwara",label:"Dinuwara", badge:"",   paid:true,  amount:5000},
-    {key:"Viduranga",label:"Viduranga",badge:"",  paid:true,  amount:5000},
-    {key:"Ryan",    label:"Ryan",     badge:"+1", paid:false, amount:5000},
-    {key:"Chandeepa",label:"Chandeepa",badge:"",  paid:false, amount:5000},
-    {key:"Anu",     label:"Anu",      badge:"",   paid:false, amount:5000},
+    {label:"Gayan",    badge:"+2", paid:true,  amount:10000},
+    {label:"Teeshan",  badge:"",   paid:true,  amount:5000},
+    {label:"Randula",  badge:"",   paid:true,  amount:5000},
+    {label:"Kavindu",  badge:"",   paid:true,  amount:5000},
+    {label:"Vishwa",   badge:"",   paid:true,  amount:5000},
+    {label:"Vidusha",  badge:"",   paid:true,  amount:5000},
+    {label:"Shehan",   badge:"",   paid:true,  amount:5000},
+    {label:"Dinuwara", badge:"",   paid:true,  amount:5000},
+    {label:"Viduranga",badge:"",   paid:true,  amount:5000},
+    {label:"Ryan",     badge:"+1", paid:false, amount:5000},
+    {label:"Chandeepa",badge:"",   paid:false, amount:5000},
+    {label:"Anu",      badge:"",   paid:false, amount:5000},
   ];
-  const pal=["#123a2e","#2f6b4f","#e9a23b","#d9674e","#5b8c73","#9a5d0b","#4a7c5f","#b8734a","#3d6e55","#c47f3e","#2a5940","#a06832","#6b4f9a"];
   const pct = Math.round(totalCollected/totalBudget*100);
   const remain = totalBudget - totalCollected;
-  const unpaidCount = roster.filter(r=>!r.paid).length;
-  const box = $("#collectBox");
-  if(!box) return;
+  const unpaid = roster.filter(r=>!r.paid).length;
+  const box = $("#collectBox"); if(!box) return;
   box.innerHTML = `
-    <div class="collect-title">💰 Trip fund collection · ${pct}% of target</div>
-    <div class="collect-bar-wrap"><div class="collect-bar" id="cBar" style="width:0%"></div></div>
-    <div class="collect-nums">
-      <span><b>Rs. ${totalCollected.toLocaleString()}</b> collected</span>
-      <span>Total budget <b>Rs. ${totalBudget.toLocaleString()}</b></span>
+    <div>
+      <h3>Trip fund</h3>
+      <div class="fund-num">${rs(totalCollected)} <span>of ${rs(totalBudget)}</span></div>
+      <div class="fund-track" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="Trip fund collected"><i id="cBar"></i></div>
+      <p class="fund-note">${pct}% collected. ${rs(remain)} still to go, with ${unpaid} ${unpaid===1?"person":"people"} yet to pay. Ryan's sponsorship closes the gap.</p>
     </div>
-    <div class="collect-avatars">
-      ${roster.map((r,i)=>`
-        <div class="ca ${r.paid?"paid":"unpaid"}" title="${r.label}${r.badge?" ("+r.badge+")":""} — ${r.paid?"✓ Rs. "+r.amount.toLocaleString()+" paid":"⏳ Rs. "+r.amount.toLocaleString()+" pending"}">
-          <div class="av" style="background:${pal[i%pal.length]};position:relative">
-            ${r.label[0].toUpperCase()}
-            ${r.badge?`<span style="position:absolute;top:-5px;right:-8px;font-size:.5rem;background:#e9a23b;color:#0f1f1a;border-radius:999px;padding:1px 4px;font-weight:800;line-height:1.4">${r.badge}</span>`:""}
-          </div>
-          <div class="cn">${r.label}</div>
-        </div>`).join("")}
-    </div>
-    <div class="collect-remain">⏳ <b>Rs. ${remain.toLocaleString()}</b> remaining to reach budget · ${unpaidCount} ${unpaidCount===1?"person":"people"} yet to contribute</div>
-    <div class="collect-cta">🤝 Ryan — your sponsorship closes the gap!</div>
-  `;
-  setTimeout(()=>{ const b=$("#cBar"); if(b) b.style.width=pct+"%"; }, 600);
+    <div class="fund-people">
+      ${roster.map(r=>`<div class="fp ${r.paid?"paid":"unpaid"}" title="${r.label}: ${r.paid?"paid "+rs(r.amount):rs(r.amount)+" pending"}"><span class="av">${r.label[0]}</span>${r.label}${r.badge?` <em>${r.badge}</em>`:""}</div>`).join("")}
+    </div>`;
+  new IntersectionObserver((en,o)=>{if(en[0].isIntersecting){$("#cBar").style.width=pct+"%";o.disconnect()}},{threshold:.4}).observe(box);
 })();
 
 /* ===================== crew + notes ===================== */
-const pal=["#123a2e","#2f6b4f","#e9a23b","#d9674e","#5b8c73","#9a5d0b"];
-$("#people").innerHTML = TRIP.participants.map(([n,c],i)=>`<div class="person"><span class="avatar" style="background:${pal[i%pal.length]}">${n[0]}</span>${n}${c>1?` <small>×${c}</small>`:""}</div>`).join("");
-$("#notes").innerHTML = TRIP.notes.map(([ic,h,p],i)=>`<div class="note rv" style="transition-delay:${i*.08}s"><div class="ic">${ic}</div><h4>${h}</h4><p>${p}</p></div>`).join("");
-
-/* ===================== scroll reveal ===================== */
-const io=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll(".rv").forEach(n=>io.observe(n));
+$("#people").innerHTML = TRIP.participants.map(([n,c])=>`<div class="person"><span class="avatar">${n[0]}</span>${n}${c>1?` <small>${c} people</small>`:""}</div>`).join("");
+$("#notes").innerHTML = TRIP.notes.map(([,h,p])=>`<div class="note${/still to arrange/i.test(h)?" todo":""}"><h4>${h}</h4><p>${p.replace(/ · /g,"; ")}</p></div>`).join("");
 </script>
 <script src="assets/memories.js" defer></script>
 <script src="assets/pin-comments.js" defer></script>

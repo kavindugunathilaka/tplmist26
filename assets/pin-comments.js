@@ -20,53 +20,53 @@
   const css = `
   .pc-fab{position:fixed;right:20px;bottom:20px;z-index:90;display:flex;gap:8px}
   .pc-btn{font:600 .9rem var(--body,system-ui);border:0;border-radius:999px;padding:12px 18px;cursor:pointer;box-shadow:0 10px 30px -10px rgba(0,0,0,.45);transition:.2s}
-  .pc-btn.main{background:var(--forest,#123a2e);color:#fff}
-  .pc-btn.main.on{background:var(--amber,#e9a23b);color:#0f1f1a}
-  .pc-btn.list{background:#fff;color:#0f1f1a;position:relative}
+  .pc-btn.main{background:var(--tea,#4FCB8E);color:var(--tea-ink,#06150D)}
+  .pc-btn.main.on{background:var(--amber,#F2B84B);color:#1a1205}
+  .pc-btn.list{background:var(--s2,#1B2B2F);color:var(--text,#EEF3F1);border:1px solid var(--line,#2A3D41);position:relative}
   .pc-btn .n{position:absolute;top:-6px;right:-6px;background:var(--rose,#d9674e);color:#fff;font-size:.7rem;min-width:20px;height:20px;border-radius:10px;display:grid;place-items:center;padding:0 5px}
   .pc-btn .n:empty{display:none}
   body.pc-pinning{cursor:crosshair}
-  body.pc-pinning section[id],body.pc-pinning header#top{outline:2px dashed rgba(233,162,59,.55);outline-offset:-6px}
-  .pc-hint{position:fixed;left:50%;top:84px;transform:translateX(-50%);z-index:95;background:#0f1f1a;color:#fff;padding:10px 16px;border-radius:999px;font:600 .85rem var(--body,system-ui);display:none;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
+  body.pc-pinning section[id],body.pc-pinning #top{outline:2px dashed rgba(242,184,75,.6);outline-offset:-6px}
+  .pc-hint{position:fixed;left:50%;top:80px;transform:translateX(-50%);z-index:95;background:var(--text,#EEF3F1);color:var(--bg,#0F1A1C);padding:10px 16px;border-radius:999px;font:600 .85rem var(--body,system-ui);display:none;box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
   body.pc-pinning .pc-hint{display:block}
   section[id]{position:relative}
-  .pc-pin{position:absolute;z-index:40;width:30px;height:30px;margin:-30px 0 0 -4px;border-radius:50% 50% 50% 4px;background:var(--amber,#e9a23b);color:#0f1f1a;border:2px solid #fff;display:grid;place-items:center;font:800 .78rem var(--body,system-ui);cursor:pointer;box-shadow:0 6px 16px -4px rgba(0,0,0,.5);transition:transform .2s;animation:pcDrop .4s cubic-bezier(.2,1.4,.4,1)}
+  .pc-pin{position:absolute;z-index:40;width:30px;height:30px;margin:-30px 0 0 -4px;border-radius:50% 50% 50% 4px;background:var(--amber,#e9a23b);color:#0f1f1a;border:2px solid var(--bg,#0F1A1C);display:grid;place-items:center;font:800 .78rem var(--body,system-ui);cursor:pointer;box-shadow:0 6px 16px -4px rgba(0,0,0,.5);transition:transform .2s;animation:pcDrop .4s cubic-bezier(.2,1.4,.4,1)}
   .pc-pin:hover,.pc-pin.open{transform:scale(1.15)}
   .pc-pin.done{background:#9aa8a1;opacity:.75}
-  .pc-pin i{position:absolute;top:-7px;right:-7px;background:var(--forest,#123a2e);color:#fff;font-style:normal;font-size:.62rem;min-width:16px;height:16px;border-radius:8px;display:grid;place-items:center;padding:0 3px}
+  .pc-pin i{position:absolute;top:-7px;right:-7px;background:var(--text,#EEF3F1);color:var(--bg,#0F1A1C);font-style:normal;font-size:.62rem;min-width:16px;height:16px;border-radius:8px;display:grid;place-items:center;padding:0 3px}
   @keyframes pcDrop{from{transform:translateY(-14px) scale(.6);opacity:0}}
-  .pc-pop{position:fixed;z-index:100;width:min(340px,92vw);background:#fff;color:#0f1f1a;border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.55);font:.9rem/1.45 var(--body,system-ui);overflow:hidden;animation:pcPop .2s ease}
+  .pc-pop{position:fixed;z-index:100;width:min(340px,92vw);background:var(--s1,#152225);color:var(--text,#EEF3F1);border:1px solid var(--line,#2A3D41);border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.8);font:.9rem/1.45 var(--body,system-ui);overflow:hidden;animation:pcPop .2s ease}
   @keyframes pcPop{from{opacity:0;transform:translateY(6px)}}
-  .pc-pop header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:#eef3ef;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:#2f6b4f}
-  .pc-pop header button{background:none;border:0;font-size:1.2rem;cursor:pointer;color:#5d6f66}
+  .pc-pop header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--s2,#1B2B2F);font-weight:600;font-size:.84rem;color:var(--soft,#C3D1CE)}
+  .pc-pop header button{background:none;border:0;font-size:1.2rem;cursor:pointer;color:var(--muted,#8FA4A1)}
   .pc-body{max-height:300px;overflow:auto;padding:6px 14px}
-  .pc-msg{padding:10px 0;border-bottom:1px solid #eef3ef}
+  .pc-msg{padding:10px 0;border-bottom:1px solid var(--line,#2A3D41)}
   .pc-msg:last-child{border-bottom:0}
-  .pc-msg b{font-weight:700}.pc-msg time{color:#5d6f66;font-size:.75rem;margin-left:6px}
+  .pc-msg b{font-weight:700}.pc-msg time{color:var(--muted,#8FA4A1);font-size:.75rem;margin-left:6px}
   .pc-msg p{margin:3px 0 0;white-space:pre-wrap;word-break:break-word}
   .pc-msg .acts{margin-top:4px;display:flex;gap:10px}
-  .pc-link{background:none;border:0;padding:0;color:#2f6b4f;font:600 .78rem var(--body,system-ui);cursor:pointer}
-  .pc-link.red{color:#c0392b}
-  .pc-form{padding:12px 14px;border-top:1px solid #eef3ef;display:grid;gap:8px}
-  .pc-form input,.pc-form textarea{width:100%;border:1.5px solid #dfe8e2;border-radius:10px;padding:9px 11px;font:inherit;resize:vertical;background:#fff;color:#0f1f1a}
-  .pc-form input:focus,.pc-form textarea:focus{outline:none;border-color:#2f6b4f}
+  .pc-link{background:none;border:0;padding:0;color:var(--tea,#4FCB8E);font:600 .78rem var(--body,system-ui);cursor:pointer}
+  .pc-link.red{color:var(--rose,#F07A6A)}
+  .pc-form{padding:12px 14px;border-top:1px solid var(--line,#2A3D41);display:grid;gap:8px}
+  .pc-form input,.pc-form textarea{width:100%;border:1px solid var(--line,#2A3D41);border-radius:10px;padding:9px 11px;font:inherit;resize:vertical;background:var(--s2,#1B2B2F);color:var(--text,#EEF3F1)}
+  .pc-form input:focus,.pc-form textarea:focus{outline:none;border-color:var(--mist,#8EC5E8)}
   .pc-form .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
-  .pc-send{background:var(--forest,#123a2e);color:#fff;border:0;border-radius:10px;padding:9px 16px;font:700 .85rem var(--body,system-ui);cursor:pointer}
+  .pc-send{background:var(--tea,#4FCB8E);color:var(--tea-ink,#06150D);border:0;border-radius:10px;padding:9px 16px;font:700 .85rem var(--body,system-ui);cursor:pointer}
   .pc-send:disabled{opacity:.5;cursor:default}
-  .pc-err{color:#c0392b;font-size:.8rem}
-  .pc-panel{position:fixed;top:0;right:0;bottom:0;z-index:98;width:min(380px,100vw);background:#f7f8f4;box-shadow:-20px 0 60px -20px rgba(0,0,0,.4);transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;font:.9rem/1.45 var(--body,system-ui);color:#0f1f1a}
+  .pc-err{color:var(--rose,#F07A6A);font-size:.8rem}
+  .pc-panel{position:fixed;top:0;right:0;bottom:0;z-index:98;width:min(380px,100vw);background:var(--bg,#0F1A1C);border-left:1px solid var(--line,#2A3D41);box-shadow:-20px 0 60px -20px rgba(0,0,0,.8);transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;font:.9rem/1.45 var(--body,system-ui);color:var(--text,#EEF3F1)}
   .pc-panel.open{transform:none}
-  .pc-panel>header{padding:20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #dfe8e2}
+  .pc-panel>header{padding:20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line,#2A3D41)}
   .pc-panel h3{font:700 1.4rem var(--display,Georgia,serif);margin:0}
-  .pc-panel label{font-size:.8rem;color:#5d6f66;display:flex;gap:6px;align-items:center;cursor:pointer}
+  .pc-panel label{font-size:.8rem;color:var(--muted,#8FA4A1);display:flex;gap:6px;align-items:center;cursor:pointer}
   .pc-list{overflow:auto;padding:12px 16px 90px;flex:1}
-  .pc-item{background:#fff;border-radius:14px;padding:12px 14px;margin-bottom:10px;cursor:pointer;border-left:4px solid var(--amber,#e9a23b);transition:.2s}
+  .pc-item{background:var(--s1,#152225);border-radius:14px;padding:12px 14px;margin-bottom:10px;cursor:pointer;border-left:4px solid var(--amber,#e9a23b);transition:.2s}
   .pc-item:hover{transform:translateX(-3px)}
-  .pc-item.done{border-left-color:#9aa8a1;opacity:.7}
-  .pc-item small{color:#5d6f66}
+  .pc-item.done{border-left-color:#5E716E;opacity:.7}
+  .pc-item small{color:var(--muted,#8FA4A1)}
   .pc-item p{margin:4px 0 0;white-space:pre-wrap;word-break:break-word;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  .pc-empty{color:#5d6f66;text-align:center;padding:40px 10px}
-  .pc-toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:110;background:#0f1f1a;color:#fff;padding:10px 16px;border-radius:12px;font:600 .85rem var(--body,system-ui);opacity:0;transition:.3s;pointer-events:none}
+  .pc-empty{color:var(--muted,#8FA4A1);text-align:center;padding:40px 10px}
+  .pc-toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:110;background:var(--text,#EEF3F1);color:var(--bg,#0F1A1C);padding:10px 16px;border-radius:12px;font:600 .85rem var(--body,system-ui);opacity:0;transition:.3s;pointer-events:none}
   .pc-toast.on{opacity:1}
   @media(max-width:600px){.pc-fab{right:12px;bottom:12px}.pc-btn{padding:11px 14px}}`;
   document.head.insertAdjacentHTML("beforeend", `<style>${css}</style>`);
@@ -93,13 +93,13 @@
   /* ---------- UI shell ---------- */
   document.body.insertAdjacentHTML("beforeend", `
     <div class="pc-fab">
-      <button class="pc-btn list" id="pcList" title="All comments">💬 Comments<span class="n" id="pcCount"></span></button>
-      <button class="pc-btn main" id="pcMode">＋ Add comment</button>
+      <button class="pc-btn list" id="pcList" title="All comments">Comments<span class="n" id="pcCount"></span></button>
+      <button class="pc-btn main" id="pcMode">Add comment</button>
     </div>
-    <div class="pc-hint">Tap anywhere on the page to drop a comment · <u id="pcCancel" style="cursor:pointer">Cancel</u></div>
+    <div class="pc-hint">Tap anywhere on the page to place your comment. <u id="pcCancel" style="cursor:pointer">Cancel</u></div>
     <aside class="pc-panel" id="pcPanel" aria-label="Comments">
       <header><div><h3>Comments</h3><label><input type="checkbox" id="pcShowDone"> Show resolved</label></div>
-        <button class="pc-link" id="pcClose" style="font-size:1.6rem;color:#5d6f66">×</button></header>
+        <button class="pc-link" id="pcClose" style="font-size:1.6rem;color:var(--muted,#8FA4A1)" aria-label="Close comments">×</button></header>
       <div class="pc-list" id="pcItems"></div>
     </aside>
     <div class="pc-toast" id="pcToast"></div>`);
@@ -107,7 +107,7 @@
 
   function setPinMode(on) {
     pinMode = on; document.body.classList.toggle("pc-pinning", on);
-    $mode.classList.toggle("on", on); $mode.textContent = on ? "✕ Cancel" : "＋ Add comment";
+    $mode.classList.toggle("on", on); $mode.textContent = on ? "Cancel" : "Add comment";
     if (on) { closePop(); $panel.classList.remove("open"); }
   }
   $mode.onclick = (e) => { e.stopPropagation(); setPinMode(!pinMode); };
@@ -120,7 +120,7 @@
   /* tap-to-pin: capture phase so the page's own click handlers don't fire in pin mode */
   document.addEventListener("click", (e) => {
     if (!pinMode || e.target.closest(".pc-fab,.pc-pop,.pc-panel,.pc-hint,nav")) return;
-    const sec = e.target.closest("section[id], header#top");
+    const sec = e.target.closest("section[id], #top");
     if (!sec || !SECTIONS.includes(sec.id)) return;
     e.preventDefault(); e.stopPropagation();
     const r = sec.getBoundingClientRect();
@@ -247,7 +247,7 @@
     box.innerHTML = list.length ? list.map((c) => `<div class="pc-item${c.resolved ? " done" : ""}" data-id="${c.id}">
         <small><b>${esc(c.author)}</b> · ${LABEL[c.section]} · ${ago(c.created_at)}${replies(c.id).length ? ` · ${replies(c.id).length} repl${replies(c.id).length > 1 ? "ies" : "y"}` : ""}</small>
         <p>${esc(c.body)}</p></div>`).join("")
-      : `<div class="pc-empty">No ${showResolved ? "" : "open "}comments yet.<br>Tap <b>＋ Add comment</b>, then tap anywhere on the page.</div>`;
+      : `<div class="pc-empty">No ${showResolved ? "" : "open "}comments yet.<br>Tap <b>Add comment</b>, then tap anywhere on the page.</div>`;
     box.querySelectorAll(".pc-item").forEach((el) => el.onclick = (e) => { e.stopPropagation(); openThread(Number(el.dataset.id), true); });
   }
 
