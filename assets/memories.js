@@ -16,11 +16,11 @@
   /* ---------- styles ---------- */
   document.head.insertAdjacentHTML("beforeend", `<style>
   .mem-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}
-  .mem-add{background:var(--amber,#e9a23b);color:#0f1f1a;border:0;border-radius:999px;padding:12px 20px;font:700 .92rem var(--body,system-ui);cursor:pointer;box-shadow:0 10px 24px -12px rgba(0,0,0,.6);transition:.2s}
-  .mem-add:hover{transform:translateY(-2px)}
-  .mem-count{color:rgba(255,255,255,.65);font-size:.88rem}
-  .mem-empty{border:2px dashed rgba(255,255,255,.2);border-radius:18px;padding:60px 20px;text-align:center;color:rgba(255,255,255,.7);cursor:pointer;transition:.2s}
-  .mem-empty:hover{border-color:var(--amber,#e9a23b);color:#fff}
+  .mem-add{background:var(--tea,#4FCB8E);color:var(--tea-ink,#06150D);border:0;border-radius:999px;padding:12px 20px;font:700 .92rem var(--body,system-ui);cursor:pointer;transition:background .15s}
+  .mem-add:hover{background:#6AD8A2}
+  .mem-count{color:var(--muted,#8FA4A1);font-size:.88rem}
+  .mem-empty{border:1.5px dashed var(--line,#2A3D41);border-radius:18px;padding:60px 20px;text-align:center;color:rgba(255,255,255,.7);cursor:pointer;transition:.2s}
+  .mem-empty:hover{border-color:var(--tea,#4FCB8E);color:#fff}
   .mem-empty b{display:block;font:600 1.3rem var(--display,Georgia,serif);color:#fff;margin-bottom:6px}
   #gallery{columns:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
   #gallery .shot{margin:0}
@@ -29,23 +29,23 @@
   @media(max-width:600px){#gallery{grid-template-columns:repeat(2,1fr);gap:8px}#gallery .shot figcaption{padding:22px 8px 6px;font-size:.72rem}}
   .shot figcaption small{display:block;opacity:.7;font-size:.72rem;margin-top:2px}
   .mem-modal{position:fixed;inset:0;z-index:120;background:rgba(5,12,10,.75);display:grid;place-items:center;padding:16px;animation:pop .25s}
-  .mem-card{background:#fff;color:#0f1f1a;border-radius:20px;width:min(560px,100%);max-height:92vh;overflow:auto;padding:24px;font:.92rem/1.5 var(--body,system-ui)}
+  .mem-card{background:var(--s1,#152225);color:var(--text,#EEF3F1);border:1px solid var(--line,#2A3D41);border-radius:20px;width:min(560px,100%);max-height:92vh;overflow:auto;padding:24px;font:.92rem/1.5 var(--body,system-ui)}
   .mem-card h3{font:700 1.5rem var(--display,Georgia,serif);margin:0 0 4px}
-  .mem-card p.sub{color:#5d6f66;margin:0 0 16px}
+  .mem-card p.sub{color:var(--muted,#8FA4A1);margin:0 0 16px}
   .mem-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;margin-bottom:16px}
-  .mem-thumbs div{aspect-ratio:1;border-radius:10px;background:#eef3ef center/cover;position:relative}
+  .mem-thumbs div{aspect-ratio:1;border-radius:10px;background:var(--s2,#1B2B2F) center/cover;position:relative}
   .mem-thumbs div.ok::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;background:rgba(47,107,79,.55);color:#fff;font-size:1.6rem;border-radius:10px}
   .mem-thumbs div.bad::after{content:"!";position:absolute;inset:0;display:grid;place-items:center;background:rgba(192,57,43,.6);color:#fff;font-size:1.6rem;border-radius:10px}
   .mem-thumbs div.busy::after{content:"";position:absolute;inset:0;border-radius:10px;background:rgba(255,255,255,.55)}
-  .mem-card label{display:block;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#2f6b4f;margin:12px 0 6px}
-  .mem-card input,.mem-card select{width:100%;border:1.5px solid #dfe8e2;border-radius:10px;padding:10px 12px;font:inherit;background:#fff;color:#0f1f1a}
-  .mem-card input:focus,.mem-card select:focus{outline:none;border-color:#2f6b4f}
+  .mem-card label{display:block;font-weight:600;font-size:.86rem;color:var(--soft,#C3D1CE);margin:14px 0 6px}
+  .mem-card input,.mem-card select{width:100%;border:1px solid var(--line,#2A3D41);border-radius:10px;padding:10px 12px;font:inherit;background:var(--s2,#1B2B2F);color:var(--text,#EEF3F1)}
+  .mem-card input:focus,.mem-card select:focus{outline:none;border-color:var(--mist,#8EC5E8)}
   .mem-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:20px}
-  .mem-go{background:var(--forest,#123a2e);color:#fff;border:0;border-radius:12px;padding:12px 20px;font:700 .92rem var(--body,system-ui);cursor:pointer}
+  .mem-go{background:var(--tea,#4FCB8E);color:var(--tea-ink,#06150D);border:0;border-radius:12px;padding:12px 20px;font:700 .92rem var(--body,system-ui);cursor:pointer}
   .mem-go:disabled{opacity:.5;cursor:default}
-  .mem-cancel{background:none;border:0;color:#5d6f66;font:600 .9rem var(--body,system-ui);cursor:pointer}
-  .mem-status{font-size:.85rem;color:#5d6f66}
-  .mem-status.err{color:#c0392b}
+  .mem-cancel{background:none;border:0;color:var(--muted,#8FA4A1);font:600 .9rem var(--body,system-ui);cursor:pointer}
+  .mem-status{font-size:.85rem;color:var(--muted,#8FA4A1)}
+  .mem-status.err{color:var(--rose,#F07A6A)}
   #lb img{max-width:min(92vw,1400px);max-height:78vh;width:auto;height:auto;margin:0 auto}
   #lb p{max-width:92vw;margin-left:auto;margin-right:auto}
   .lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);color:#fff;border:0;width:48px;height:48px;border-radius:50%;font-size:1.6rem;cursor:pointer}
@@ -58,8 +58,8 @@
   /* ---------- section shell ---------- */
   const sec = $("#memories");
   const head = $(".sec-head p", sec);
-  if (head) head.textContent = "Photos from the trip, added by all of us. Tap ＋ Add photos to upload yours.";
-  $("#filters").insertAdjacentHTML("beforebegin", `<div class="mem-bar"><button class="mem-add" id="memAdd">＋ Add photos</button><span class="mem-count" id="memCount"></span></div>
+  
+  $("#filters").insertAdjacentHTML("beforebegin", `<div class="mem-bar"><button class="mem-add" id="memAdd">Add photos</button><span class="mem-count" id="memCount"></span></div>
     <input type="file" id="memFile" accept="image/*" multiple hidden>`);
   const fileInput = $("#memFile");
   $("#memAdd").onclick = () => fileInput.click();
@@ -156,7 +156,7 @@
         <img src="${src(p, "thumb")}" alt="${esc(p.caption || placeName(p.place))}" loading="lazy">
         <figcaption>${esc(placeName(p.place))}${p.caption ? ` · ${esc(p.caption)}` : ""}<small>by ${esc(p.author)}</small></figcaption>
       </figure>`).join("")
-      : `<div class="mem-empty" id="memEmpty"><b>No photos yet</b>Tap here to add the first one.</div>`;
+      : `<div class="mem-empty" id="memEmpty"><b>No photos yet</b>Add the first one from your phone.</div>`;
     const empty = $("#memEmpty"); if (empty) empty.onclick = () => fileInput.click();
   }
   filters.onclick = (e) => { const b = e.target.closest("button"); if (!b) return; filter = b.dataset.f; render(); };
