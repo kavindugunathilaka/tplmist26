@@ -28,3 +28,11 @@ git add images/places && git commit -m "Add location photos" && git push
 ```
 
 The script downloads up to 10 photos per place into `images/places/` and writes `images/places/credits.js` with the author and licence of each one. It only keeps CC0, public domain, CC BY and CC BY-SA photos, and the site shows the credit on every photo. To change the search terms, edit `PLACES` at the top of the script. Your own trip photos (`photos:` in the `TRIP` data) always show before these.
+
+## Pin comments (Supabase)
+Anyone with the link can tap **＋ Add comment**, tap a spot on the page, type their name and a note. Comments are stored in the Supabase Postgres database through the Vercel function `api/comments.js`.
+
+- **No setup needed:** the function uses the `POSTGRES_URL` that the Vercel ⇄ Supabase integration adds, and creates the `trip_comments` table on first use.
+- **Security:** Row Level Security is on with no policies, so the public Supabase API can't read or change the table. Only the function can. Inputs are validated and length-limited, and there's a basic per-browser rate limit.
+- **Who can do what:** anyone can comment, reply, resolve or reopen. Only the browser that wrote a comment can delete it. To remove spam, delete rows in Supabase → Table Editor → `trip_comments`.
+- **Updates:** the page checks for new comments every 15 seconds.
