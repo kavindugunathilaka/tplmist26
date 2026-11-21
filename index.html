@@ -357,8 +357,8 @@ footer b{color:var(--text)}
         <div><small>Travellers</small><b>15</b></div>
         <div><small>Vehicle</small><b>Coaster</b></div>
         <div><small>Distance</small><b>211 km</b></div>
-        <div><small>Total</small><b id="heroTotal">Rs. 290,000</b></div>
-        <div><small>Per head</small><b id="heroPerHead">Rs. 19,333</b></div>
+        <div><small>Total</small><b id="heroTotal">Rs. 230,000</b></div>
+        <div><small>Per head</small><b id="heroPerHead">Rs. 15,333</b></div>
       </div>
       <div class="pass-stops"><small>Pickups</small><ol id="passStops"></ol></div>
       <div class="perf" aria-hidden="true"></div>
@@ -448,16 +448,15 @@ footer b{color:var(--text)}
   <div class="wrap">
     <div class="head">
       <h2>Budget</h2>
-      <p>Switch the stay to see how the total and cost per head change. Actual spending shows as striped bars once we add it.</p>
+      <p>Transport, food, the BBQ and entry tickets. Accommodation is not included. Actual spending shows as striped bars once we add it.</p>
     </div>
-    <div class="toggle" id="hotelToggle"><span class="pill"></span></div>
     <div class="budget-grid">
       <div class="donut-card panel">
         <div class="donut-wrap">
           <svg viewBox="0 0 220 220" id="donut" aria-hidden="true"></svg>
           <div class="donut-center"><div><small>Per head</small><b id="perHead">—</b><small id="totalLbl"></small></div></div>
         </div>
-        <p class="not-in">Not in the budget: liquor, about <b>Rs. 45,000</b>, not planned yet.</p>
+        <p class="not-in">Not in the budget: accommodation, and liquor (about <b>Rs. 45,000</b>, not planned yet).</p>
       </div>
       <div class="bars-card panel">
         <div id="bars"></div>
@@ -477,7 +476,7 @@ footer b{color:var(--text)}
   <div class="wrap">
     <div class="head">
       <h2>Where we'll stay</h2>
-      <p>A budget option by Gregory Lake and a higher-rate cottage stay near Moon Plains. Choosing one updates the budget.</p>
+      <p>A budget option by Gregory Lake and a higher-rate cottage stay near Moon Plains. Accommodation is not part of the trip budget.</p>
     </div>
     <div class="hotels" id="hotels"></div>
   </div>
@@ -576,9 +575,8 @@ const TRIP = {
       ["~2:30 pm","Lunch stop on the way","",""],
       ["Evening","Kegalle drop-off, then home","Maharagama / Boralesgamuwa","boral"]]}
   ],
-  budget: [ // planned totals (Rs.) — accommodation is replaced by the chosen stay option
+  budget: [ // planned totals (Rs.) — accommodation is not part of this budget
     {key:"transport", label:"Transport", basis:"Vehicle hire, 3 days, shared by 15", planned:110000, actual:null, color:"#123a2e"},
-    {key:"stay",      label:"Accommodation", basis:"2 nights", planned:null, actual:null, color:"#e9a23b"},
     {key:"food",      label:"Food", basis:"Meals for 3 days", planned:67500, actual:null, color:"#2f6b4f"},
     {key:"bbq",       label:"BBQ night", basis:"Extra", planned:30000, actual:null, color:"#d9674e"},
     {key:"tickets",   label:"On-location", basis:"Entry tickets, sightseeing", planned:22500, actual:null, color:"#8fbf7a"}
@@ -770,10 +768,8 @@ $("#placeGrid").onclick=e=>{if(e.target.closest(".sl-btn,.sl-dots"))return;const
   if(s){showStop(s);$("#route").scrollIntoView()}};
 
 /* ===================== budget + stays ===================== */
-let stayId="std";
 function renderBudget(){
-  const stay=TRIP.stays.find(s=>s.id===stayId);
-  const rows = TRIP.budget.map(b=>({...b,color:BUDGET_COLORS[b.key]||b.color})).map(b=>b.key==="stay"?{...b,planned:stay.total,label:"Accommodation",basis:stay.name+", 2 nights"}:b);
+  const rows = TRIP.budget.map(b=>({...b,color:BUDGET_COLORS[b.key]||b.color}));
   const est = rows.reduce((a,b)=>a+b.planned,0), max=Math.max(...rows.map(r=>r.planned));
   const act = rows.some(r=>r.actual!=null)?rows.reduce((a,b)=>a+(b.actual||0),0):null;
   const perHead = est/TRIP.people;
@@ -790,10 +786,6 @@ function renderBudget(){
     <small>${r.basis}</small></div>`).join("");
   requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll(".bar i").forEach(i=>i.style.width=i.dataset.w+"%")));
   $("#tEst").textContent=rs(est); $("#tCol").textContent=rs(TRIP.contributionPerHead*TRIP.people); $("#tAct").textContent=act==null?"After the trip":rs(act);
-  document.querySelectorAll("#hotelToggle button").forEach(b=>b.classList.toggle("on",b.dataset.id===stayId));
-  const on=$(`#hotelToggle button[data-id="${stayId}"]`); const pill=$("#hotelToggle .pill");
-  if(on){pill.style.left=on.offsetLeft+"px";pill.style.width=on.offsetWidth+"px"}
-  document.querySelectorAll(".hotel").forEach(h=>h.classList.toggle("sel",h.dataset.id===stayId));
 }
 function animateNum(el,to){const from=+(el.dataset.v||0);el.dataset.v=to;let st=null;
   if(matchMedia("(prefers-reduced-motion: reduce)").matches){el.textContent=rs(to);return}
@@ -832,8 +824,6 @@ function initSlider(root){
   root._stop=()=>{clearInterval(timer);slideIO.unobserve(root)};
   build(); restart();
 }
-$("#hotelToggle").insertAdjacentHTML("beforeend",TRIP.stays.map(s=>`<button data-id="${s.id}">${s.id==="std"?"National Holiday Resort":"Dream Cottage"}</button>`).join(""));
-$("#hotelToggle").onclick=e=>{const b=e.target.closest("button");if(b){stayId=b.dataset.id;renderBudget()}};
 $("#hotels").innerHTML = TRIP.stays.map(s=>`
   <article class="hotel panel" data-id="${s.id}">
     <span class="tier">${s.tier}</span>
@@ -843,7 +833,6 @@ $("#hotels").innerHTML = TRIP.stays.map(s=>`
       <p class="where">${s.where}. ${s.mix}.</p>
       <p class="tot">2 nights for the group: <b>${rs(s.total)}</b>, or ${rs(s.total/TRIP.people)} each</p>
       <ul>${s.perks.map(p=>`<li>${p}</li>`).join("")}</ul>
-      <button class="pick" data-id="${s.id}">Use this stay in the budget</button>
       <div class="links"><a href="${s.url}" target="_blank" rel="noopener">Visit website</a><span>${s.contact}</span></div>
       ${s.sample?`<p class="note-sample">The Rs. ${s.total.toLocaleString("en-LK")} total is an estimate until Dream Cottage sends a quote.</p>`:""}
     </div></article>`).join("");
@@ -854,7 +843,6 @@ $("#hotels").innerHTML = TRIP.stays.map(s=>`
 })();
 document.querySelectorAll(".slider").forEach(initSlider);
 showStop(byId("boral"));
-$("#hotels").onclick=e=>{const b=e.target.closest(".pick");if(b){stayId=b.dataset.id;renderBudget();$("#budget").scrollIntoView()}};
 new IntersectionObserver((en,o)=>{if(en[0].isIntersecting){renderBudget();o.disconnect()}},{threshold:.2}).observe($("#budget"));
 renderBudget();
 
@@ -864,7 +852,7 @@ const lb=$("#lb"); lb.onclick=e=>{if(e.target===lb)lb.classList.remove("open")};
 
 /* ===================== trip fund ===================== */
 (function(){
-  const totalBudget = TRIP.budget.reduce((a,b)=>a+(b.key==="stay"?TRIP.stays.find(s=>s.id===stayId).total:b.planned),0);
+  const totalBudget = TRIP.budget.reduce((a,b)=>a+b.planned,0);
   const totalCollected = 50000;
   // one entry per participant group; amount = what they paid; label = display name
   const roster = [
