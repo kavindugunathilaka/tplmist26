@@ -205,9 +205,6 @@ section{padding:72px 0 8px}
 .tl-item h4{font-size:1.08rem;font-weight:600;letter-spacing:-.01em}
 .tl-item p{color:var(--muted);font-size:.92rem}
 .tl-item .did{margin-top:8px;font-size:.88rem;background:var(--s2);padding:8px 12px;border-radius:var(--r-sm)}
-.meals{margin-top:40px}
-.meals>h3{font-size:1.5rem;margin-bottom:6px}
-.meals>p{color:var(--muted);font-size:.95rem;margin-bottom:18px}
 .meal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .meal-day{padding:18px 20px}
 .meal-day h4{font-size:1.05rem;margin-bottom:4px}
@@ -344,7 +341,7 @@ footer b{color:var(--text)}
     Into the Mist ’26
   </a>
   <nav class="tabs-nav" aria-label="Sections">
-    <a href="#route">Route</a><a href="#plan">Plan</a><a href="#places">Places</a><a href="#budget">Budget</a><a href="#stay">Stay</a><a href="#memories">Photos</a><a href="#crew">Who's coming</a>
+    <a href="#route">Route</a><a href="#plan">Plan</a><a href="#meals">Meals</a><a href="#places">Places</a><a href="#budget">Budget</a><a href="#stay">Stay</a><a href="#memories">Photos</a><a href="#crew">Who's coming</a>
   </nav>
 </div></header>
 
@@ -446,11 +443,17 @@ footer b{color:var(--text)}
     </div>
     <div class="seg" id="tabs" role="tablist"></div>
     <div class="timeline" id="timeline"></div>
-    <div class="meals" id="meals">
-      <h3>Meal plan</h3>
-      <p>What we eat and where, day by day. Items marked to arrange are still open.</p>
-      <div class="meal-grid" id="mealGrid"></div>
+  </div>
+</section>
+
+<!-- ================= MEALS ================= -->
+<section id="meals">
+  <div class="wrap">
+    <div class="head">
+      <h2>Meal plan</h2>
+      <p>What we eat and where, day by day. Meals marked to arrange are still open.</p>
     </div>
+    <div class="meal-grid" id="mealGrid"></div>
   </div>
 </section>
 
