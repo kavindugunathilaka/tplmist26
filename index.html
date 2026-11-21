@@ -205,6 +205,23 @@ section{padding:72px 0 8px}
 .tl-item h4{font-size:1.08rem;font-weight:600;letter-spacing:-.01em}
 .tl-item p{color:var(--muted);font-size:.92rem}
 .tl-item .did{margin-top:8px;font-size:.88rem;background:var(--s2);padding:8px 12px;border-radius:var(--r-sm)}
+.meals{margin-top:40px}
+.meals>h3{font-size:1.5rem;margin-bottom:6px}
+.meals>p{color:var(--muted);font-size:.95rem;margin-bottom:18px}
+.meal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.meal-day{padding:18px 20px}
+.meal-day h4{font-size:1.05rem;margin-bottom:4px}
+.meal-day h4 small{color:var(--muted);font-weight:500;font-size:.85rem;margin-left:6px}
+.meal{padding:12px 0;border-top:1px solid var(--line)}
+.meal:first-of-type{border-top:0}
+.meal .k{font-size:.76rem;color:var(--muted);font-weight:600}
+.meal b{display:block;font-weight:600;margin-top:2px}
+.meal p{color:var(--muted);font-size:.88rem}
+.meal.todo b{color:var(--amber)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chips span{background:var(--s3);border-radius:999px;padding:4px 10px;font-size:.82rem;white-space:nowrap}
+.chips span em{font-style:normal;color:var(--tea);font-weight:700;margin-left:4px}
+@media(max-width:900px){.meal-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.tl-item{grid-template-columns:22px minmax(0,1fr)}.tl-time{grid-column:2;order:-1;padding:0}.tl-mark{grid-row:1/3}}
 
 /* ---------- places ---------- */
@@ -429,6 +446,11 @@ footer b{color:var(--text)}
     </div>
     <div class="seg" id="tabs" role="tablist"></div>
     <div class="timeline" id="timeline"></div>
+    <div class="meals" id="meals">
+      <h3>Meal plan</h3>
+      <p>What we eat and where, day by day. Items marked to arrange are still open.</p>
+      <div class="meal-grid" id="mealGrid"></div>
+    </div>
   </div>
 </section>
 
@@ -528,7 +550,7 @@ const TRIP = {
     {id:"batta",  name:"Battaramulla",  lat:6.8980, lng:79.9223, type:"pickup", day:1, time:"~7:15 am", desc:"Ryan's pickup.", planned:null, spent:null, did:"", photos:[]},
     {id:"athuru", name:"Athurugiriya",  lat:6.8834, lng:79.9766, type:"pickup", day:1, time:"~7:40 am", desc:"Join the Outer Circular Expressway at the Athurugiriya Interchange (toll road).", planned:null, spent:null, did:"", photos:[], label:false},
     {id:"kada",   name:"Kadawatha",     lat:7.0046, lng:79.9542, type:"pickup", day:1, time:"~8:10 am", desc:"Off the expressway onto the Kandy road.", planned:null, spent:null, did:"", photos:[]},
-    {id:"kegalle",name:"Kegalle",       lat:7.2567, lng:80.3464, type:"pickup", day:1, time:"~9:30 am", desc:"Pickup — having breakfast while travelling.", planned:null, spent:null, did:"", photos:[]},
+    {id:"kegalle",name:"Kegalle",       lat:7.2567, lng:80.3464, type:"pickup", day:1, time:"~9:30 am", desc:"Pickup. Breakfast on the bus: P&S cheese sandwiches, egg cutlets and Milo.", planned:null, spent:null, did:"", photos:[]},
     {id:"mawa",   name:"Mawanella",     lat:7.2522, lng:80.4468, type:"pickup", day:1, time:"~10:00 am",desc:"Through Mawanella.", planned:null, spent:null, did:"", photos:[]},
     {id:"hemma",  name:"Hemmathagama",  lat:7.1734, lng:80.5008, type:"pickup", day:1, time:"~11:30 am",desc:"Through Hemmathagama towards Gampola.", planned:null, spent:null, did:"", photos:[]},
     {id:"gampola",name:"Gampola",       lat:7.1635, lng:80.5702, type:"pickup", day:1, time:"~11:50 am",desc:"Through Gampola / Pussellawa.", planned:null, spent:null, did:"", photos:[]},
@@ -553,7 +575,7 @@ const TRIP = {
       ["~6:50 am","Maharagama pickup","","maha"],
       ["~7:15 am","Battaramulla","Ryan's pickup","batta"],
       ["~7:40 am","Outer Circular Expressway","Athurugiriya Interchange → Kadawatha","athuru"],
-      ["~9:30 am","Kegalle","Pickup — having breakfast while travelling","kegalle"],
+      ["~9:30 am","Kegalle","Pickup · breakfast on the bus: P&S cheese sandwiches, egg cutlets and Milo","kegalle"],
       ["~10:00 am","Mawanella","","mawa"],
       ["~11:45 am","Tea factory","Photo location","teaf",1],
       ["~12:30 – 1:00 pm","Arrive at Nuwara Eliya","Check in · ⏳ stay location to confirm","nuwara"],
@@ -574,6 +596,19 @@ const TRIP = {
       ["1:00 pm","Leave Nuwara Eliya","Check-out and depart for Colombo","nuwara"],
       ["~2:30 pm","Lunch stop on the way","",""],
       ["Evening","Kegalle drop-off, then home","Maharagama / Boralesgamuwa","boral"]]}
+  ],
+  meals: [
+    {day:"Day 1", date:"Fri 11 Dec", items:[
+      {meal:"Breakfast", what:"P&S, eaten on the bus", note:"Bought from P&S in the morning before we set off", buy:[["Cheese sandwich",22],["Egg cutlet",22],["Milo",22]]},
+      {meal:"Lunch", what:"To arrange", note:"We reach Nuwara Eliya around 12:30 to 1 pm", todo:true},
+      {meal:"Dinner", what:"BBQ night", note:"BBQ with music from 6:30 pm"}]},
+    {day:"Day 2", date:"Sat 12 Dec", items:[
+      {meal:"Breakfast", what:"To arrange", note:"Need a food provider before we leave at 8 am", todo:true},
+      {meal:"Lunch", what:"To arrange", note:"On the way, around Horton Plains", todo:true},
+      {meal:"Dinner", what:"Mariners' (Navy) Restaurant", note:"Or a provider with a big menu, to confirm"}]},
+    {day:"Day 3", date:"Sun 13 Dec", items:[
+      {meal:"Breakfast", what:"Early morning, before Bomburu Ella", note:"Provider to confirm", todo:true},
+      {meal:"Lunch", what:"Stop on the way home", note:"Around 2:30 pm"}]}
   ],
   budget: [ // planned totals (Rs.) — accommodation is not part of this budget
     {key:"transport", label:"Transport", basis:"Vehicle hire, 3 days, shared by 15", planned:110000, actual:null, color:"#123a2e"},
@@ -889,6 +924,9 @@ const lb=$("#lb"); lb.onclick=e=>{if(e.target===lb)lb.classList.remove("open")};
 
 /* ===================== crew + notes ===================== */
 $("#people").innerHTML = TRIP.participants.map(([n,c])=>`<div class="person"><span class="avatar">${n[0]}</span>${n}${c>1?` <small>${c} people</small>`:""}</div>`).join("");
+$("#mealGrid").innerHTML = TRIP.meals.map(d=>`<div class="meal-day panel"><h4>${d.day}<small>${d.date}</small></h4>
+  ${d.items.map(m=>`<div class="meal${m.todo?" todo":""}"><span class="k">${m.meal}</span><b>${m.what}</b>${m.note?`<p>${m.note}</p>`:""}
+  ${m.buy?`<div class="chips">${m.buy.map(([n,q])=>`<span>${n}<em>× ${q}</em></span>`).join("")}</div>`:""}</div>`).join("")}</div>`).join("");
 $("#notes").innerHTML = TRIP.notes.map(([,h,p])=>`<div class="note${/still to arrange/i.test(h)?" todo":""}"><h4>${h}</h4><p>${p.replace(/ · /g,"; ")}</p></div>`).join("");
 </script>
 <script src="assets/memories.js" defer></script>
