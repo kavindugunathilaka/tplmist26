@@ -785,7 +785,7 @@ function renderBudget(){
     <div class="bar"><i style="background:${r.color}" data-w="${r.planned/max*100}"></i>${r.actual!=null?`<i class="actual" data-w="${r.actual/max*100}"></i>`:""}</div>
     <small>${r.basis}</small></div>`).join("");
   requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll(".bar i").forEach(i=>i.style.width=i.dataset.w+"%")));
-  $("#tEst").textContent=rs(est); $("#tCol").textContent=rs(TRIP.contributionPerHead*TRIP.people); $("#tAct").textContent=act==null?"After the trip":rs(act);
+  $("#tEst").textContent=rs(est); $("#tCol").textContent=rs(TRIP.collected); $("#tAct").textContent=act==null?"After the trip":rs(act);
 }
 function animateNum(el,to){const from=+(el.dataset.v||0);el.dataset.v=to;let st=null;
   if(matchMedia("(prefers-reduced-motion: reduce)").matches){el.textContent=rs(to);return}
@@ -853,22 +853,23 @@ const lb=$("#lb"); lb.onclick=e=>{if(e.target===lb)lb.classList.remove("open")};
 /* ===================== trip fund ===================== */
 (function(){
   const totalBudget = TRIP.budget.reduce((a,b)=>a+b.planned,0);
-  const totalCollected = 50000;
   // one entry per participant group; amount = what they paid; label = display name
   const roster = [
-    {label:"Gayan",    badge:"+2", paid:true,  amount:10000},
+    {label:"Gayan",    badge:"+2", paid:true,  amount:5000},
     {label:"Teeshan",  badge:"",   paid:true,  amount:5000},
-    {label:"Randula",  badge:"",   paid:true,  amount:5000},
-    {label:"Kavindu",  badge:"",   paid:true,  amount:5000},
-    {label:"Vishwa",   badge:"",   paid:true,  amount:5000},
+    {label:"Randula",  badge:"",   paid:false, amount:5000},
+    {label:"Kavindu",  badge:"",   paid:false, amount:5000},
+    {label:"Vishwa",   badge:"",   paid:false, amount:5000},
     {label:"Vidusha",  badge:"",   paid:true,  amount:5000},
-    {label:"Shehan",   badge:"",   paid:true,  amount:5000},
-    {label:"Dinuwara", badge:"",   paid:true,  amount:5000},
+    {label:"Shehan",   badge:"",   paid:false, amount:5000},
+    {label:"Dinuwara", badge:"",   paid:false, amount:5000},
     {label:"Viduranga",badge:"",   paid:true,  amount:5000},
     {label:"Ryan",     badge:"+1", paid:false, amount:5000},
     {label:"Chandeepa",badge:"",   paid:false, amount:5000},
     {label:"Anu",      badge:"",   paid:false, amount:5000},
   ];
+  const totalCollected = roster.filter(r=>r.paid).reduce((a,r)=>a+r.amount,0);
+  TRIP.collected = totalCollected;
   const pct = Math.round(totalCollected/totalBudget*100);
   const remain = totalBudget - totalCollected;
   const unpaid = roster.filter(r=>!r.paid).length;
