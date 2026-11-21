@@ -357,8 +357,8 @@ footer b{color:var(--text)}
         <div><small>Travellers</small><b>15</b></div>
         <div><small>Vehicle</small><b>Coaster</b></div>
         <div><small>Distance</small><b>211 km</b></div>
-        <div><small>Total</small><b id="heroTotal">Rs. 280,000</b></div>
-        <div><small>Per head</small><b id="heroPerHead">Rs. 18,667</b></div>
+        <div><small>Total</small><b id="heroTotal">Rs. 290,000</b></div>
+        <div><small>Per head</small><b id="heroPerHead">Rs. 19,333</b></div>
       </div>
       <div class="pass-stops"><small>Pickups</small><ol id="passStops"></ol></div>
       <div class="perf" aria-hidden="true"></div>
@@ -577,7 +577,7 @@ const TRIP = {
       ["Evening","Kegalle drop-off, then home","Maharagama / Boralesgamuwa","boral"]]}
   ],
   budget: [ // planned totals (Rs.) — accommodation is replaced by the chosen stay option
-    {key:"transport", label:"Transport", basis:"Vehicle hire, 3 days", planned:100000, actual:null, color:"#123a2e"},
+    {key:"transport", label:"Transport", basis:"Vehicle hire, 3 days, shared by 15", planned:110000, actual:null, color:"#123a2e"},
     {key:"stay",      label:"Accommodation", basis:"2 nights", planned:null, actual:null, color:"#e9a23b"},
     {key:"food",      label:"Food", basis:"Meals for 3 days", planned:67500, actual:null, color:"#2f6b4f"},
     {key:"bbq",       label:"BBQ night", basis:"Extra", planned:30000, actual:null, color:"#d9674e"},
@@ -850,7 +850,7 @@ $("#hotels").innerHTML = TRIP.stays.map(s=>`
 (function(){
   const box=$("#ourRide .ride-media"); if(!box) return;
   box.innerHTML=slider({id:"bus",name:"Our Toyota Coaster",photos:["images/bus/bus-1.jpg","images/bus/bus-2.jpg","images/bus/bus-3.jpg","images/bus/bus-4.jpg"],credit:""});
-  const t=TRIP.budget.find(b=>b.key==="transport"); if(t) $("#rideBudget").textContent=rs(t.planned);
+  const t=TRIP.budget.find(b=>b.key==="transport"); if(t) $("#rideBudget").innerHTML=rs(t.planned)+`<small style="display:block;font-weight:500;color:var(--muted)">${rs(t.planned/TRIP.people)} each</small>`;
 })();
 document.querySelectorAll(".slider").forEach(initSlider);
 showStop(byId("boral"));
@@ -864,7 +864,7 @@ const lb=$("#lb"); lb.onclick=e=>{if(e.target===lb)lb.classList.remove("open")};
 
 /* ===================== trip fund ===================== */
 (function(){
-  const totalBudget = 280000;
+  const totalBudget = TRIP.budget.reduce((a,b)=>a+(b.key==="stay"?TRIP.stays.find(s=>s.id===stayId).total:b.planned),0);
   const totalCollected = 50000;
   // one entry per participant group; amount = what they paid; label = display name
   const roster = [
